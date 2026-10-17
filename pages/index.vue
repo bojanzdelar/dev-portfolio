@@ -19,7 +19,7 @@ useHead({
 </script>
 
 <template>
-  <div class="min-h-screen bg-[#060d08] text-slate-100">
+  <div class="min-h-screen bg-brand-bg text-brand-text">
     <AppHeader />
     <main id="main-content">
       <HeroSection />

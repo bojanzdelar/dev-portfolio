@@ -53,14 +53,14 @@ const services: Service[] = [
 </script>
 
 <template>
-  <section id="services" class="py-16 lg:py-24 border-t border-slate-800/60" aria-labelledby="services-heading">
+  <section id="services" class="py-16 lg:py-24 border-t border-brand-border/75" aria-labelledby="services-heading">
     <div class="mx-auto max-w-6xl px-6 lg:px-8">
 
-      <div class="mb-10 pb-8 border-b border-slate-800">
-        <h2 id="services-heading" class="text-2xl sm:text-3xl font-bold text-slate-100 mb-1.5">
+      <div class="mb-10 pb-8 border-b border-brand-border">
+        <h2 id="services-heading" class="text-2xl sm:text-3xl font-bold text-brand-text mb-1.5">
           How I Can Help
         </h2>
-        <p class="text-slate-500 text-sm">
+        <p class="text-brand-muted/65 text-sm">
           Available for freelance projects in backend engineering, cloud infrastructure, and full-stack development.
         </p>
       </div>
@@ -69,13 +69,13 @@ const services: Service[] = [
         <div
           v-for="service in services"
           :key="service.title"
-          class="group rounded-lg border border-slate-800 bg-slate-900/30 p-5 hover:border-slate-700 hover:bg-slate-900/60 transition-all"
+          class="group rounded-lg border border-brand-border bg-brand-surface/40 p-5 hover:border-brand-hi hover:bg-brand-surface/85 transition-all"
         >
-          <div class="inline-flex items-center justify-center w-9 h-9 rounded bg-slate-800 border border-slate-700/60 mb-4 group-hover:border-green-900/50 group-hover:bg-green-950/30 transition-all">
-            <component :is="service.icon" :size="16" class="text-slate-500 group-hover:text-green-400 transition-colors" aria-hidden="true" />
+          <div class="inline-flex items-center justify-center w-9 h-9 rounded bg-brand-border border border-brand-hi/75 mb-4 group-hover:border-brand-accent/15 group-hover:bg-brand-accent/5 transition-all">
+            <component :is="service.icon" :size="16" class="text-brand-muted/65 group-hover:text-brand-accent transition-colors" aria-hidden="true" />
           </div>
-          <h3 class="text-sm font-semibold text-slate-300 mb-1.5 leading-snug">{{ service.title }}</h3>
-          <p class="text-xs text-slate-600 leading-relaxed">{{ service.description }}</p>
+          <h3 class="text-sm font-semibold text-brand-text/80 mb-1.5 leading-snug">{{ service.title }}</h3>
+          <p class="text-xs text-brand-dim leading-relaxed">{{ service.description }}</p>
         </div>
       </div>
 

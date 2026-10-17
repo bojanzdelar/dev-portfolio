@@ -2,12 +2,12 @@
   <section id="projects" class="py-16 lg:py-24" aria-labelledby="projects-heading">
     <div class="mx-auto max-w-6xl px-6 lg:px-8">
 
-      <div class="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4 mb-10 pb-8 border-b border-slate-800">
+      <div class="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4 mb-10 pb-8 border-b border-brand-border">
         <div>
-          <h2 id="projects-heading" class="text-2xl sm:text-3xl font-bold text-slate-100 mb-1.5">
+          <h2 id="projects-heading" class="text-2xl sm:text-3xl font-bold text-brand-text mb-1.5">
             Projects
           </h2>
-          <p class="text-slate-500 text-sm">
+          <p class="text-brand-muted/65 text-sm">
             Engineering work across backend services, cloud infrastructure, and full-stack applications.
           </p>
         </div>
@@ -15,7 +15,7 @@
           href="https://github.com/bojanzdelar"
           target="_blank"
           rel="noopener noreferrer"
-          class="text-xs font-mono text-slate-600 hover:text-green-400 transition-colors shrink-0"
+          class="text-xs font-mono text-brand-dim hover:text-brand-accent transition-colors shrink-0"
         >
           github.com/bojanzdelar →
         </a>

@@ -16,16 +16,16 @@ function closeMenu() {
 </script>
 
 <template>
-  <header class="fixed top-0 left-0 right-0 z-50 border-b border-slate-800/60 bg-[#060d08]/90 backdrop-blur-sm">
+  <header class="fixed top-0 left-0 right-0 z-50 border-b border-brand-border/75 bg-brand-bg/90 backdrop-blur-sm">
     <nav class="mx-auto max-w-6xl px-6 lg:px-8" aria-label="Primary navigation">
       <div class="flex h-16 items-center justify-between">
         <a
           href="#hero"
-          class="text-slate-100 font-semibold text-base tracking-tight hover:text-green-400 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-green-500 rounded"
+          class="text-brand-text font-semibold text-base tracking-tight hover:text-brand-accent transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-accent rounded"
           @click="closeMenu"
         >
-          <span class="text-green-400 font-mono font-bold">BZ</span>
-          <span class="ml-2 text-slate-400 text-sm hidden sm:inline">Bojan Zdelar</span>
+          <span class="text-brand-accent font-mono font-bold">BZ</span>
+          <span class="ml-2 text-brand-muted text-sm hidden sm:inline">Bojan Zdelar</span>
         </a>
 
         <div class="hidden md:flex items-center gap-8">
@@ -33,7 +33,7 @@ function closeMenu() {
             v-for="link in navLinks"
             :key="link.href"
             :href="link.href"
-            class="text-slate-400 hover:text-slate-100 text-sm transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-green-500 rounded px-1"
+            class="text-brand-muted hover:text-brand-text text-sm transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-accent rounded px-1"
           >
             {{ link.label }}
           </a>
@@ -41,7 +41,7 @@ function closeMenu() {
             href="https://github.com/bojanzdelar"
             target="_blank"
             rel="noopener noreferrer"
-            class="text-slate-400 hover:text-slate-100 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-green-500 rounded p-1"
+            class="text-brand-muted hover:text-brand-text transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-accent rounded p-1"
             aria-label="GitHub profile"
           >
             <Github :size="18" />
@@ -50,7 +50,7 @@ function closeMenu() {
             href="https://www.linkedin.com/in/bojan-zdelar-b9b617153/"
             target="_blank"
             rel="noopener noreferrer"
-            class="text-slate-400 hover:text-slate-100 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-green-500 rounded p-1"
+            class="text-brand-muted hover:text-brand-text transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-accent rounded p-1"
             aria-label="LinkedIn profile"
           >
             <Linkedin :size="18" />
@@ -58,7 +58,7 @@ function closeMenu() {
         </div>
 
         <button
-          class="md:hidden text-slate-400 hover:text-slate-100 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-green-500 rounded p-1"
+          class="md:hidden text-brand-muted hover:text-brand-text transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-accent rounded p-1"
           :aria-label="isMenuOpen ? 'Close navigation menu' : 'Open navigation menu'"
           :aria-expanded="isMenuOpen"
           @click="isMenuOpen = !isMenuOpen"
@@ -70,14 +70,14 @@ function closeMenu() {
 
       <div
         v-show="isMenuOpen"
-        class="md:hidden pb-4 border-t border-slate-800/60 pt-4"
+        class="md:hidden pb-4 border-t border-brand-border/75 pt-4"
       >
         <div class="flex flex-col gap-4">
           <a
             v-for="link in navLinks"
             :key="link.href"
             :href="link.href"
-            class="text-slate-400 hover:text-slate-100 text-sm transition-colors"
+            class="text-brand-muted hover:text-brand-text text-sm transition-colors"
             @click="closeMenu"
           >
             {{ link.label }}
@@ -86,7 +86,7 @@ function closeMenu() {
             href="https://github.com/bojanzdelar"
             target="_blank"
             rel="noopener noreferrer"
-            class="flex items-center gap-2 text-slate-400 hover:text-slate-100 text-sm transition-colors"
+            class="flex items-center gap-2 text-brand-muted hover:text-brand-text text-sm transition-colors"
             @click="closeMenu"
           >
             <Github :size="16" />
@@ -96,7 +96,7 @@ function closeMenu() {
             href="https://www.linkedin.com/in/bojan-zdelar-b9b617153/"
             target="_blank"
             rel="noopener noreferrer"
-            class="flex items-center gap-2 text-slate-400 hover:text-slate-100 text-sm transition-colors"
+            class="flex items-center gap-2 text-brand-muted hover:text-brand-text text-sm transition-colors"
             @click="closeMenu"
           >
             <Linkedin :size="16" />
