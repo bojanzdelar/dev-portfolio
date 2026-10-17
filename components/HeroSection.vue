@@ -66,6 +66,11 @@ const techBadges = [
         <!-- Right: Profile card (desktop only) -->
         <div class="hidden lg:block lg:col-span-2">
           <div class="rounded-xl border border-slate-800 bg-slate-900/50 overflow-hidden">
+            <img
+              src="/profile.jpg"
+              alt="Bojan Zdelar"
+              class="w-full aspect-square object-cover object-top"
+            />
             <div class="px-5 py-3.5 border-b border-slate-800 flex items-center gap-2.5">
               <span class="w-2 h-2 rounded-full bg-green-400 ring-4 ring-green-400/10" aria-hidden="true" />
               <span class="text-xs font-mono text-slate-400">Available for freelance work</span>
