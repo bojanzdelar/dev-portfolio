@@ -1,0 +1,27 @@
+<script setup lang="ts">
+import { Github } from 'lucide-vue-next'
+
+const year = new Date().getFullYear()
+</script>
+
+<template>
+  <footer class="border-t border-slate-800 py-8">
+    <div class="mx-auto max-w-6xl px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+      <p class="text-slate-600 text-sm">
+        © {{ year }} Bojan Zdelar
+      </p>
+      <div class="flex items-center gap-6">
+        <a
+          href="https://github.com/bojanzdelar"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="text-slate-600 hover:text-slate-400 transition-colors flex items-center gap-2 text-sm"
+          aria-label="GitHub"
+        >
+          <Github :size="16" aria-hidden="true" />
+          bojanzdelar
+        </a>
+      </div>
+    </div>
+  </footer>
+</template>
