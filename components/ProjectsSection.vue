@@ -1,43 +1,62 @@
 <template>
-  <section id="projects" class="py-24 lg:py-32" aria-labelledby="projects-heading">
+  <section id="projects" class="py-16 lg:py-24" aria-labelledby="projects-heading">
     <div class="mx-auto max-w-6xl px-6 lg:px-8">
-      <div class="mb-16">
-        <p class="text-blue-400 text-xs font-mono mb-3 tracking-widest uppercase">Work</p>
-        <h2 id="projects-heading" class="text-3xl sm:text-4xl font-bold text-slate-100 mb-4">
-          Featured Projects
-        </h2>
-        <p class="text-slate-400 max-w-xl">
-          Engineering work across backend services, cloud infrastructure, and full-stack applications.
-        </p>
+
+      <div class="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4 mb-10 pb-8 border-b border-slate-800">
+        <div>
+          <h2 id="projects-heading" class="text-2xl sm:text-3xl font-bold text-slate-100 mb-1.5">
+            Projects
+          </h2>
+          <p class="text-slate-500 text-sm">
+            Engineering work across backend services, cloud infrastructure, and full-stack applications.
+          </p>
+        </div>
+        <a
+          href="https://github.com/bojanzdelar"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="text-xs font-mono text-slate-600 hover:text-blue-400 transition-colors shrink-0"
+        >
+          github.com/bojanzdelar →
+        </a>
       </div>
 
-      <div class="space-y-8">
+      <div class="space-y-6">
         <NexaCaseStudy />
 
         <ProjectCard
           title="Supplement Shop"
-          subtitle="Full-Stack E-Commerce Application"
-          description="A complete e-commerce application with a Vue.js frontend, Python Flask REST API backend, and MySQL database. Built to demonstrate full-stack integration including authentication, product management, and an admin interface."
+          subtitle="Full-Stack E-Commerce"
+          overview="A complete e-commerce application demonstrating end-to-end integration across a Vue.js frontend, Python Flask REST API backend, and MySQL relational database. Each layer is cleanly separated — the frontend communicates exclusively through the API, JWT handles auth, and SQLAlchemy manages the schema."
           :tech-stack="['Vue.js', 'Python Flask', 'MySQL', 'SQLAlchemy', 'JWT', 'REST API']"
           github-url="https://github.com/bojanzdelar/Supplement-shop"
           :features="[
             'Product catalog with categories and filtering',
             'Shopping cart with session management',
-            'JWT-based authentication and authorization',
+            'JWT authentication with role-based authorization',
             'Admin dashboard for inventory and order management',
             'SQLAlchemy ORM with relational data modeling',
-            'RESTful API with clear separation of frontend and backend',
           ]"
-          :objective="'Demonstrate full-stack development across frontend, REST API, authentication, and relational database — each layer cleanly separated and independently testable.'"
         />
 
-        <div class="rounded-xl border border-slate-800 border-dashed p-8 text-center">
-          <p class="text-slate-500 text-sm font-mono mb-2">// More projects</p>
-          <p class="text-slate-400 text-sm">
-            Additional work in AWS automation, API tooling, and infrastructure engineering — coming soon.
-          </p>
+        <div class="rounded-lg border border-slate-800 border-dashed px-7 py-5 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+          <div>
+            <p class="text-slate-400 text-sm font-medium mb-1">More projects in progress</p>
+            <p class="text-slate-600 text-xs">
+              AWS automation tooling, API integrations, and infrastructure work — added as it ships.
+            </p>
+          </div>
+          <a
+            href="https://github.com/bojanzdelar"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="shrink-0 text-xs font-mono text-slate-600 hover:text-blue-400 transition-colors"
+          >
+            View all repositories →
+          </a>
         </div>
       </div>
+
     </div>
   </section>
 </template>

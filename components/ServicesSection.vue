@@ -53,15 +53,15 @@ const services: Service[] = [
 </script>
 
 <template>
-  <section id="services" class="py-24 lg:py-32 bg-slate-900/20" aria-labelledby="services-heading">
+  <section id="services" class="py-16 lg:py-24 border-t border-slate-800/60" aria-labelledby="services-heading">
     <div class="mx-auto max-w-6xl px-6 lg:px-8">
-      <div class="mb-16">
-        <p class="text-blue-400 text-xs font-mono mb-3 tracking-widest uppercase">Services</p>
-        <h2 id="services-heading" class="text-3xl sm:text-4xl font-bold text-slate-100 mb-4">
+
+      <div class="mb-10 pb-8 border-b border-slate-800">
+        <h2 id="services-heading" class="text-2xl sm:text-3xl font-bold text-slate-100 mb-1.5">
           How I Can Help
         </h2>
-        <p class="text-slate-400 max-w-xl">
-          Available for freelance projects involving backend engineering, cloud infrastructure, and full-stack development.
+        <p class="text-slate-500 text-sm">
+          Available for freelance projects in backend engineering, cloud infrastructure, and full-stack development.
         </p>
       </div>
 
@@ -69,13 +69,16 @@ const services: Service[] = [
         <div
           v-for="service in services"
           :key="service.title"
-          class="rounded-lg border border-slate-800 bg-slate-900/40 p-6 hover:border-slate-700 transition-colors"
+          class="group rounded-lg border border-slate-800 bg-slate-900/30 p-5 hover:border-slate-700 hover:bg-slate-900/60 transition-all"
         >
-          <component :is="service.icon" :size="20" class="text-blue-400 mb-4" aria-hidden="true" />
-          <h3 class="text-sm font-semibold text-slate-200 mb-2">{{ service.title }}</h3>
-          <p class="text-xs text-slate-500 leading-relaxed">{{ service.description }}</p>
+          <div class="inline-flex items-center justify-center w-9 h-9 rounded bg-slate-800 border border-slate-700/60 mb-4 group-hover:border-blue-900/50 group-hover:bg-blue-950/30 transition-all">
+            <component :is="service.icon" :size="16" class="text-slate-500 group-hover:text-blue-400 transition-colors" aria-hidden="true" />
+          </div>
+          <h3 class="text-sm font-semibold text-slate-300 mb-1.5 leading-snug">{{ service.title }}</h3>
+          <p class="text-xs text-slate-600 leading-relaxed">{{ service.description }}</p>
         </div>
       </div>
+
     </div>
   </section>
 </template>
