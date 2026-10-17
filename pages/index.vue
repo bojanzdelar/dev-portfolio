@@ -25,8 +25,8 @@ useHead({
       <HeroSection />
       <ServicesSection />
       <SkillsSection />
-      <ProjectsSection />
       <EducationSection />
+      <ProjectsSection />
       <ContactSection />
     </main>
     <AppFooter />

@@ -4,12 +4,9 @@
 
       <div class="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4 mb-10 pb-8 border-b border-brand-border">
         <div>
-          <h2 id="projects-heading" class="text-2xl sm:text-3xl font-bold text-brand-text mb-1.5">
+          <h2 id="projects-heading" class="text-2xl sm:text-3xl font-bold text-brand-text">
             Projects
           </h2>
-          <p class="text-brand-muted/65 text-sm">
-            Engineering work across backend services, cloud infrastructure, and full-stack applications.
-          </p>
         </div>
         <a
           href="https://github.com/bojanzdelar"

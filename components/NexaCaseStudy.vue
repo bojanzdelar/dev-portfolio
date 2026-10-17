@@ -87,7 +87,7 @@ const decisions = [
       <div class="grid lg:grid-cols-2 gap-6">
         <div class="space-y-2">
           <h4 class="text-[10px] font-mono text-brand-dim uppercase tracking-widest">Objective</h4>
-          <p class="text-brand-text/80 text-sm leading-relaxed">
+          <p class="text-brand-text/80 text-base leading-relaxed">
             Design and implement a cloud-native video streaming platform as a master's thesis project,
             exploring how modern AWS services can be composed into a scalable architecture for
             on-demand video delivery — from raw upload through encoding, storage, and HLS playback.
@@ -95,7 +95,7 @@ const decisions = [
         </div>
         <div class="space-y-2">
           <h4 class="text-[10px] font-mono text-brand-dim uppercase tracking-widest">Approach</h4>
-          <p class="text-brand-text/80 text-sm leading-relaxed">
+          <p class="text-brand-text/80 text-base leading-relaxed">
             Decomposed the platform into discrete microservices on ECS/Fargate, each owning its
             data and communicating over REST APIs. Infrastructure is defined entirely in Terraform
             and AWS CDK — the environment is reproducible, version-controlled, and audit-able.
@@ -123,7 +123,7 @@ const decisions = [
           <h4 class="text-[10px] font-mono text-brand-dim uppercase tracking-widest mb-5">Key Engineering Decisions</h4>
           <ul class="space-y-5">
             <li v-for="d in decisions" :key="d.title" class="border-l border-brand-border pl-4">
-              <p class="text-brand-text text-sm font-semibold leading-snug mb-1">{{ d.title }}</p>
+              <p class="text-brand-text text-base font-semibold leading-snug mb-1">{{ d.title }}</p>
               <p class="text-brand-muted/65 text-sm leading-relaxed">{{ d.body }}</p>
             </li>
           </ul>
@@ -134,9 +134,9 @@ const decisions = [
           <div class="rounded-lg bg-brand-accent/5 border border-brand-accent/10 p-5">
             <h4 class="text-[10px] font-mono text-brand-accent/75 uppercase tracking-widest mb-4">Implemented</h4>
             <ul class="space-y-2.5">
-              <li v-for="item in implemented" :key="item" class="flex gap-3 text-sm">
-                <span class="text-brand-accent shrink-0 text-xs mt-0.5 font-bold">✓</span>
-                <span class="text-brand-muted">{{ item }}</span>
+              <li v-for="item in implemented" :key="item" class="flex gap-3">
+                <span class="text-brand-accent shrink-0 text-xs mt-1 font-bold">✓</span>
+                <span class="text-brand-muted text-sm leading-relaxed">{{ item }}</span>
               </li>
             </ul>
           </div>
@@ -146,9 +146,9 @@ const decisions = [
               Planned <span class="text-brand-dim/65 normal-case font-sans font-normal text-xs">(thesis scope)</span>
             </h4>
             <ul class="space-y-2.5">
-              <li v-for="item in planned" :key="item" class="flex gap-3 text-sm">
-                <span class="text-brand-dim/65 shrink-0 mt-0.5">○</span>
-                <span class="text-brand-dim">{{ item }}</span>
+              <li v-for="item in planned" :key="item" class="flex gap-3">
+                <span class="text-brand-dim/65 shrink-0 mt-1 text-xs">○</span>
+                <span class="text-brand-dim text-sm leading-relaxed">{{ item }}</span>
               </li>
             </ul>
           </div>
@@ -162,7 +162,7 @@ const decisions = [
           <span
             v-for="tech in techStack"
             :key="tech"
-            class="text-xs font-mono text-green-300/80 bg-brand-accent/5 border border-brand-accent/10 rounded px-2.5 py-1"
+            class="text-sm font-mono text-green-300/80 bg-brand-accent/5 border border-brand-accent/10 rounded px-2.5 py-1"
           >
             {{ tech }}
           </span>

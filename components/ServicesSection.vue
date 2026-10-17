@@ -82,8 +82,8 @@ const services: Service[] = [
             <component :is="service.icon" :size="17" class="text-brand-dim group-hover:text-brand-accent transition-colors duration-200" aria-hidden="true" />
           </div>
 
-          <h3 class="text-sm font-semibold text-brand-text/85 mb-2 leading-snug pr-6">{{ service.title }}</h3>
-          <p class="text-xs text-brand-dim leading-relaxed mt-auto pt-1">{{ service.description }}</p>
+          <h3 class="text-base font-semibold text-brand-text/85 mb-2 leading-snug pr-6">{{ service.title }}</h3>
+          <p class="text-sm text-brand-dim leading-relaxed mt-auto pt-1">{{ service.description }}</p>
 
           <div class="absolute bottom-0 left-0 right-0 h-px bg-brand-accent/70 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left" aria-hidden="true" />
         </div>

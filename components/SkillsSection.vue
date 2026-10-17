@@ -51,10 +51,9 @@ function iconUrl(skill: string): string | null {
     <div class="mx-auto max-w-6xl px-6 lg:px-8">
 
       <div class="mb-10 pb-8 border-b border-brand-border">
-        <h2 id="skills-heading" class="text-2xl sm:text-3xl font-bold text-brand-text mb-1.5">
+        <h2 id="skills-heading" class="text-2xl sm:text-3xl font-bold text-brand-text">
           Technical Skills
         </h2>
-        <p class="text-brand-muted/65 text-sm">Applied across real projects — no arbitrary proficiency scores.</p>
       </div>
 
       <div class="divide-y divide-brand-border/60">
@@ -63,14 +62,14 @@ function iconUrl(skill: string): string | null {
           :key="category.name"
           class="py-5 flex flex-col sm:flex-row sm:items-start gap-3 sm:gap-6"
         >
-          <span class="text-[10px] font-mono text-brand-dim uppercase tracking-widest sm:w-48 sm:shrink-0 sm:pt-1.5">
+          <span class="text-xs font-mono text-brand-dim uppercase tracking-widest sm:w-48 sm:shrink-0 sm:pt-1.5">
             {{ category.name }}
           </span>
           <div class="flex flex-wrap gap-2">
             <span
               v-for="skill in category.skills"
               :key="skill"
-              class="inline-flex items-center gap-1.5 text-xs font-mono text-brand-muted bg-brand-surface/65 border border-brand-border rounded-md px-3 py-1.5 hover:border-brand-hi hover:text-brand-text/80 transition-colors"
+              class="inline-flex items-center gap-1.5 text-sm font-mono text-brand-muted bg-brand-surface/65 border border-brand-border rounded-md px-3 py-1.5 hover:border-brand-hi hover:text-brand-text/80 transition-colors"
             >
               <img
                 v-if="iconUrl(skill)"

@@ -71,7 +71,7 @@
                 class="w-2 h-2 rounded-full bg-brand-accent ring-4 ring-brand-accent/10"
                 aria-hidden="true"
               />
-              <span class="text-xs font-mono text-brand-muted"
+              <span class="text-sm font-mono text-brand-muted"
                 >Available for freelance work</span
               >
             </div>
@@ -84,10 +84,10 @@
                   Specialization
                 </dt>
                 <dd class="space-y-1.5">
-                  <p class="text-brand-text/80">Backend Systems &amp; APIs</p>
-                  <p class="text-brand-text/80">Cloud Architecture (AWS)</p>
-                  <p class="text-brand-text/80">Infrastructure as Code</p>
-                  <p class="text-brand-text/80">Full-Stack Development</p>
+                  <p class="text-brand-text/80 text-base">Backend Systems &amp; APIs</p>
+                  <p class="text-brand-text/80 text-base">Cloud Architecture (AWS)</p>
+                  <p class="text-brand-text/80 text-base">Infrastructure as Code</p>
+                  <p class="text-brand-text/80 text-base">Full-Stack Development</p>
                 </dd>
               </div>
 
@@ -97,7 +97,7 @@
                 >
                   Location
                 </dt>
-                <dd class="text-brand-text/80">Serbia · Remote-friendly</dd>
+                <dd class="text-brand-text/80 text-base">Serbia · Remote-friendly</dd>
               </div>
             </dl>
           </div>

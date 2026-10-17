@@ -13,9 +13,8 @@ import { CONTACT_EMAIL } from '~/utils/config'
           <h2 id="contact-heading" class="text-2xl sm:text-3xl font-bold text-brand-text mb-4">
             Let's Work Together
           </h2>
-          <p class="text-brand-muted leading-relaxed text-sm max-w-md">
-            If you have a backend, cloud, or full-stack project in mind — or you need help with
-            an integration, infrastructure challenge, or API — feel free to reach out.
+          <p class="text-brand-muted leading-relaxed text-base max-w-md">
+            If you have a backend, cloud, or full-stack project in mind — feel free to reach out.
             I'm open to freelance engagements and project-based work.
           </p>
         </div>
@@ -31,8 +30,8 @@ import { CONTACT_EMAIL } from '~/utils/config'
                 <Mail :size="16" class="text-white" aria-hidden="true" />
               </div>
               <div>
-                <p class="text-brand-text text-sm font-semibold">Send an Email</p>
-                <p class="text-brand-muted/65 text-xs font-mono mt-0.5">{{ CONTACT_EMAIL }}</p>
+                <p class="text-brand-text text-base font-semibold">Send an Email</p>
+                <p class="text-brand-muted/65 text-sm font-mono mt-0.5">{{ CONTACT_EMAIL }}</p>
               </div>
             </div>
             <ArrowRight :size="16" class="text-brand-dim group-hover:text-brand-accent transition-colors" aria-hidden="true" />
@@ -49,8 +48,8 @@ import { CONTACT_EMAIL } from '~/utils/config'
                 <Github :size="16" class="text-brand-muted" aria-hidden="true" />
               </div>
               <div>
-                <p class="text-brand-text text-sm font-semibold">GitHub Profile</p>
-                <p class="text-brand-muted/65 text-xs font-mono mt-0.5">github.com/bojanzdelar</p>
+                <p class="text-brand-text text-base font-semibold">GitHub Profile</p>
+                <p class="text-brand-muted/65 text-sm font-mono mt-0.5">github.com/bojanzdelar</p>
               </div>
             </div>
             <ArrowRight :size="16" class="text-brand-dim group-hover:text-brand-muted transition-colors" aria-hidden="true" />
@@ -67,8 +66,8 @@ import { CONTACT_EMAIL } from '~/utils/config'
                 <Linkedin :size="16" class="text-brand-muted" aria-hidden="true" />
               </div>
               <div>
-                <p class="text-brand-text text-sm font-semibold">LinkedIn</p>
-                <p class="text-brand-muted/65 text-xs font-mono mt-0.5">linkedin.com/in/bojan-zdelar</p>
+                <p class="text-brand-text text-base font-semibold">LinkedIn</p>
+                <p class="text-brand-muted/65 text-sm font-mono mt-0.5">linkedin.com/in/bojan-zdelar</p>
               </div>
             </div>
             <ArrowRight :size="16" class="text-brand-dim group-hover:text-brand-muted transition-colors" aria-hidden="true" />
