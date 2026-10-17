@@ -41,7 +41,7 @@
               <div>
                 <div class="flex items-baseline justify-between gap-4 mb-1">
                   <p class="text-slate-200 text-sm font-semibold">Software and Information Engineering</p>
-                  <span class="text-xs text-blue-400 font-mono shrink-0 tabular-nums">10.0 / 10.0</span>
+                  <span class="text-xs text-green-400 font-mono shrink-0 tabular-nums">10.0 / 10.0</span>
                 </div>
                 <p class="text-slate-500 text-sm">University Singidunum — Technical Faculty</p>
                 <p class="text-slate-600 text-xs mt-1">Bachelor's degree · Diploma thesis: 10.0 / 10.0</p>

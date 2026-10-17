@@ -30,7 +30,7 @@ defineProps<{
         :href="githubUrl"
         target="_blank"
         rel="noopener noreferrer"
-        class="inline-flex items-center gap-2 px-4 py-2 border border-slate-700 hover:border-slate-500 text-slate-400 hover:text-slate-200 text-xs font-mono rounded-lg transition-colors shrink-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500"
+        class="inline-flex items-center gap-2 px-4 py-2 border border-slate-700 hover:border-slate-500 text-slate-400 hover:text-slate-200 text-xs font-mono rounded-lg transition-colors shrink-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-green-500"
         :aria-label="`View ${title} on GitHub`"
       >
         <Github :size="14" />

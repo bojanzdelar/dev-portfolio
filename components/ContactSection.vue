@@ -24,10 +24,10 @@ import { CONTACT_EMAIL } from '~/utils/config'
         <div class="space-y-4">
           <a
             :href="`mailto:${CONTACT_EMAIL}`"
-            class="group flex items-center justify-between w-full px-6 py-5 rounded-xl border border-slate-800 bg-slate-900/40 hover:border-blue-800/60 hover:bg-blue-950/20 transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500"
+            class="group flex items-center justify-between w-full px-6 py-5 rounded-xl border border-slate-800 bg-slate-900/40 hover:border-green-800/60 hover:bg-green-950/20 transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-green-500"
           >
             <div class="flex items-center gap-4">
-              <div class="w-9 h-9 rounded-lg bg-blue-600 flex items-center justify-center shrink-0">
+              <div class="w-9 h-9 rounded-lg bg-green-600 flex items-center justify-center shrink-0">
                 <Mail :size="16" class="text-white" aria-hidden="true" />
               </div>
               <div>
@@ -35,14 +35,14 @@ import { CONTACT_EMAIL } from '~/utils/config'
                 <p class="text-slate-500 text-xs font-mono mt-0.5">{{ CONTACT_EMAIL }}</p>
               </div>
             </div>
-            <ArrowRight :size="16" class="text-slate-600 group-hover:text-blue-400 transition-colors" aria-hidden="true" />
+            <ArrowRight :size="16" class="text-slate-600 group-hover:text-green-400 transition-colors" aria-hidden="true" />
           </a>
 
           <a
             href="https://github.com/bojanzdelar"
             target="_blank"
             rel="noopener noreferrer"
-            class="group flex items-center justify-between w-full px-6 py-5 rounded-xl border border-slate-800 bg-slate-900/40 hover:border-slate-700 hover:bg-slate-900/70 transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500"
+            class="group flex items-center justify-between w-full px-6 py-5 rounded-xl border border-slate-800 bg-slate-900/40 hover:border-slate-700 hover:bg-slate-900/70 transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-green-500"
           >
             <div class="flex items-center gap-4">
               <div class="w-9 h-9 rounded-lg bg-slate-800 border border-slate-700 flex items-center justify-center shrink-0">

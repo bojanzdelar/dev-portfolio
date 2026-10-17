@@ -21,10 +21,10 @@ function closeMenu() {
       <div class="flex h-16 items-center justify-between">
         <a
           href="#hero"
-          class="text-slate-100 font-semibold text-base tracking-tight hover:text-blue-400 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 rounded"
+          class="text-slate-100 font-semibold text-base tracking-tight hover:text-green-400 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-green-500 rounded"
           @click="closeMenu"
         >
-          <span class="text-blue-400 font-mono font-bold">BZ</span>
+          <span class="text-green-400 font-mono font-bold">BZ</span>
           <span class="ml-2 text-slate-400 text-sm hidden sm:inline">Bojan Zdelar</span>
         </a>
 
@@ -33,7 +33,7 @@ function closeMenu() {
             v-for="link in navLinks"
             :key="link.href"
             :href="link.href"
-            class="text-slate-400 hover:text-slate-100 text-sm transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 rounded px-1"
+            class="text-slate-400 hover:text-slate-100 text-sm transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-green-500 rounded px-1"
           >
             {{ link.label }}
           </a>
@@ -41,7 +41,7 @@ function closeMenu() {
             href="https://github.com/bojanzdelar"
             target="_blank"
             rel="noopener noreferrer"
-            class="text-slate-400 hover:text-slate-100 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 rounded p-1"
+            class="text-slate-400 hover:text-slate-100 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-green-500 rounded p-1"
             aria-label="GitHub profile"
           >
             <Github :size="18" />
@@ -49,7 +49,7 @@ function closeMenu() {
         </div>
 
         <button
-          class="md:hidden text-slate-400 hover:text-slate-100 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 rounded p-1"
+          class="md:hidden text-slate-400 hover:text-slate-100 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-green-500 rounded p-1"
           :aria-label="isMenuOpen ? 'Close navigation menu' : 'Open navigation menu'"
           :aria-expanded="isMenuOpen"
           @click="isMenuOpen = !isMenuOpen"

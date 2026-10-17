@@ -60,7 +60,7 @@ const decisions = [
     <div class="bg-slate-900/60 border-b border-slate-800 px-8 py-6 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
       <div>
         <div class="flex items-center gap-3 mb-2.5">
-          <span class="text-xs font-mono text-blue-400 bg-blue-950/60 border border-blue-900/50 rounded px-2 py-0.5 tracking-wide">
+          <span class="text-xs font-mono text-green-400 bg-green-950/60 border border-green-900/50 rounded px-2 py-0.5 tracking-wide">
             Featured
           </span>
           <span class="text-xs text-slate-500 font-mono">Master's Thesis · 2024–2025</span>
@@ -73,7 +73,7 @@ const decisions = [
         href="https://github.com/bojanzdelar/nexa"
         target="_blank"
         rel="noopener noreferrer"
-        class="inline-flex items-center gap-2 px-4 py-2 border border-slate-700 hover:border-blue-700 text-slate-400 hover:text-blue-400 text-sm rounded-lg transition-colors shrink-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 font-mono"
+        class="inline-flex items-center gap-2 px-4 py-2 border border-slate-700 hover:border-green-700 text-slate-400 hover:text-green-400 text-sm rounded-lg transition-colors shrink-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-green-500 font-mono"
         aria-label="View Nexa on GitHub"
       >
         <Github :size="14" />
@@ -119,7 +119,7 @@ const decisions = [
 
             <defs>
               <marker id="arr-blue" markerWidth="7" markerHeight="5" refX="5" refY="2.5" orient="auto">
-                <polygon points="0 0, 7 2.5, 0 5" fill="#3b82f6" />
+                <polygon points="0 0, 7 2.5, 0 5" fill="#22c55e" />
               </marker>
               <marker id="arr-gray" markerWidth="7" markerHeight="5" refX="5" refY="2.5" orient="auto">
                 <polygon points="0 0, 7 2.5, 0 5" fill="#475569" />
@@ -145,17 +145,17 @@ const decisions = [
               <text x="70" y="22" text-anchor="middle" fill="#94a3b8" font-size="11" font-family="system-ui">User Browser</text>
             </g>
 
-            <line x1="360" y1="52" x2="360" y2="118" stroke="#3b82f6" stroke-width="1.5" marker-end="url(#arr-blue)" />
+            <line x1="360" y1="52" x2="360" y2="118" stroke="#22c55e" stroke-width="1.5" marker-end="url(#arr-blue)" />
 
             <!-- CloudFront -->
             <g transform="translate(185,118)">
-              <rect width="350" height="36" rx="5" fill="#1e3a5f" stroke="#2563eb" stroke-width="1.5" />
-              <text x="175" y="22" text-anchor="middle" fill="#60a5fa" font-size="12" font-weight="600" font-family="system-ui">Amazon CloudFront CDN</text>
+              <rect width="350" height="36" rx="5" fill="#071a10" stroke="#16a34a" stroke-width="1.5" />
+              <text x="175" y="22" text-anchor="middle" fill="#4ade80" font-size="12" font-weight="600" font-family="system-ui">Amazon CloudFront CDN</text>
             </g>
 
             <line x1="250" y1="154" x2="100" y2="208" stroke="#334155" stroke-width="1" marker-end="url(#arr-gray)" />
             <line x1="315" y1="154" x2="247" y2="208" stroke="#334155" stroke-width="1" marker-end="url(#arr-gray)" />
-            <line x1="415" y1="154" x2="400" y2="208" stroke="#3b82f6" stroke-width="1.5" marker-end="url(#arr-blue)" />
+            <line x1="415" y1="154" x2="400" y2="208" stroke="#22c55e" stroke-width="1.5" marker-end="url(#arr-blue)" />
 
             <!-- S3 Frontend -->
             <g transform="translate(28,208)">
@@ -169,22 +169,22 @@ const decisions = [
             </g>
             <!-- API Gateway -->
             <g transform="translate(322,208)">
-              <rect width="148" height="36" rx="5" fill="#1e3a5f" stroke="#2563eb" stroke-width="1" />
-              <text x="74" y="22" text-anchor="middle" fill="#60a5fa" font-size="11" font-family="system-ui">API Gateway</text>
+              <rect width="148" height="36" rx="5" fill="#071a10" stroke="#16a34a" stroke-width="1" />
+              <text x="74" y="22" text-anchor="middle" fill="#4ade80" font-size="11" font-family="system-ui">API Gateway</text>
             </g>
             <!-- Lambda -->
             <g transform="translate(482,208)">
-              <rect width="110" height="36" rx="5" fill="#1e3a5f" stroke="#2563eb" stroke-width="1" />
-              <text x="55" y="22" text-anchor="middle" fill="#60a5fa" font-size="11" font-family="system-ui">Lambda</text>
+              <rect width="110" height="36" rx="5" fill="#071a10" stroke="#16a34a" stroke-width="1" />
+              <text x="55" y="22" text-anchor="middle" fill="#4ade80" font-size="11" font-family="system-ui">Lambda</text>
             </g>
 
-            <line x1="396" y1="244" x2="370" y2="298" stroke="#3b82f6" stroke-width="1.5" marker-end="url(#arr-blue)" />
-            <line x1="537" y1="244" x2="500" y2="298" stroke="#3b82f6" stroke-width="1.5" marker-end="url(#arr-blue)" />
+            <line x1="396" y1="244" x2="370" y2="298" stroke="#22c55e" stroke-width="1.5" marker-end="url(#arr-blue)" />
+            <line x1="537" y1="244" x2="500" y2="298" stroke="#22c55e" stroke-width="1.5" marker-end="url(#arr-blue)" />
 
             <!-- ECS/Fargate -->
             <g transform="translate(188,298)">
-              <rect width="370" height="56" rx="5" fill="#162033" stroke="#1d4ed8" stroke-width="1.5" />
-              <text x="185" y="20" text-anchor="middle" fill="#60a5fa" font-size="12" font-weight="600" font-family="system-ui">ECS / Fargate (Microservices)</text>
+              <rect width="370" height="56" rx="5" fill="#051409" stroke="#166534" stroke-width="1.5" />
+              <text x="185" y="20" text-anchor="middle" fill="#4ade80" font-size="12" font-weight="600" font-family="system-ui">ECS / Fargate (Microservices)</text>
               <text x="80" y="40" text-anchor="middle" fill="#334155" font-size="10" font-family="monospace">video-service</text>
               <text x="185" y="40" text-anchor="middle" fill="#334155" font-size="10" font-family="monospace">catalog-service</text>
               <text x="300" y="40" text-anchor="middle" fill="#334155" font-size="10" font-family="monospace">user-service</text>
@@ -216,8 +216,8 @@ const decisions = [
               <text x="65" y="22" text-anchor="middle" fill="#64748b" font-size="11" font-family="system-ui">MediaConvert</text>
             </g>
             <!-- HLS return path -->
-            <path d="M 591 388 Q 660 300 540 154" stroke="#3b82f6" stroke-width="1" stroke-dasharray="5 3" fill="none" marker-end="url(#arr-blue)" />
-            <text x="648" y="278" fill="#2563eb" font-size="9" font-family="monospace" text-anchor="middle">HLS</text>
+            <path d="M 591 388 Q 660 300 540 154" stroke="#22c55e" stroke-width="1" stroke-dasharray="5 3" fill="none" marker-end="url(#arr-blue)" />
+            <text x="648" y="278" fill="#16a34a" font-size="9" font-family="monospace" text-anchor="middle">HLS</text>
 
             <text x="360" y="432" text-anchor="middle" fill="#1e293b" font-size="9" font-family="monospace">Infrastructure managed by Terraform + AWS CDK</text>
           </svg>
@@ -274,7 +274,7 @@ const decisions = [
           <span
             v-for="tech in techStack"
             :key="tech"
-            class="text-xs font-mono text-blue-300/80 bg-blue-950/30 border border-blue-900/30 rounded px-2.5 py-1"
+            class="text-xs font-mono text-green-300/80 bg-green-950/30 border border-green-900/30 rounded px-2.5 py-1"
           >
             {{ tech }}
           </span>

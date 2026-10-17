@@ -22,13 +22,13 @@ const techBadges = [
 
         <!-- Left: Headline and CTAs -->
         <div class="lg:col-span-3">
-          <p class="text-blue-400 text-xs font-mono mb-5 tracking-widest uppercase">
+          <p class="text-green-400 text-xs font-mono mb-5 tracking-widest uppercase">
             Software Engineer · Serbia
           </p>
 
           <h1 class="text-4xl sm:text-5xl lg:text-[3.5rem] xl:text-6xl font-bold text-slate-100 leading-[1.08] mb-6">
             Building reliable software,
-            <span class="text-blue-400">from APIs to cloud infrastructure.</span>
+            <span class="text-green-400">from APIs to cloud infrastructure.</span>
           </h1>
 
           <p class="text-lg text-slate-400 mb-10 leading-relaxed max-w-lg">
@@ -40,13 +40,13 @@ const techBadges = [
           <div class="flex flex-wrap gap-4 mb-12">
             <a
               href="#projects"
-              class="inline-flex items-center px-6 py-3 bg-blue-600 hover:bg-blue-500 text-white text-sm font-medium rounded-lg transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-400 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950"
+              class="inline-flex items-center px-6 py-3 bg-green-600 hover:bg-green-500 text-white text-sm font-medium rounded-lg transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-green-400 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950"
             >
               View Projects
             </a>
             <a
               href="#contact"
-              class="inline-flex items-center px-6 py-3 border border-slate-700 hover:border-slate-500 text-slate-300 hover:text-slate-100 text-sm font-medium rounded-lg transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-400 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950"
+              class="inline-flex items-center px-6 py-3 border border-slate-700 hover:border-slate-500 text-slate-300 hover:text-slate-100 text-sm font-medium rounded-lg transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-green-400 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950"
             >
               Get in Touch
             </a>
@@ -94,7 +94,7 @@ const techBadges = [
                     <p class="text-slate-300">B.Sc. Software Engineering</p>
                     <p class="text-slate-500 text-xs mt-1">
                       University Singidunum
-                      <span class="text-blue-500 ml-1">10.0 / 10.0</span>
+                      <span class="text-green-500 ml-1">10.0 / 10.0</span>
                     </p>
                   </div>
                   <div>

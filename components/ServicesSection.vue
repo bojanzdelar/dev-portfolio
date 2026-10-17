@@ -71,8 +71,8 @@ const services: Service[] = [
           :key="service.title"
           class="group rounded-lg border border-slate-800 bg-slate-900/30 p-5 hover:border-slate-700 hover:bg-slate-900/60 transition-all"
         >
-          <div class="inline-flex items-center justify-center w-9 h-9 rounded bg-slate-800 border border-slate-700/60 mb-4 group-hover:border-blue-900/50 group-hover:bg-blue-950/30 transition-all">
-            <component :is="service.icon" :size="16" class="text-slate-500 group-hover:text-blue-400 transition-colors" aria-hidden="true" />
+          <div class="inline-flex items-center justify-center w-9 h-9 rounded bg-slate-800 border border-slate-700/60 mb-4 group-hover:border-green-900/50 group-hover:bg-green-950/30 transition-all">
+            <component :is="service.icon" :size="16" class="text-slate-500 group-hover:text-green-400 transition-colors" aria-hidden="true" />
           </div>
           <h3 class="text-sm font-semibold text-slate-300 mb-1.5 leading-snug">{{ service.title }}</h3>
           <p class="text-xs text-slate-600 leading-relaxed">{{ service.description }}</p>

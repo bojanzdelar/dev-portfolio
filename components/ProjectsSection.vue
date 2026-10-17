@@ -15,7 +15,7 @@
           href="https://github.com/bojanzdelar"
           target="_blank"
           rel="noopener noreferrer"
-          class="text-xs font-mono text-slate-600 hover:text-blue-400 transition-colors shrink-0"
+          class="text-xs font-mono text-slate-600 hover:text-green-400 transition-colors shrink-0"
         >
           github.com/bojanzdelar →
         </a>
@@ -50,7 +50,7 @@
             href="https://github.com/bojanzdelar"
             target="_blank"
             rel="noopener noreferrer"
-            class="shrink-0 text-xs font-mono text-slate-600 hover:text-blue-400 transition-colors"
+            class="shrink-0 text-xs font-mono text-slate-600 hover:text-green-400 transition-colors"
           >
             View all repositories →
           </a>
