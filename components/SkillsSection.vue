@@ -32,6 +32,30 @@ const secondary: SkillCategory[] = [
     skills: ['Python', 'Shell scripting', 'CI/CD', 'AWS automation', 'API integrations'],
   },
 ]
+
+const iconMap: Record<string, string> = {
+  'Java': 'openjdk',
+  'Spring Boot': 'springboot',
+  'Docker': 'docker',
+  'Terraform': 'terraform',
+  'TypeScript': 'typescript',
+  'JavaScript': 'javascript',
+  'Vue.js': 'vuedotjs',
+  'Nuxt.js': 'nuxt',
+  'HTML': 'html5',
+  'CSS': 'css',
+  'Tailwind CSS': 'tailwindcss',
+  'Python': 'python',
+  'MySQL': 'mysql',
+  'OpenSearch': 'opensearch',
+  'SQLAlchemy': 'sqlalchemy',
+}
+
+function iconUrl(skill: string, muted = false): string | null {
+  const slug = iconMap[skill]
+  if (!slug) return null
+  return `https://cdn.simpleicons.org/${slug}/${muted ? '64748b' : '94a3b8'}`
+}
 </script>
 
 <template>
@@ -59,8 +83,15 @@ const secondary: SkillCategory[] = [
             <span
               v-for="skill in category.skills"
               :key="skill"
-              class="text-xs font-mono text-slate-400 bg-slate-800 border border-slate-700/60 rounded px-2 py-0.5"
+              class="inline-flex items-center gap-1.5 text-xs font-mono text-slate-400 bg-slate-800 border border-slate-700/60 rounded px-2 py-0.5"
             >
+              <img
+                v-if="iconUrl(skill)"
+                :src="iconUrl(skill)!"
+                :alt="skill"
+                class="w-3.5 h-3.5 shrink-0"
+                aria-hidden="true"
+              />
               {{ skill }}
             </span>
           </div>
@@ -79,8 +110,15 @@ const secondary: SkillCategory[] = [
             <span
               v-for="skill in category.skills"
               :key="skill"
-              class="text-xs font-mono text-slate-500 bg-slate-800/60 border border-slate-800 rounded px-2 py-0.5"
+              class="inline-flex items-center gap-1.5 text-xs font-mono text-slate-500 bg-slate-800/60 border border-slate-800 rounded px-2 py-0.5"
             >
+              <img
+                v-if="iconUrl(skill, true)"
+                :src="iconUrl(skill, true)!"
+                :alt="skill"
+                class="w-3.5 h-3.5 shrink-0"
+                aria-hidden="true"
+              />
               {{ skill }}
             </span>
           </div>

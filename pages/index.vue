@@ -23,10 +23,10 @@ useHead({
     <AppHeader />
     <main id="main-content">
       <HeroSection />
-      <AboutSection />
+      <ServicesSection />
       <SkillsSection />
       <ProjectsSection />
-      <ServicesSection />
+      <EducationSection />
       <ContactSection />
     </main>
     <AppFooter />
