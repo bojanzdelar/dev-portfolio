@@ -27,5 +27,5 @@ npm run preview
 
 ## Configuration
 
-- **Contact email**: Edit `CONTACT_EMAIL` in `components/ContactSection.vue`
+- **Contact email**: Edit `CONTACT_EMAIL` in `utils/config.ts`
 - **Site URL**: Edit `SITE_URL` in `utils/config.ts`
