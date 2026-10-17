@@ -1,24 +1,13 @@
 <script setup lang="ts">
-interface SkillCategory {
-  name: string
-  skills: string[]
-  primary?: boolean
-}
-
-const primary: SkillCategory[] = [
+const categories = [
   {
     name: 'Backend',
     skills: ['Java', 'Spring Boot', 'REST APIs', 'Microservices', 'Spring Security'],
-    primary: true,
   },
   {
     name: 'Cloud & Infrastructure',
     skills: ['AWS', 'Terraform', 'AWS CDK', 'Docker', 'ECS/Fargate', 'Lambda', 'S3', 'CloudFront', 'API Gateway', 'EC2'],
-    primary: true,
   },
-]
-
-const secondary: SkillCategory[] = [
   {
     name: 'Data & Search',
     skills: ['DynamoDB', 'MySQL', 'OpenSearch', 'SQLAlchemy'],
@@ -51,10 +40,9 @@ const iconMap: Record<string, string> = {
   'SQLAlchemy': 'sqlalchemy',
 }
 
-function iconUrl(skill: string, muted = false): string | null {
+function iconUrl(skill: string): string | null {
   const slug = iconMap[skill]
-  if (!slug) return null
-  return `https://cdn.simpleicons.org/${slug}/${muted ? '64748b' : '94a3b8'}`
+  return slug ? `https://cdn.simpleicons.org/${slug}/64748b` : null
 }
 </script>
 
@@ -66,57 +54,29 @@ function iconUrl(skill: string, muted = false): string | null {
         <h2 id="skills-heading" class="text-2xl sm:text-3xl font-bold text-slate-100 mb-1.5">
           Technical Skills
         </h2>
-        <p class="text-slate-500 text-sm">
-          Applied across real projects — no arbitrary proficiency scores.
-        </p>
+        <p class="text-slate-500 text-sm">Applied across real projects — no arbitrary proficiency scores.</p>
       </div>
 
-      <!-- Primary categories: Backend + Cloud -->
-      <div class="grid sm:grid-cols-2 gap-5 mb-5">
+      <div class="divide-y divide-slate-800/50">
         <div
-          v-for="category in primary"
+          v-for="category in categories"
           :key="category.name"
-          class="rounded-lg border border-slate-700/50 bg-slate-900/50 p-6"
+          class="py-5 flex flex-col sm:flex-row sm:items-start gap-3 sm:gap-6"
         >
-          <h3 class="text-sm font-semibold text-slate-200 mb-4">{{ category.name }}</h3>
+          <span class="text-[10px] font-mono text-slate-600 uppercase tracking-widest sm:w-48 sm:shrink-0 sm:pt-1.5">
+            {{ category.name }}
+          </span>
           <div class="flex flex-wrap gap-2">
             <span
               v-for="skill in category.skills"
               :key="skill"
-              class="inline-flex items-center gap-1.5 text-xs font-mono text-slate-400 bg-slate-800 border border-slate-700/60 rounded px-2 py-0.5"
+              class="inline-flex items-center gap-1.5 text-xs font-mono text-slate-400 bg-slate-900/50 border border-slate-800 rounded-md px-3 py-1.5 hover:border-slate-700 hover:text-slate-300 transition-colors"
             >
               <img
                 v-if="iconUrl(skill)"
                 :src="iconUrl(skill)!"
                 :alt="skill"
-                class="w-3.5 h-3.5 shrink-0"
-                aria-hidden="true"
-              />
-              {{ skill }}
-            </span>
-          </div>
-        </div>
-      </div>
-
-      <!-- Secondary categories: Data, Frontend, Automation -->
-      <div class="grid sm:grid-cols-3 gap-5">
-        <div
-          v-for="category in secondary"
-          :key="category.name"
-          class="rounded-lg border border-slate-800 bg-slate-900/30 p-5"
-        >
-          <h3 class="text-sm font-semibold text-slate-300 mb-3">{{ category.name }}</h3>
-          <div class="flex flex-wrap gap-1.5">
-            <span
-              v-for="skill in category.skills"
-              :key="skill"
-              class="inline-flex items-center gap-1.5 text-xs font-mono text-slate-500 bg-slate-800/60 border border-slate-800 rounded px-2 py-0.5"
-            >
-              <img
-                v-if="iconUrl(skill, true)"
-                :src="iconUrl(skill, true)!"
-                :alt="skill"
-                class="w-3.5 h-3.5 shrink-0"
+                class="w-4 h-4 shrink-0"
                 aria-hidden="true"
               />
               {{ skill }}
