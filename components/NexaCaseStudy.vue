@@ -11,11 +11,11 @@ const implemented = [
   'OpenSearch for full-text search and filtering',
   'Terraform and AWS CDK infrastructure definitions',
   'HLS video playback in the browser',
+  'Adaptive bitrate streaming based on client bandwidth',
 ]
 
 const planned = [
   'Subscription and payment processing integration',
-  'Adaptive bitrate streaming based on client bandwidth',
   'Content recommendation and personalization',
   'Admin analytics and upload dashboard',
 ]

@@ -19,13 +19,13 @@ useHead({
 </script>
 
 <template>
-  <div class="min-h-screen bg-slate-950 text-slate-100">
+  <div class="min-h-screen bg-[#060d08] text-slate-100">
     <AppHeader />
     <main id="main-content">
       <HeroSection />
-      <ProjectsSection />
-      <SkillsSection />
       <AboutSection />
+      <SkillsSection />
+      <ProjectsSection />
       <ServicesSection />
       <ContactSection />
     </main>

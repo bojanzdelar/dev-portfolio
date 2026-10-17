@@ -25,23 +25,8 @@
         <NexaCaseStudy />
 
         <ProjectCard
-          title="Supplement Shop"
-          subtitle="Full-Stack E-Commerce"
-          overview="A complete e-commerce application demonstrating end-to-end integration across a Vue.js frontend, Python Flask REST API backend, and MySQL relational database. Each layer is cleanly separated — the frontend communicates exclusively through the API, JWT handles auth, and SQLAlchemy manages the schema."
-          :tech-stack="['Vue.js', 'Python Flask', 'MySQL', 'SQLAlchemy', 'JWT', 'REST API']"
-          github-url="https://github.com/bojanzdelar/Supplement-shop"
-          :features="[
-            'Product catalog with categories and filtering',
-            'Shopping cart with session management',
-            'JWT authentication with role-based authorization',
-            'Admin dashboard for inventory and order management',
-            'SQLAlchemy ORM with relational data modeling',
-          ]"
-        />
-
-        <ProjectCard
           title="Software Designer"
-          subtitle="Full-Stack · Requirements & Modeling Tool"
+          subtitle="Bachelor's Thesis · Requirements & Modeling Tool"
           overview="A tool for defining software requirements and creating UML models, with role-based access control and code generation from UML class diagrams. Microservice backend using Spring Boot and Spring Cloud, Vue.js frontend, and Amazon Cognito for authentication."
           :tech-stack="['Java', 'Spring Boot', 'Spring Cloud', 'Vue.js', 'Vuetify', 'Python Flask', 'MySQL', 'Amazon Cognito', 'Docker']"
           github-url="https://github.com/bojanzdelar/Software-designer"
@@ -66,6 +51,21 @@
             'Teachers manage subject and exam realizations',
             'Microservice architecture with database-per-service pattern',
             'JWT authentication with access and refresh tokens',
+          ]"
+        />
+
+        <ProjectCard
+          title="Supplement Shop"
+          subtitle="Full-Stack E-Commerce"
+          overview="A complete e-commerce application demonstrating end-to-end integration across a Vue.js frontend, Python Flask REST API backend, and MySQL relational database. Each layer is cleanly separated — the frontend communicates exclusively through the API, JWT handles auth, and SQLAlchemy manages the schema."
+          :tech-stack="['Vue.js', 'Python Flask', 'MySQL', 'SQLAlchemy', 'JWT', 'REST API']"
+          github-url="https://github.com/bojanzdelar/Supplement-shop"
+          :features="[
+            'Product catalog with categories and filtering',
+            'Shopping cart with session management',
+            'JWT authentication with role-based authorization',
+            'Admin dashboard for inventory and order management',
+            'SQLAlchemy ORM with relational data modeling',
           ]"
         />
       </div>

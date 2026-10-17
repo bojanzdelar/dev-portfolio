@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { Github } from 'lucide-vue-next'
+import { Github, Linkedin } from 'lucide-vue-next'
 
 const year = new Date().getFullYear()
 </script>
@@ -20,6 +20,16 @@ const year = new Date().getFullYear()
         >
           <Github :size="16" aria-hidden="true" />
           bojanzdelar
+        </a>
+        <a
+          href="https://www.linkedin.com/in/bojan-zdelar-b9b617153/"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="text-slate-600 hover:text-slate-400 transition-colors flex items-center gap-2 text-sm"
+          aria-label="LinkedIn"
+        >
+          <Linkedin :size="16" aria-hidden="true" />
+          bojan-zdelar
         </a>
       </div>
     </div>

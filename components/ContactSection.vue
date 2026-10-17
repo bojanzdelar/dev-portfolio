@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { Mail, Github, ArrowRight } from 'lucide-vue-next'
+import { Mail, Github, Linkedin, ArrowRight } from 'lucide-vue-next'
 import { CONTACT_EMAIL } from '~/utils/config'
 </script>
 
@@ -51,6 +51,24 @@ import { CONTACT_EMAIL } from '~/utils/config'
               <div>
                 <p class="text-slate-200 text-sm font-semibold">GitHub Profile</p>
                 <p class="text-slate-500 text-xs font-mono mt-0.5">github.com/bojanzdelar</p>
+              </div>
+            </div>
+            <ArrowRight :size="16" class="text-slate-600 group-hover:text-slate-400 transition-colors" aria-hidden="true" />
+          </a>
+
+          <a
+            href="https://www.linkedin.com/in/bojan-zdelar-b9b617153/"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="group flex items-center justify-between w-full px-6 py-5 rounded-xl border border-slate-800 bg-slate-900/40 hover:border-slate-700 hover:bg-slate-900/70 transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-green-500"
+          >
+            <div class="flex items-center gap-4">
+              <div class="w-9 h-9 rounded-lg bg-slate-800 border border-slate-700 flex items-center justify-center shrink-0">
+                <Linkedin :size="16" class="text-slate-400" aria-hidden="true" />
+              </div>
+              <div>
+                <p class="text-slate-200 text-sm font-semibold">LinkedIn</p>
+                <p class="text-slate-500 text-xs font-mono mt-0.5">linkedin.com/in/bojan-zdelar</p>
               </div>
             </div>
             <ArrowRight :size="16" class="text-slate-600 group-hover:text-slate-400 transition-colors" aria-hidden="true" />

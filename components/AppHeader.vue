@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { Menu, X, Github } from 'lucide-vue-next'
+import { Menu, X, Github, Linkedin } from 'lucide-vue-next'
 
 const isMenuOpen = ref(false)
 
@@ -16,7 +16,7 @@ function closeMenu() {
 </script>
 
 <template>
-  <header class="fixed top-0 left-0 right-0 z-50 border-b border-slate-800/60 bg-slate-950/90 backdrop-blur-sm">
+  <header class="fixed top-0 left-0 right-0 z-50 border-b border-slate-800/60 bg-[#060d08]/90 backdrop-blur-sm">
     <nav class="mx-auto max-w-6xl px-6 lg:px-8" aria-label="Primary navigation">
       <div class="flex h-16 items-center justify-between">
         <a
@@ -45,6 +45,15 @@ function closeMenu() {
             aria-label="GitHub profile"
           >
             <Github :size="18" />
+          </a>
+          <a
+            href="https://www.linkedin.com/in/bojan-zdelar-b9b617153/"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="text-slate-400 hover:text-slate-100 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-green-500 rounded p-1"
+            aria-label="LinkedIn profile"
+          >
+            <Linkedin :size="18" />
           </a>
         </div>
 
@@ -82,6 +91,16 @@ function closeMenu() {
           >
             <Github :size="16" />
             GitHub
+          </a>
+          <a
+            href="https://www.linkedin.com/in/bojan-zdelar-b9b617153/"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="flex items-center gap-2 text-slate-400 hover:text-slate-100 text-sm transition-colors"
+            @click="closeMenu"
+          >
+            <Linkedin :size="16" />
+            LinkedIn
           </a>
         </div>
       </div>

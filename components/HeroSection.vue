@@ -15,7 +15,7 @@ const techBadges = [
       class="absolute inset-0 bg-[linear-gradient(to_right,#1e293b_1px,transparent_1px),linear-gradient(to_bottom,#1e293b_1px,transparent_1px)] bg-[size:56px_56px] opacity-20"
       aria-hidden="true"
     />
-    <div class="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-slate-950" aria-hidden="true" />
+    <div class="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-[#060d08]" aria-hidden="true" />
 
     <div class="relative mx-auto max-w-6xl px-6 lg:px-8 py-20 lg:py-28 w-full">
       <div class="grid lg:grid-cols-5 gap-12 lg:gap-16 items-center">
@@ -40,13 +40,13 @@ const techBadges = [
           <div class="flex flex-wrap gap-4 mb-12">
             <a
               href="#projects"
-              class="inline-flex items-center px-6 py-3 bg-green-600 hover:bg-green-500 text-white text-sm font-medium rounded-lg transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-green-400 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950"
+              class="inline-flex items-center px-6 py-3 bg-green-600 hover:bg-green-500 text-white text-sm font-medium rounded-lg transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-green-400 focus-visible:ring-offset-2 focus-visible:ring-offset-[#060d08]"
             >
               View Projects
             </a>
             <a
               href="#contact"
-              class="inline-flex items-center px-6 py-3 border border-slate-700 hover:border-slate-500 text-slate-300 hover:text-slate-100 text-sm font-medium rounded-lg transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-green-400 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950"
+              class="inline-flex items-center px-6 py-3 border border-slate-700 hover:border-slate-500 text-slate-300 hover:text-slate-100 text-sm font-medium rounded-lg transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-green-400 focus-visible:ring-offset-2 focus-visible:ring-offset-[#060d08]"
             >
               Get in Touch
             </a>
