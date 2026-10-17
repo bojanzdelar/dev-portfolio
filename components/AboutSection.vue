@@ -48,12 +48,11 @@
               </div>
               <div class="border-t border-slate-800 pt-5">
                 <div class="flex items-baseline justify-between gap-4 mb-1">
-                  <p class="text-slate-200 text-sm font-semibold">
-                    M.Sc. <span class="text-slate-500 font-normal">— in progress</span>
-                  </p>
+                  <p class="text-slate-200 text-sm font-semibold">Software and Information Engineering</p>
+                  <span class="text-xs text-green-400 font-mono shrink-0 tabular-nums">10.0 / 10.0</span>
                 </div>
-                <p class="text-slate-500 text-sm">Cloud-native architecture and video streaming</p>
-                <p class="text-slate-600 text-xs mt-1">Thesis: Nexa — cloud-native video streaming platform on AWS</p>
+                <p class="text-slate-500 text-sm">University Singidunum — Technical Faculty</p>
+                <p class="text-slate-600 text-xs mt-1">Master's degree · Thesis: Nexa — cloud-native video streaming platform on AWS</p>
               </div>
             </div>
           </div>

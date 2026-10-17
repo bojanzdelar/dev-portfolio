@@ -39,22 +39,35 @@
           ]"
         />
 
-        <div class="rounded-lg border border-slate-800 border-dashed px-7 py-5 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
-          <div>
-            <p class="text-slate-400 text-sm font-medium mb-1">More projects in progress</p>
-            <p class="text-slate-600 text-xs">
-              AWS automation tooling, API integrations, and infrastructure work — added as it ships.
-            </p>
-          </div>
-          <a
-            href="https://github.com/bojanzdelar"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="shrink-0 text-xs font-mono text-slate-600 hover:text-green-400 transition-colors"
-          >
-            View all repositories →
-          </a>
-        </div>
+        <ProjectCard
+          title="Software Designer"
+          subtitle="Full-Stack · Requirements & Modeling Tool"
+          overview="A tool for defining software requirements and creating UML models, with role-based access control and code generation from UML class diagrams. Microservice backend using Spring Boot and Spring Cloud, Vue.js frontend, and Amazon Cognito for authentication."
+          :tech-stack="['Java', 'Spring Boot', 'Spring Cloud', 'Vue.js', 'Vuetify', 'Python Flask', 'MySQL', 'Amazon Cognito', 'Docker']"
+          github-url="https://github.com/bojanzdelar/Software-designer"
+          :features="[
+            'Requirements and UML diagram creation within projects',
+            'Role-based access control — full access vs. read-only per privilege level',
+            'Code generation from UML class diagrams',
+            'Microservice backend with Spring Boot and Spring Cloud',
+            'Amazon Cognito authentication and authorization',
+          ]"
+        />
+
+        <ProjectCard
+          title="Learning Management System"
+          subtitle="Full-Stack · University Platform"
+          overview="University LMS with four user roles — guests, students, teachers, and administrators — built on a microservice architecture with database-per-service pattern. Students track subjects and study history, teachers manage exam realizations, administrators manage the university."
+          :tech-stack="['Java', 'Spring Boot', 'Spring Cloud', 'Spring Security', 'Angular', 'Angular Material', 'TypeScript', 'MySQL', 'Docker']"
+          github-url="https://github.com/bojanzdelar/Learning-management-system"
+          :features="[
+            'Four user roles with distinct capabilities and views',
+            'Students track enrolled subjects and previous study records',
+            'Teachers manage subject and exam realizations',
+            'Microservice architecture with database-per-service pattern',
+            'JWT authentication with access and refresh tokens',
+          ]"
+        />
       </div>
 
     </div>

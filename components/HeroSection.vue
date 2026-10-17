@@ -98,11 +98,11 @@ const techBadges = [
                     </p>
                   </div>
                   <div>
-                    <p class="text-slate-300">
-                      M.Sc. Cloud Architecture
-                      <span class="text-slate-600 font-sans text-xs ml-1">(in progress)</span>
+                    <p class="text-slate-300">M.Sc. Cloud Architecture</p>
+                    <p class="text-slate-500 text-xs mt-1">
+                      University Singidunum
+                      <span class="text-green-500 ml-1">10.0 / 10.0</span>
                     </p>
-                    <p class="text-slate-500 text-xs mt-1">Thesis: Nexa streaming platform</p>
                   </div>
                 </dd>
               </div>
