@@ -2,7 +2,7 @@
 
 Personal developer portfolio for [dev.zdelar.com](https://dev.zdelar.com).
 
-Built with Nuxt 3, Vue 3, TypeScript, and Tailwind CSS. Generates a fully static site.
+Built with Nuxt 4, Vue 3, TypeScript, and Tailwind CSS. Generates a fully static site.
 
 ## Development
 

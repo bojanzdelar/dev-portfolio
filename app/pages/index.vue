@@ -19,14 +19,14 @@ useHead({
 </script>
 
 <template>
-  <div class="min-h-screen bg-brand-bg text-brand-text">
+  <div class="min-h-screen bg-brand-bg text-brand-text font-sans antialiased">
     <AppHeader />
     <main id="main-content">
       <HeroSection />
-      <ServicesSection />
+      <ProjectsSection />
       <SkillsSection />
       <EducationSection />
-      <ProjectsSection />
+      <ServicesSection />
       <ContactSection />
     </main>
     <AppFooter />

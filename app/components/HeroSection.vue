@@ -1,107 +1,102 @@
+<script setup lang="ts">
+const today = new Date().toISOString().slice(0, 10)
+</script>
+
 <template>
   <section
     id="hero"
-    class="relative min-h-screen flex items-center pt-16"
+    class="relative pt-28 lg:pt-32 pb-20 lg:pb-28"
     aria-label="Introduction"
   >
-    <div
-      class="absolute inset-0 bg-[linear-gradient(to_right,#1e293b_1px,transparent_1px),linear-gradient(to_bottom,#1e293b_1px,transparent_1px)] bg-[size:56px_56px] opacity-20"
-      aria-hidden="true"
-    />
-    <div
-      class="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-brand-bg"
-      aria-hidden="true"
-    />
+    <div class="mx-auto max-w-6xl px-6 lg:px-10">
 
-    <div class="relative mx-auto max-w-6xl px-6 lg:px-8 py-20 lg:py-28 w-full">
-      <div class="grid lg:grid-cols-5 gap-12 lg:gap-16 items-center">
-        <!-- Left: Headline and CTAs -->
-        <div class="lg:col-span-3">
-          <p
-            class="text-brand-accent text-xs font-mono mb-5 tracking-widest uppercase"
-          >
-            Software Engineer · Serbia
-          </p>
+      <!-- Masthead strip -->
+      <div class="flex items-center justify-between border-b border-brand-border pb-4 mb-14 lg:mb-20 text-[11px] font-mono text-brand-dim uppercase tracking-[0.18em]">
+        <span class="flex items-center gap-2">
+          <span class="relative flex h-1.5 w-1.5">
+            <span class="absolute inline-flex h-full w-full rounded-full bg-brand-accent/60 animate-ping"></span>
+            <span class="relative inline-flex h-1.5 w-1.5 rounded-full bg-brand-accent"></span>
+          </span>
+          <span class="text-brand-accent/90">Available · Q4 2026</span>
+        </span>
+        <span class="hidden sm:inline tabular-nums">{{ today }} · Novi Sad, RS</span>
+        <span class="sm:hidden tabular-nums">RS</span>
+      </div>
 
-          <h1
-            class="text-4xl sm:text-5xl lg:text-[3.5rem] xl:text-6xl font-bold text-brand-text leading-[1.08] mb-6"
-          >
-            Building reliable software,
-            <span class="text-brand-accent"
-              >from APIs to cloud infrastructure.</span
-            >
+      <div class="grid lg:grid-cols-12 gap-10 lg:gap-14 items-start">
+
+        <!-- Headline column -->
+        <div class="lg:col-span-8">
+          <h1 class="font-display font-normal text-brand-text leading-[0.98] tracking-display text-[2.75rem] sm:text-6xl lg:text-[5.25rem] xl:text-[6rem]">
+            Backend &amp; cloud<br class="hidden sm:block" />
+            engineer who likes<br class="hidden sm:block" />
+            <span class="italic font-light text-brand-accent">systems that don&rsquo;t surprise anyone at 3&nbsp;a.m.</span>
           </h1>
 
-          <p class="text-lg text-brand-muted mb-10 leading-relaxed max-w-lg">
-            I build backend systems, cloud-native applications, and API
-            integrations using Java, Spring Boot, and AWS — focused on
-            architecture that's maintainable and built for real-world use.
-          </p>
+          <div class="mt-10 lg:mt-14 grid sm:grid-cols-[auto,1fr] gap-x-10 gap-y-4 max-w-2xl">
+            <p class="eyebrow pt-1">The pitch</p>
+            <p class="text-brand-muted text-base lg:text-lg leading-relaxed">
+              I build Java/Spring Boot services, deploy them on AWS with Terraform and CDK,
+              and keep the pipeline from upload to CloudFront boring enough to sleep on.
+              Lately: an HLS video platform on ECS/Fargate with S3 + MediaConvert + DynamoDB + OpenSearch.
+            </p>
+          </div>
 
-          <div class="flex flex-wrap gap-4 mb-12">
+          <div class="mt-10 flex flex-wrap items-center gap-x-6 gap-y-3">
             <a
               href="#projects"
-              class="inline-flex items-center px-6 py-3 bg-brand-accent hover:bg-brand-accent/85 text-white text-sm font-medium rounded-lg transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-accent focus-visible:ring-offset-2 focus-visible:ring-offset-brand-bg"
+              class="group inline-flex items-center gap-2 text-sm font-medium text-brand-bg bg-brand-accent hover:bg-brand-accent/90 px-5 py-2.5 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-accent focus-visible:ring-offset-2 focus-visible:ring-offset-brand-bg"
             >
-              View Projects
+              Read the Nexa case study
+              <span aria-hidden="true" class="transition-transform group-hover:translate-x-0.5">&rarr;</span>
             </a>
             <a
               href="#contact"
-              class="inline-flex items-center px-6 py-3 border border-brand-hi hover:border-brand-muted/55 text-brand-text/80 hover:text-brand-text text-sm font-medium rounded-lg transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-accent focus-visible:ring-offset-2 focus-visible:ring-offset-brand-bg"
+              class="inline-flex items-center gap-2 text-sm text-brand-muted hover:text-brand-text transition-colors border-b border-brand-border hover:border-brand-accent pb-0.5"
             >
-              Get in Touch
+              Or just email me
             </a>
           </div>
         </div>
 
-        <!-- Right: Profile card (desktop only) -->
-        <div class="hidden lg:block lg:col-span-2">
-          <div
-            class="rounded-xl border border-brand-border bg-brand-surface/65 overflow-hidden"
-          >
+        <!-- Side column: photo + metadata -->
+        <aside class="lg:col-span-4 lg:pt-2">
+          <figure class="relative">
             <img
               src="/profile.jpg"
-              alt="Bojan Zdelar"
-              class="w-full aspect-square object-cover object-top"
+              alt="Portrait of Bojan Zdelar"
+              class="w-full max-w-xs lg:max-w-none aspect-[4/5] object-cover object-top grayscale contrast-[1.05]"
             />
-            <div
-              class="px-5 py-3.5 border-b border-brand-border flex items-center gap-2.5"
-            >
-              <span
-                class="w-2 h-2 rounded-full bg-brand-accent ring-4 ring-brand-accent/10"
-                aria-hidden="true"
-              />
-              <span class="text-sm font-mono text-brand-muted"
-                >Available for freelance work</span
-              >
+            <figcaption class="mt-3 eyebrow flex items-center justify-between">
+              <span>Bojan Zdelar</span>
+              <span class="text-brand-dim/70">01</span>
+            </figcaption>
+          </figure>
+
+          <dl class="mt-8 pt-6 border-t border-brand-border text-sm">
+            <div class="flex items-baseline justify-between py-2 border-b border-brand-border/60">
+              <dt class="eyebrow">Focus</dt>
+              <dd class="text-brand-text/85 font-mono text-xs">Backend · AWS</dd>
             </div>
+            <div class="flex items-baseline justify-between py-2 border-b border-brand-border/60">
+              <dt class="eyebrow">Primary</dt>
+              <dd class="text-brand-text/85 font-mono text-xs">Java · Spring Boot</dd>
+            </div>
+            <div class="flex items-baseline justify-between py-2 border-b border-brand-border/60">
+              <dt class="eyebrow">Cloud</dt>
+              <dd class="text-brand-text/85 font-mono text-xs">ECS · Lambda · S3</dd>
+            </div>
+            <div class="flex items-baseline justify-between py-2 border-b border-brand-border/60">
+              <dt class="eyebrow">IaC</dt>
+              <dd class="text-brand-text/85 font-mono text-xs">Terraform · CDK</dd>
+            </div>
+            <div class="flex items-baseline justify-between py-2">
+              <dt class="eyebrow">Working from</dt>
+              <dd class="text-brand-text/85 font-mono text-xs">Serbia · UTC+1</dd>
+            </div>
+          </dl>
+        </aside>
 
-            <dl class="p-6 space-y-6 font-mono text-sm">
-              <div>
-                <dt
-                  class="text-brand-dim text-[10px] uppercase tracking-widest mb-3"
-                >
-                  Specialization
-                </dt>
-                <dd class="space-y-1.5">
-                  <p class="text-brand-text/80 text-base">Backend Systems &amp; APIs</p>
-                  <p class="text-brand-text/80 text-base">Cloud Architecture (AWS)</p>
-                  <p class="text-brand-text/80 text-base">Infrastructure as Code</p>
-                  <p class="text-brand-text/80 text-base">Full-Stack Development</p>
-                </dd>
-              </div>
-
-              <div class="border-t border-brand-border pt-6">
-                <dt
-                  class="text-brand-dim text-[10px] uppercase tracking-widest mb-3"
-                >
-                  Location
-                </dt>
-                <dd class="text-brand-text/80 text-base">Serbia · Remote-friendly</dd>
-              </div>
-            </dl>
-          </div>
-        </div>
       </div>
     </div>
   </section>

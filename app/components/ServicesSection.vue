@@ -1,92 +1,125 @@
 <script setup lang="ts">
-import { Server, Cloud, Code2, Layers, Box, GitMerge, Terminal, Layout } from 'lucide-vue-next'
-import type { Component } from 'vue'
-
-interface Service {
+interface Offering {
   title: string
-  description: string
-  icon: Component
+  body: string
+  tags: string[]
 }
 
-const services: Service[] = [
+interface Group {
+  heading: string
+  no: string
+  items: Offering[]
+}
+
+const groups: Group[] = [
   {
-    title: 'Backend API Development',
-    description: 'REST API design and implementation with clear contracts, proper error handling, and maintainable structure.',
-    icon: Server,
+    no: '01',
+    heading: 'Backend engineering',
+    items: [
+      {
+        title: 'REST APIs in Java / Spring Boot',
+        body: 'Service design with explicit contracts, error semantics, versioning strategy, and tests that run in CI — not just happy-path integration tests.',
+        tags: ['Java', 'Spring Boot', 'OpenAPI'],
+      },
+      {
+        title: 'Microservice refactors',
+        body: 'Splitting a monolith by data ownership rather than by endpoint. Deciding what moves, what stays, and what happens to shared state.',
+        tags: ['Spring Cloud', 'Service boundaries'],
+      },
+    ],
   },
   {
-    title: 'Java & Spring Boot',
-    description: 'Application development using Java and Spring Boot — services, security, data access, and configuration.',
-    icon: Code2,
+    no: '02',
+    heading: 'AWS architecture & IaC',
+    items: [
+      {
+        title: 'Cloud architecture on AWS',
+        body: 'Picking the right primitives — ECS vs Lambda, SQS vs Kinesis, DynamoDB vs Postgres — based on actual access patterns, cost, and operational blast radius.',
+        tags: ['ECS/Fargate', 'Lambda', 'S3', 'CloudFront'],
+      },
+      {
+        title: 'Infrastructure as code',
+        body: 'Terraform for the primitives, CDK for higher-level app constructs. Reviewable PRs instead of console drift.',
+        tags: ['Terraform', 'AWS CDK', 'GitHub Actions'],
+      },
+    ],
   },
   {
-    title: 'AWS Architecture',
-    description: 'Designing and implementing AWS-based solutions using the right service for each part of the system.',
-    icon: Cloud,
-  },
-  {
-    title: 'Infrastructure as Code',
-    description: 'Writing Terraform and AWS CDK to define infrastructure reproducibly, version-controlled, and reviewable.',
-    icon: Layers,
-  },
-  {
-    title: 'Cloud Deployment & Containers',
-    description: 'Containerizing applications with Docker and deploying to ECS/Fargate or similar managed runtimes.',
-    icon: Box,
-  },
-  {
-    title: 'Third-Party Integrations',
-    description: 'Integrating external APIs and services — authentication providers, payment systems, data pipelines.',
-    icon: GitMerge,
-  },
-  {
-    title: 'Automation Scripts',
-    description: 'Python or shell scripts for cloud resource management, data processing, and workflow automation.',
-    icon: Terminal,
-  },
-  {
-    title: 'Full-Stack Development',
-    description: 'End-to-end application development across Vue.js/Nuxt.js frontend and backend API layers.',
-    icon: Layout,
+    no: '03',
+    heading: 'Full-stack & integrations',
+    items: [
+      {
+        title: 'Full-stack features end-to-end',
+        body: 'Vue/Nuxt front end wired cleanly to a Spring Boot or Flask backend. One person owning the whole feature from API design to UI state.',
+        tags: ['Vue.js', 'Nuxt.js', 'TypeScript'],
+      },
+      {
+        title: 'Third-party integrations & automation',
+        body: 'Auth providers, payment flows, data pipelines. Python or shell when it is faster to script than to configure.',
+        tags: ['Cognito', 'REST clients', 'Python'],
+      },
+    ],
   },
 ]
 </script>
 
 <template>
-  <section id="services" class="py-16 lg:py-24 relative" aria-labelledby="services-heading">
-    <div class="absolute inset-0 bg-brand-surface/30 border-y border-brand-border" aria-hidden="true" />
+  <section id="services" class="pt-20 lg:pt-28 pb-20 lg:pb-28 border-t border-brand-border" aria-labelledby="services-heading">
+    <div class="mx-auto max-w-6xl px-6 lg:px-10">
 
-    <div class="relative mx-auto max-w-6xl px-6 lg:px-8">
-
-      <div class="mb-10">
-        <p class="text-[10px] font-mono text-brand-accent tracking-widest uppercase mb-3">Available for hire</p>
-        <h2 id="services-heading" class="text-2xl sm:text-3xl font-bold text-brand-text mb-2">
-          How I Can Help
-        </h2>
-        <p class="text-brand-muted/65 text-sm max-w-lg">
-          Available for freelance projects in backend engineering, cloud infrastructure, and full-stack development.
-        </p>
-      </div>
-
-      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-px bg-brand-border/60 border border-brand-border/60 rounded-xl overflow-hidden">
-        <div
-          v-for="(service, i) in services"
-          :key="service.title"
-          class="group relative bg-brand-bg hover:bg-brand-surface/80 transition-colors duration-200 p-6 flex flex-col"
-        >
-          <span class="absolute top-4 right-4 text-[10px] font-mono text-brand-dim/40 tabular-nums">
-            {{ String(i + 1).padStart(2, '0') }}
-          </span>
-
-          <div class="mb-5 w-10 h-10 rounded-lg border border-brand-border group-hover:border-brand-accent/25 group-hover:bg-brand-accent/6 flex items-center justify-center transition-all duration-200 shrink-0">
-            <component :is="service.icon" :size="17" class="text-brand-dim group-hover:text-brand-accent transition-colors duration-200" aria-hidden="true" />
-          </div>
-
-          <h3 class="text-base font-semibold text-brand-text/85 mb-2 leading-snug pr-6">{{ service.title }}</h3>
-          <p class="text-sm text-brand-dim leading-relaxed mt-auto pt-1">{{ service.description }}</p>
-
-          <div class="absolute bottom-0 left-0 right-0 h-px bg-brand-accent/70 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left" aria-hidden="true" />
+      <!-- Section header -->
+      <header class="grid lg:grid-cols-12 gap-6 lg:gap-10 mb-14 lg:mb-20 pb-5 border-b border-brand-border">
+        <div class="lg:col-span-9">
+          <p class="eyebrow mb-4">§ 04 — Working together</p>
+          <h2 id="services-heading" class="font-display text-4xl sm:text-5xl text-brand-text tracking-display leading-[1.02]">
+            Short-list of
+            <span class="italic font-light text-brand-muted"> things worth hiring me for.</span>
+          </h2>
         </div>
+        <p class="lg:col-span-3 lg:text-right text-brand-muted text-sm leading-relaxed lg:pt-3">
+          Freelance &amp; project-based engagements. Remote-friendly, UTC+1.
+        </p>
+      </header>
+
+      <!-- Groups -->
+      <div class="space-y-16 lg:space-y-20">
+        <section
+          v-for="group in groups"
+          :key="group.heading"
+          class="grid lg:grid-cols-12 gap-6 lg:gap-10"
+        >
+          <header class="lg:col-span-3">
+            <div class="flex items-baseline gap-3 lg:sticky lg:top-20">
+              <span class="font-mono text-xs text-brand-dim/80 tabular-nums pt-1">{{ group.no }}</span>
+              <h3 class="font-display text-2xl lg:text-3xl text-brand-text leading-tight">
+                {{ group.heading }}
+              </h3>
+            </div>
+          </header>
+
+          <ol class="lg:col-span-9 divide-y divide-brand-border">
+            <li
+              v-for="item in group.items"
+              :key="item.title"
+              class="py-6 first:pt-0 last:pb-0"
+            >
+              <h4 class="font-display text-xl text-brand-text leading-snug mb-2">
+                {{ item.title }}
+              </h4>
+              <p class="text-brand-muted leading-relaxed mb-3">{{ item.body }}</p>
+              <ul class="flex flex-wrap gap-x-4 gap-y-1 font-mono text-xs text-brand-dim">
+                <li
+                  v-for="(tag, i) in item.tags"
+                  :key="tag"
+                  class="flex items-baseline gap-4"
+                >
+                  <span>{{ tag }}</span>
+                  <span v-if="i < item.tags.length - 1" class="text-brand-border select-none" aria-hidden="true">/</span>
+                </li>
+              </ul>
+            </li>
+          </ol>
+        </section>
       </div>
 
     </div>

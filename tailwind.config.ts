@@ -19,6 +19,14 @@ export default {
           hi:      '#273229',
         },
       },
+      fontFamily: {
+        sans: ['Inter', 'ui-sans-serif', 'system-ui', '-apple-system', 'Segoe UI', 'Roboto', 'sans-serif'],
+        display: ['"Fraunces"', '"Source Serif 4"', 'Georgia', 'serif'],
+        mono: ['"JetBrains Mono"', 'ui-monospace', 'SFMono-Regular', 'Menlo', 'monospace'],
+      },
+      letterSpacing: {
+        'display': '-0.025em',
+      },
     },
   },
   plugins: [],

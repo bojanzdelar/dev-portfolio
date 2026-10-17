@@ -6,53 +6,59 @@ const currentIndex = ref(0)
 const direction = ref<'forward' | 'backward'>('forward')
 
 const projects = [
-  { id: 'nexa', title: 'Nexa', label: "Master's Thesis" },
-  { id: 'software-designer', title: 'Software Designer', label: "Bachelor's Thesis" },
-  { id: 'lms', title: 'Learning Management System', label: 'Full-Stack Platform' },
-  { id: 'supplement-shop', title: 'Supplement Shop', label: 'E-Commerce' },
+  { id: 'nexa', title: 'Nexa', label: "Master's Thesis", year: '2024—25' },
+  { id: 'software-designer', title: 'Software Designer', label: "Bachelor's Thesis", year: '2021' },
+  { id: 'lms', title: 'Learning Management System', label: 'University Platform', year: '2022' },
+  { id: 'supplement-shop', title: 'Supplement Shop', label: 'E-Commerce', year: '2020' },
 ]
 
 const projectCards = [
   {
     title: 'Software Designer',
-    subtitle: "Bachelor's Thesis · Requirements & Modeling Tool",
-    overview: 'A tool for defining software requirements and creating UML models, with role-based access control and code generation from UML class diagrams. Microservice backend using Spring Boot and Spring Cloud, Vue.js frontend, and Amazon Cognito for authentication.',
+    kicker: "Bachelor's thesis / 2021",
+    subtitle: 'Requirements & UML modeling tool with code generation',
+    overview:
+      "A desktop-grade web tool for authoring software requirements and UML class diagrams inside shared projects, with per-user privilege levels and Java source generation from class models. Built on a Spring Cloud microservice backend, a Python Flask code-generation service, and a Vue.js front end — authentication delegated to Amazon Cognito.",
     techStack: ['Java', 'Spring Boot', 'Spring Cloud', 'Vue.js', 'Vuetify', 'Python Flask', 'MySQL', 'Amazon Cognito', 'Docker'],
     githubUrl: 'https://github.com/bojanzdelar/Software-designer',
     features: [
-      'Requirements and UML diagram creation within projects',
-      'Role-based access control — full access vs. read-only per privilege level',
-      'Code generation from UML class diagrams',
-      'Microservice backend with Spring Boot and Spring Cloud',
-      'Amazon Cognito authentication and authorization',
+      'Project-scoped requirement specs and UML diagrams',
+      'Per-user privilege levels (full access vs. read-only)',
+      'Java class generation from UML class diagrams',
+      'Spring Cloud microservice backend with service discovery',
+      'Amazon Cognito for authentication and authorization',
     ],
   },
   {
     title: 'Learning Management System',
-    subtitle: 'Full-Stack · University Platform',
-    overview: 'University LMS with four user roles — guests, students, teachers, and administrators — built on a microservice architecture with database-per-service pattern. Students track subjects and study history, teachers manage exam realizations, administrators manage the university.',
+    kicker: 'University platform / 2022',
+    subtitle: 'Four-role LMS on microservice architecture',
+    overview:
+      "A university LMS with four distinct user roles — guest, student, teacher, administrator — each with its own view and permission set. Microservice backend using a database-per-service pattern; students track enrolled subjects and prior study history, teachers run exam realizations, administrators manage the catalog.",
     techStack: ['Java', 'Spring Boot', 'Spring Cloud', 'Spring Security', 'Angular', 'Angular Material', 'TypeScript', 'MySQL', 'Docker'],
     githubUrl: 'https://github.com/bojanzdelar/Learning-management-system',
     features: [
-      'Four user roles with distinct capabilities and views',
-      'Students track enrolled subjects and previous study records',
-      'Teachers manage subject and exam realizations',
-      'Microservice architecture with database-per-service pattern',
-      'JWT authentication with access and refresh tokens',
+      'Four roles, four UIs, one shared API surface',
+      'Student view: enrolled subjects + study history',
+      'Teacher view: exam realization management',
+      'Database-per-service microservice decomposition',
+      'JWT with access + refresh token rotation',
     ],
   },
   {
     title: 'Supplement Shop',
-    subtitle: 'Full-Stack E-Commerce',
-    overview: 'A complete e-commerce application demonstrating end-to-end integration across a Vue.js frontend, Python Flask REST API backend, and MySQL relational database. Each layer is cleanly separated — the frontend communicates exclusively through the API, JWT handles auth, and SQLAlchemy manages the schema.',
+    kicker: 'E-commerce / 2020',
+    subtitle: 'Three-tier Flask + Vue storefront',
+    overview:
+      "A full e-commerce flow built as a textbook three-tier split: a Vue.js front end, a Python Flask REST API, and a MySQL store accessed through SQLAlchemy. The front end talks to the API only — no shortcuts — with JWT for session handling and an admin area for inventory and orders.",
     techStack: ['Vue.js', 'Python Flask', 'MySQL', 'SQLAlchemy', 'JWT', 'REST API'],
     githubUrl: 'https://github.com/bojanzdelar/Supplement-shop',
     features: [
-      'Product catalog with categories and filtering',
-      'Shopping cart with session management',
-      'JWT authentication with role-based authorization',
-      'Admin dashboard for inventory and order management',
-      'SQLAlchemy ORM with relational data modeling',
+      'Category-filtered product catalog',
+      'Session-based shopping cart',
+      'JWT auth with role-based authorization',
+      'Admin dashboard for inventory and orders',
+      'SQLAlchemy models for relational data',
     ],
   },
 ]
@@ -72,47 +78,68 @@ function goTo(index: number) {
 </script>
 
 <template>
-  <section id="projects" class="py-16 lg:py-24 border-t border-brand-border/75" aria-labelledby="projects-heading">
-    <div class="mx-auto max-w-6xl px-6 lg:px-8">
+  <section id="work" class="pt-20 lg:pt-28 pb-20 lg:pb-28 border-t border-brand-border" aria-labelledby="work-heading">
+    <div class="mx-auto max-w-6xl px-6 lg:px-10">
 
-      <!-- Header -->
-      <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-5 mb-10 pb-8 border-b border-brand-border">
-        <h2 id="projects-heading" class="text-2xl sm:text-3xl font-bold text-brand-text">Projects</h2>
+      <!-- Section header -->
+      <header class="mb-14 lg:mb-20">
+        <div class="flex items-end justify-between gap-6 pb-5 border-b border-brand-border">
+          <div>
+            <p class="eyebrow mb-4">§ 01 — Selected Work</p>
+            <h2 id="work-heading" class="font-display text-4xl sm:text-5xl lg:text-6xl text-brand-text tracking-display leading-[0.98]">
+              Four projects.<br class="sm:hidden" />
+              <span class="italic font-light text-brand-muted">One obsession: making the moving parts visible.</span>
+            </h2>
+          </div>
+        </div>
 
-        <div class="flex items-center gap-5">
-          <a
-            href="https://github.com/bojanzdelar"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="hidden sm:block text-xs font-mono text-brand-dim hover:text-brand-accent transition-colors"
-          >
-            github.com/bojanzdelar →
-          </a>
+        <!-- Project index strip -->
+        <div class="mt-6 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+          <ol class="flex items-center flex-wrap gap-x-5 gap-y-2 text-xs font-mono">
+            <li v-for="(p, i) in projects" :key="p.id">
+              <button
+                @click="goTo(i)"
+                class="group inline-flex items-baseline gap-1.5 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-accent rounded-sm"
+                :aria-current="i === currentIndex ? 'true' : undefined"
+              >
+                <span
+                  class="tabular-nums"
+                  :class="i === currentIndex ? 'text-brand-accent' : 'text-brand-dim/70 group-hover:text-brand-muted'"
+                >
+                  0{{ i + 1 }}
+                </span>
+                <span
+                  class="uppercase tracking-[0.14em]"
+                  :class="i === currentIndex ? 'text-brand-text' : 'text-brand-muted group-hover:text-brand-text'"
+                >
+                  {{ p.title }}
+                </span>
+                <span class="text-brand-dim/50 hidden sm:inline">· {{ p.year }}</span>
+              </button>
+            </li>
+          </ol>
 
-          <!-- Prev / counter / Next -->
           <div class="flex items-center gap-2">
             <button
               @click="navigate(-1)"
-              class="w-9 h-9 rounded-lg border border-brand-border bg-brand-surface/40 hover:border-brand-accent/40 hover:bg-brand-accent/6 flex items-center justify-center transition-all duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-accent"
+              class="w-9 h-9 border border-brand-border hover:border-brand-accent hover:text-brand-accent text-brand-muted flex items-center justify-center transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-accent"
               aria-label="Previous project"
             >
-              <ChevronLeft :size="16" class="text-brand-muted" />
+              <ChevronLeft :size="16" />
             </button>
-
-            <span class="text-sm font-mono text-brand-dim tabular-nums select-none px-1" aria-live="polite">
-              {{ String(currentIndex + 1).padStart(2, '0') }}&nbsp;/&nbsp;{{ String(total).padStart(2, '0') }}
+            <span class="text-xs font-mono text-brand-dim tabular-nums select-none px-1" aria-live="polite">
+              {{ String(currentIndex + 1).padStart(2, '0') }} / {{ String(total).padStart(2, '0') }}
             </span>
-
             <button
               @click="navigate(1)"
-              class="w-9 h-9 rounded-lg border border-brand-border bg-brand-surface/40 hover:border-brand-accent/40 hover:bg-brand-accent/6 flex items-center justify-center transition-all duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-accent"
+              class="w-9 h-9 border border-brand-border hover:border-brand-accent hover:text-brand-accent text-brand-muted flex items-center justify-center transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-accent"
               aria-label="Next project"
             >
-              <ChevronRight :size="16" class="text-brand-muted" />
+              <ChevronRight :size="16" />
             </button>
           </div>
         </div>
-      </div>
+      </header>
 
       <!-- Sliding project content -->
       <Transition :name="transitionName" mode="out-in">
@@ -121,22 +148,6 @@ function goTo(index: number) {
           <ProjectCard v-else v-bind="projectCards[currentIndex - 1]" />
         </div>
       </Transition>
-
-      <!-- Dot / pill indicators -->
-      <div class="flex items-center justify-center gap-2 mt-10" role="tablist" aria-label="Project navigation">
-        <button
-          v-for="(p, i) in projects"
-          :key="p.id"
-          @click="goTo(i)"
-          role="tab"
-          :aria-selected="i === currentIndex"
-          :aria-label="p.title"
-          class="h-1.5 rounded-full transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-accent focus-visible:ring-offset-2 focus-visible:ring-offset-brand-bg"
-          :class="i === currentIndex
-            ? 'w-8 bg-brand-accent'
-            : 'w-2 bg-brand-border hover:bg-brand-dim'"
-        />
-      </div>
 
     </div>
   </section>
@@ -152,19 +163,19 @@ function goTo(index: number) {
 
 .slide-forward-enter-from {
   opacity: 0;
-  transform: translateX(48px);
+  transform: translateX(32px);
 }
 .slide-forward-leave-to {
   opacity: 0;
-  transform: translateX(-48px);
+  transform: translateX(-32px);
 }
 
 .slide-backward-enter-from {
   opacity: 0;
-  transform: translateX(-48px);
+  transform: translateX(-32px);
 }
 .slide-backward-leave-to {
   opacity: 0;
-  transform: translateX(48px);
+  transform: translateX(32px);
 }
 </style>

@@ -1,23 +1,22 @@
 <script setup lang="ts">
-import { Github } from 'lucide-vue-next'
+import { Github, ArrowUpRight } from 'lucide-vue-next'
 
 const implemented = [
-  'Java and Spring Boot microservices running on ECS/Fargate',
-  'Nuxt.js frontend deployed to S3 and served via CloudFront',
-  'Video upload to S3 with MediaConvert transcoding to HLS',
-  'Amazon Cognito authentication and authorization',
-  'API Gateway routing to Lambda and containerized services',
-  'DynamoDB for video catalog metadata',
-  'OpenSearch for full-text search and filtering',
-  'Terraform and AWS CDK infrastructure definitions',
-  'HLS video playback in the browser',
-  'Adaptive bitrate streaming based on client bandwidth',
+  'Spring Boot microservices on ECS/Fargate (video, catalog, user)',
+  'Upload path: pre-signed S3 PUT → S3 event → Lambda → MediaConvert',
+  'HLS output written back to S3, served through CloudFront',
+  'Adaptive bitrate playback in the browser (hls.js on Nuxt front end)',
+  'DynamoDB for catalog lookups by id',
+  'OpenSearch for full-text search and faceted filtering',
+  'API Gateway in front of Lambda + ECS services',
+  'Amazon Cognito for auth (user pools, hosted UI)',
+  'Terraform for VPC, IAM, ECS, data stores; CDK for higher-level stacks',
 ]
 
 const planned = [
-  'Subscription and payment processing integration',
-  'Content recommendation and personalization',
-  'Admin analytics and upload dashboard',
+  'Subscription + payment processing',
+  'Content recommendations',
+  'Admin analytics + upload dashboard',
 ]
 
 const techStack = [
@@ -29,146 +28,178 @@ const techStack = [
 
 const decisions = [
   {
-    title: 'Microservice decomposition',
-    body: 'Separated video ingestion, catalog management, and user handling into independent services. Each owns its data and exposes a REST API, so any service can be deployed, scaled, or rewritten without touching the others.',
+    n: '01',
+    title: 'Microservice boundaries drawn around data ownership, not endpoints',
+    body: 'Ingestion, catalog, and user management are separate services, each with its own data store. The ingestion service never queries the catalog table directly; it emits events and lets the catalog service react. The upside is that any one of them can be rewritten in a different language or torn out entirely without rewriting the API gateway in front of it.',
   },
   {
-    title: 'Asynchronous transcoding pipeline',
-    body: 'Raw uploads land in S3, which triggers a MediaConvert job via Lambda — the API response returns immediately. Encoding runs out-of-band, decoupling upload latency from processing time entirely.',
+    n: '02',
+    title: 'Transcoding is strictly asynchronous',
+    body: 'A client gets a pre-signed URL, PUTs the raw file directly to S3, and gets 202 back. S3 fires an event, Lambda submits a MediaConvert job, and the service writes the new HLS asset back to S3 when the job completes. The HTTP path never waits on encoding — the slowest step is decoupled from the user-visible one.',
   },
   {
-    title: 'CloudFront for all delivery paths',
-    body: 'Both the static frontend and HLS video segments are served through the same CloudFront distribution with different origin configurations. No separate CDN setup: cache policies, signed URLs, and geographic distribution handled in one place.',
+    n: '03',
+    title: 'One CloudFront distribution, two origins',
+    body: 'The Nuxt static front end and the HLS segments share a distribution with different origin behaviors and cache policies. Signed URLs for premium content, long-TTL for segments, short-TTL for manifests — all configured in one place instead of two parallel CDN setups.',
   },
   {
-    title: 'Everything in infrastructure as code',
-    body: 'Terraform manages VPCs, IAM roles, ECS clusters, and RDS configurations. AWS CDK handles higher-level constructs. The entire environment can be torn down and recreated from a single apply — no manual console state.',
+    n: '04',
+    title: 'DynamoDB for the catalog, OpenSearch for the search box',
+    body: 'DynamoDB handles the "give me video 42" path in single-digit milliseconds. OpenSearch handles "action films under 90 minutes released after 2020." The split was intentional: the two access patterns have nothing in common and should not live in the same store pretending otherwise.',
   },
   {
-    title: 'DynamoDB for catalog, OpenSearch for search',
-    body: 'Catalog metadata is in DynamoDB for fast key-value lookups by ID. OpenSearch handles full-text queries and faceted filtering, letting each store do what it is actually designed for.',
+    n: '05',
+    title: 'The whole environment is reproducible from source',
+    body: 'Terraform owns the primitives — VPCs, subnets, IAM roles, ECS clusters, data stores. CDK layers higher-level app stacks on top. A fresh account can be stood up with two commands; a torn-down one leaves no console artifacts behind. No "someone clicked something in the console that one time."',
   },
 ]
 </script>
 
 <template>
-  <article
-    class="rounded-xl border border-brand-hi/75 bg-brand-surface/55 overflow-hidden"
-    aria-labelledby="nexa-title"
-  >
-    <!-- Header -->
-    <div class="bg-brand-surface/85 border-b border-brand-border px-8 py-6 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
-      <div>
-        <div class="flex items-center gap-3 mb-2.5">
-          <span class="text-xs font-mono text-brand-accent bg-brand-accent/8 border border-brand-accent/15 rounded px-2 py-0.5 tracking-wide">
-            Featured
-          </span>
-          <span class="text-xs text-brand-muted/65 font-mono">Master's Thesis · 2024–2025</span>
+  <article aria-labelledby="nexa-title" class="relative">
+    <!-- Case study masthead -->
+    <header class="grid lg:grid-cols-12 gap-6 lg:gap-10 pb-8 mb-10 border-b border-brand-border">
+      <div class="lg:col-span-9">
+        <div class="flex items-center gap-3 mb-5">
+          <span class="eyebrow text-brand-accent">Case Study</span>
+          <span class="w-6 h-px bg-brand-border" aria-hidden="true"></span>
+          <span class="eyebrow">Master's Thesis — 2024/25</span>
         </div>
-        <h3 id="nexa-title" class="text-xl sm:text-2xl font-bold text-brand-text leading-snug">
-          Nexa — Cloud-Native Video Streaming Platform
+        <h3 id="nexa-title" class="font-display text-3xl sm:text-4xl lg:text-5xl text-brand-text leading-[1.02] tracking-display mb-4">
+          Nexa<span class="text-brand-muted/60"> — </span><span class="italic font-light text-brand-muted">a cloud-native video streaming platform on AWS.</span>
         </h3>
       </div>
-      <a
-        href="https://github.com/bojanzdelar/nexa"
-        target="_blank"
-        rel="noopener noreferrer"
-        class="inline-flex items-center gap-2 px-4 py-2 border border-brand-hi hover:border-brand-accent/40 text-brand-muted hover:text-brand-accent text-sm rounded-lg transition-colors shrink-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-accent font-mono"
-        aria-label="View Nexa on GitHub"
-      >
-        <Github :size="14" />
-        GitHub
-      </a>
+      <div class="lg:col-span-3 lg:pt-3 flex lg:justify-end">
+        <a
+          href="https://github.com/bojanzdelar/nexa"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="group inline-flex items-center gap-2 text-sm font-mono text-brand-muted hover:text-brand-accent border border-brand-border hover:border-brand-accent px-4 py-2 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-accent self-start"
+          aria-label="View Nexa on GitHub"
+        >
+          <Github :size="14" />
+          <span>github.com/bojanzdelar/nexa</span>
+          <ArrowUpRight :size="12" class="transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+        </a>
+      </div>
+    </header>
+
+    <!-- Objective / Approach -->
+    <div class="grid lg:grid-cols-12 gap-6 lg:gap-10 mb-14 lg:mb-20">
+      <div class="lg:col-span-3">
+        <p class="eyebrow">The brief</p>
+      </div>
+      <div class="lg:col-span-9 space-y-5 text-brand-text/90 text-lg leading-relaxed">
+        <p>
+          Design and build an on-demand video platform end-to-end — upload path,
+          encoding pipeline, catalog, search, playback — using AWS primitives and
+          a modern Spring Boot backend. Treat the infrastructure and the
+          application as one deliverable, both version-controlled.
+        </p>
+        <p class="text-brand-muted">
+          The scope wasn't "deploy a Spring Boot app to EC2 and call it cloud-native." The scope was
+          to decide, defend, and implement every service choice in the chain — why S3 and
+          MediaConvert instead of ffmpeg on a worker, why DynamoDB <em class="font-display italic text-brand-text/80">and</em> OpenSearch
+          instead of one of them, why Fargate instead of Lambda for the long-running services —
+          and then write it all down in Terraform and CDK so the next engineer can rebuild it from
+          <code class="font-mono text-brand-text/80 text-base">main</code>.
+        </p>
+      </div>
     </div>
 
-    <div class="px-8 py-8 space-y-10">
-
-      <!-- Overview: Objective + Approach -->
-      <div class="grid lg:grid-cols-2 gap-6">
-        <div class="space-y-2">
-          <h4 class="text-[10px] font-mono text-brand-dim uppercase tracking-widest">Objective</h4>
-          <p class="text-brand-text/80 text-base leading-relaxed">
-            Design and implement a cloud-native video streaming platform as a master's thesis project,
-            exploring how modern AWS services can be composed into a scalable architecture for
-            on-demand video delivery — from raw upload through encoding, storage, and HLS playback.
-          </p>
-        </div>
-        <div class="space-y-2">
-          <h4 class="text-[10px] font-mono text-brand-dim uppercase tracking-widest">Approach</h4>
-          <p class="text-brand-text/80 text-base leading-relaxed">
-            Decomposed the platform into discrete microservices on ECS/Fargate, each owning its
-            data and communicating over REST APIs. Infrastructure is defined entirely in Terraform
-            and AWS CDK — the environment is reproducible, version-controlled, and audit-able.
-          </p>
-        </div>
+    <!-- Architecture diagram -->
+    <figure class="mb-14 lg:mb-20">
+      <div class="flex items-center justify-between pb-3 mb-3 border-b border-brand-border">
+        <p class="eyebrow">Fig. 1 — System architecture</p>
+        <p class="eyebrow">AWS composition</p>
       </div>
+      <img
+        src="/nexa-architecture.jpg"
+        alt="Nexa platform architecture: Nuxt client, CloudFront, API Gateway, Cognito, ECS/Fargate services, S3 upload bucket, Lambda, MediaConvert, DynamoDB, and OpenSearch."
+        class="w-full border border-brand-border"
+      />
+    </figure>
 
-      <!-- Architecture Diagram -->
-      <div>
-        <h4 class="text-[10px] font-mono text-brand-dim uppercase tracking-widest mb-4">Architecture</h4>
-        <div class="rounded-lg overflow-hidden border border-brand-border">
-          <img
-            src="/nexa-architecture.jpg"
-            alt="Nexa platform architecture diagram"
-            class="w-full"
-          />
-        </div>
-      </div>
+    <!-- Decisions -->
+    <section class="grid lg:grid-cols-12 gap-6 lg:gap-10 mb-14 lg:mb-20">
+      <header class="lg:col-span-3">
+        <p class="eyebrow mb-3">Key engineering decisions</p>
+        <p class="text-brand-muted text-sm leading-relaxed">
+          Five choices that shape the architecture. Each one is the kind of
+          thing I'd defend in a design review.
+        </p>
+      </header>
+      <ol class="lg:col-span-9 divide-y divide-brand-border">
+        <li
+          v-for="d in decisions"
+          :key="d.n"
+          class="grid grid-cols-[auto,1fr] gap-x-6 gap-y-2 py-6 first:pt-0 last:pb-0"
+        >
+          <span class="font-mono text-xs text-brand-dim tabular-nums pt-1.5">{{ d.n }}</span>
+          <div>
+            <h4 class="font-display text-xl text-brand-text leading-snug mb-2">{{ d.title }}</h4>
+            <p class="text-brand-muted leading-relaxed">{{ d.body }}</p>
+          </div>
+        </li>
+      </ol>
+    </section>
 
-      <!-- Engineering decisions + Status -->
-      <div class="grid lg:grid-cols-2 gap-8">
-
-        <!-- Decisions -->
+    <!-- Status: implemented / planned side-by-side -->
+    <section class="grid lg:grid-cols-12 gap-6 lg:gap-10 mb-14 lg:mb-20">
+      <header class="lg:col-span-3">
+        <p class="eyebrow mb-3">What's built</p>
+        <p class="text-brand-muted text-sm leading-relaxed">
+          The thesis scope ended at the pipeline being end-to-end functional.
+          Everything to the right of this list is honest about what's still open.
+        </p>
+      </header>
+      <div class="lg:col-span-9 grid sm:grid-cols-2 gap-10">
         <div>
-          <h4 class="text-[10px] font-mono text-brand-dim uppercase tracking-widest mb-5">Key Engineering Decisions</h4>
-          <ul class="space-y-5">
-            <li v-for="d in decisions" :key="d.title" class="border-l border-brand-border pl-4">
-              <p class="text-brand-text text-base font-semibold leading-snug mb-1">{{ d.title }}</p>
-              <p class="text-brand-muted/65 text-sm leading-relaxed">{{ d.body }}</p>
+          <p class="eyebrow text-brand-accent mb-4">Shipped</p>
+          <ul class="space-y-3">
+            <li
+              v-for="item in implemented"
+              :key="item"
+              class="grid grid-cols-[auto,1fr] gap-3 items-baseline"
+            >
+              <span class="font-mono text-brand-accent text-xs" aria-hidden="true">+</span>
+              <span class="text-brand-text/85 text-sm leading-relaxed">{{ item }}</span>
             </li>
           </ul>
         </div>
-
-        <!-- Implementation status -->
-        <div class="space-y-5">
-          <div class="rounded-lg bg-brand-accent/5 border border-brand-accent/10 p-5">
-            <h4 class="text-[10px] font-mono text-brand-accent/75 uppercase tracking-widest mb-4">Implemented</h4>
-            <ul class="space-y-2.5">
-              <li v-for="item in implemented" :key="item" class="flex gap-3">
-                <span class="text-brand-accent shrink-0 text-xs mt-1 font-bold">✓</span>
-                <span class="text-brand-muted text-sm leading-relaxed">{{ item }}</span>
-              </li>
-            </ul>
-          </div>
-
-          <div class="rounded-lg bg-brand-surface/85 border border-brand-border p-5">
-            <h4 class="text-[10px] font-mono text-brand-dim uppercase tracking-widest mb-4">
-              Planned <span class="text-brand-dim/65 normal-case font-sans font-normal text-xs">(thesis scope)</span>
-            </h4>
-            <ul class="space-y-2.5">
-              <li v-for="item in planned" :key="item" class="flex gap-3">
-                <span class="text-brand-dim/65 shrink-0 mt-1 text-xs">○</span>
-                <span class="text-brand-dim text-sm leading-relaxed">{{ item }}</span>
-              </li>
-            </ul>
-          </div>
+        <div>
+          <p class="eyebrow mb-4">Out of scope / next</p>
+          <ul class="space-y-3">
+            <li
+              v-for="item in planned"
+              :key="item"
+              class="grid grid-cols-[auto,1fr] gap-3 items-baseline"
+            >
+              <span class="font-mono text-brand-dim text-xs" aria-hidden="true">·</span>
+              <span class="text-brand-muted text-sm leading-relaxed">{{ item }}</span>
+            </li>
+          </ul>
         </div>
       </div>
+    </section>
 
-      <!-- Tech stack -->
-      <div>
-        <h4 class="text-[10px] font-mono text-brand-dim uppercase tracking-widest mb-4">Technology Stack</h4>
-        <div class="flex flex-wrap gap-2">
-          <span
-            v-for="tech in techStack"
+    <!-- Stack -->
+    <section class="grid lg:grid-cols-12 gap-6 lg:gap-10">
+      <header class="lg:col-span-3">
+        <p class="eyebrow">Stack in full</p>
+      </header>
+      <div class="lg:col-span-9">
+        <ul class="flex flex-wrap gap-x-5 gap-y-2.5 font-mono text-sm text-brand-muted">
+          <li
+            v-for="(tech, i) in techStack"
             :key="tech"
-            class="text-sm font-mono text-green-300/80 bg-brand-accent/5 border border-brand-accent/10 rounded px-2.5 py-1"
+            class="flex items-baseline gap-5"
           >
-            {{ tech }}
-          </span>
-        </div>
+            <span>{{ tech }}</span>
+            <span v-if="i < techStack.length - 1" class="text-brand-border select-none" aria-hidden="true">/</span>
+          </li>
+        </ul>
       </div>
-
-    </div>
+    </section>
   </article>
 </template>

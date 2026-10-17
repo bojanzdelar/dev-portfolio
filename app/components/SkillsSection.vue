@@ -1,88 +1,97 @@
 <script setup lang="ts">
-const categories = [
+interface Category {
+  name: string
+  no: string
+  primary: string[]
+  secondary: string[]
+}
+
+const categories: Category[] = [
   {
     name: 'Backend',
-    skills: ['Java', 'Spring Boot', 'REST APIs', 'Microservices', 'Spring Security'],
+    no: '01',
+    primary: ['Java', 'Spring Boot'],
+    secondary: ['REST APIs', 'Microservices', 'Spring Security'],
   },
   {
     name: 'Cloud & Infrastructure',
-    skills: ['AWS', 'Terraform', 'AWS CDK', 'Docker', 'ECS/Fargate', 'Lambda', 'S3', 'CloudFront', 'API Gateway', 'EC2'],
+    no: '02',
+    primary: ['AWS', 'Terraform', 'AWS CDK'],
+    secondary: ['Docker', 'ECS/Fargate', 'Lambda', 'S3', 'CloudFront', 'API Gateway', 'EC2'],
   },
   {
     name: 'Data & Search',
-    skills: ['DynamoDB', 'MySQL', 'OpenSearch', 'SQLAlchemy'],
+    no: '03',
+    primary: ['DynamoDB', 'OpenSearch'],
+    secondary: ['MySQL', 'SQLAlchemy'],
   },
   {
     name: 'Frontend',
-    skills: ['TypeScript', 'JavaScript', 'Vue.js', 'Nuxt.js', 'HTML', 'CSS', 'Tailwind CSS'],
+    no: '04',
+    primary: ['TypeScript', 'Vue.js', 'Nuxt.js'],
+    secondary: ['JavaScript', 'HTML', 'CSS', 'Tailwind CSS'],
   },
   {
-    name: 'Automation & Tooling',
-    skills: ['Python', 'Shell scripting', 'CI/CD', 'AWS automation', 'API integrations'],
+    name: 'Automation',
+    no: '05',
+    primary: ['Python', 'Shell'],
+    secondary: ['CI/CD', 'AWS automation', 'API integrations'],
   },
 ]
-
-const iconMap: Record<string, string> = {
-  'Java': 'openjdk',
-  'Spring Boot': 'springboot',
-  'Docker': 'docker',
-  'Terraform': 'terraform',
-  'TypeScript': 'typescript',
-  'JavaScript': 'javascript',
-  'Vue.js': 'vuedotjs',
-  'Nuxt.js': 'nuxt',
-  'HTML': 'html5',
-  'CSS': 'css',
-  'Tailwind CSS': 'tailwindcss',
-  'Python': 'python',
-  'MySQL': 'mysql',
-  'OpenSearch': 'opensearch',
-  'SQLAlchemy': 'sqlalchemy',
-}
-
-function iconUrl(skill: string): string | null {
-  const slug = iconMap[skill]
-  return slug ? `https://cdn.simpleicons.org/${slug}/9AA79E` : null
-}
 </script>
 
 <template>
-  <section id="skills" class="py-16 lg:py-24 border-t border-brand-border/75" aria-labelledby="skills-heading">
-    <div class="mx-auto max-w-6xl px-6 lg:px-8">
+  <section id="skills" class="pt-20 lg:pt-28 pb-20 lg:pb-28 border-t border-brand-border" aria-labelledby="skills-heading">
+    <div class="mx-auto max-w-6xl px-6 lg:px-10">
 
-      <div class="mb-10 pb-8 border-b border-brand-border">
-        <h2 id="skills-heading" class="text-2xl sm:text-3xl font-bold text-brand-text">
-          Technical Skills
-        </h2>
-      </div>
-
-      <div class="divide-y divide-brand-border/60">
-        <div
-          v-for="category in categories"
-          :key="category.name"
-          class="py-5 flex flex-col sm:flex-row sm:items-start gap-3 sm:gap-6"
-        >
-          <span class="text-xs font-mono text-brand-dim uppercase tracking-widest sm:w-48 sm:shrink-0 sm:pt-1.5">
-            {{ category.name }}
-          </span>
-          <div class="flex flex-wrap gap-2">
-            <span
-              v-for="skill in category.skills"
-              :key="skill"
-              class="inline-flex items-center gap-1.5 text-sm font-mono text-brand-muted bg-brand-surface/65 border border-brand-border rounded-md px-3 py-1.5 hover:border-brand-hi hover:text-brand-text/80 transition-colors"
-            >
-              <img
-                v-if="iconUrl(skill)"
-                :src="iconUrl(skill)!"
-                :alt="skill"
-                class="w-4 h-4 shrink-0"
-                aria-hidden="true"
-              />
-              {{ skill }}
-            </span>
-          </div>
+      <!-- Section header -->
+      <header class="grid lg:grid-cols-12 gap-6 lg:gap-10 mb-14 lg:mb-20 pb-5 border-b border-brand-border">
+        <div class="lg:col-span-9">
+          <p class="eyebrow mb-4">§ 02 — Stack</p>
+          <h2 id="skills-heading" class="font-display text-4xl sm:text-5xl text-brand-text tracking-display leading-[1.02]">
+            Tools I actually reach for
+            <span class="italic font-light text-brand-muted"> — not tools I've installed once.</span>
+          </h2>
         </div>
-      </div>
+        <p class="lg:col-span-3 lg:text-right text-brand-muted text-sm leading-relaxed lg:pt-3">
+          Everything below has shipped in a project on this page.
+        </p>
+      </header>
+
+      <!-- Categories -->
+      <ol class="divide-y divide-brand-border">
+        <li
+          v-for="cat in categories"
+          :key="cat.name"
+          class="grid grid-cols-[auto,1fr] lg:grid-cols-[auto,1fr,2fr] gap-x-6 lg:gap-x-10 gap-y-3 py-7 first:pt-0"
+        >
+          <span class="font-mono text-xs text-brand-dim/80 tabular-nums pt-2">{{ cat.no }}</span>
+          <div class="flex items-baseline gap-x-3 flex-wrap">
+            <h3 class="font-display text-2xl lg:text-3xl text-brand-text leading-tight">
+              {{ cat.name }}
+            </h3>
+          </div>
+          <div class="col-start-2 lg:col-start-3">
+            <ul class="flex flex-wrap items-baseline gap-x-4 gap-y-2 font-mono text-sm">
+              <li
+                v-for="tech in cat.primary"
+                :key="tech"
+                class="text-brand-text"
+              >
+                {{ tech }}
+              </li>
+              <li v-if="cat.secondary.length" class="text-brand-border select-none" aria-hidden="true">·</li>
+              <li
+                v-for="tech in cat.secondary"
+                :key="tech"
+                class="text-brand-muted/80"
+              >
+                {{ tech }}
+              </li>
+            </ul>
+          </div>
+        </li>
+      </ol>
 
     </div>
   </section>

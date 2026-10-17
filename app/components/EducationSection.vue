@@ -1,76 +1,102 @@
+<script setup lang="ts">
+const degrees = [
+  {
+    year: '2019 — 2022',
+    kind: "Bachelor's",
+    title: 'Software and Information Engineering',
+    school: 'University Singidunum — Technical Faculty',
+    gpa: '10.0',
+    note: null as string | null,
+  },
+  {
+    year: '2022 — 2024',
+    kind: "Master's",
+    title: 'Software and Information Engineering',
+    school: 'University Singidunum — Technical Faculty',
+    gpa: '10.0',
+    note: 'Thesis: Nexa — cloud-native video streaming platform on AWS.',
+  },
+]
+</script>
+
 <template>
-  <section id="education" class="py-16 lg:py-24 border-t border-brand-border/75" aria-labelledby="education-heading">
-    <div class="mx-auto max-w-6xl px-6 lg:px-8">
+  <section id="education" class="pt-20 lg:pt-28 pb-20 lg:pb-28 border-t border-brand-border" aria-labelledby="education-heading">
+    <div class="mx-auto max-w-6xl px-6 lg:px-10">
 
-      <div class="mb-10 pb-8 border-b border-brand-border">
-        <h2 id="education-heading" class="text-2xl sm:text-3xl font-bold text-brand-text">
-          Education & Certifications
-        </h2>
-      </div>
+      <!-- Section header -->
+      <header class="grid lg:grid-cols-12 gap-6 lg:gap-10 mb-14 lg:mb-20 pb-5 border-b border-brand-border">
+        <div class="lg:col-span-9">
+          <p class="eyebrow mb-4">§ 03 — Credentials</p>
+          <h2 id="education-heading" class="font-display text-4xl sm:text-5xl text-brand-text tracking-display leading-[1.02]">
+            Education
+            <span class="italic font-light text-brand-muted"> &amp; one AWS cert.</span>
+          </h2>
+        </div>
+      </header>
 
-      <div class="grid lg:grid-cols-5 gap-10 lg:gap-16 items-start">
+      <div class="grid lg:grid-cols-12 gap-10 lg:gap-16 items-start">
 
-        <!-- Timeline: degrees -->
-        <div class="lg:col-span-3">
-          <div class="relative">
-            <div class="absolute left-[7px] top-3 bottom-3 w-px bg-brand-border" aria-hidden="true" />
-
-            <!-- B.Sc. -->
-            <div class="relative pl-10 pb-12">
-              <div class="absolute left-0 top-2 w-[15px] h-[15px] rounded-full border-2 border-brand-accent/60 bg-brand-bg ring-4 ring-brand-accent/8" aria-hidden="true" />
-              <p class="text-xs font-mono text-brand-dim uppercase tracking-widest mb-2">Bachelor's Degree</p>
-              <h3 class="text-xl font-bold text-brand-text mb-1.5">Software and Information Engineering</h3>
-              <p class="text-brand-muted/70 text-sm mb-5">University Singidunum — Technical Faculty</p>
-              <div class="inline-flex items-center gap-2.5 bg-brand-accent/8 border border-brand-accent/15 rounded-lg px-4 py-2">
-                <span class="text-xs font-mono text-brand-dim uppercase tracking-wider">GPA</span>
-                <span class="text-brand-accent font-mono font-bold">10.0 / 10.0</span>
-              </div>
+        <!-- Degrees -->
+        <ol class="lg:col-span-8 divide-y divide-brand-border">
+          <li
+            v-for="d in degrees"
+            :key="d.kind"
+            class="grid grid-cols-[auto,1fr] lg:grid-cols-[auto,1fr,auto] gap-x-6 lg:gap-x-10 gap-y-2 py-8 first:pt-0"
+          >
+            <span class="font-mono text-xs text-brand-dim/80 tabular-nums pt-2 uppercase tracking-[0.14em]">
+              {{ d.year }}
+            </span>
+            <div>
+              <p class="eyebrow text-brand-accent/90 mb-2">{{ d.kind }} degree</p>
+              <h3 class="font-display text-2xl lg:text-3xl text-brand-text leading-tight mb-1.5">
+                {{ d.title }}
+              </h3>
+              <p class="text-brand-muted text-sm">{{ d.school }}</p>
+              <p v-if="d.note" class="mt-3 text-brand-muted/80 text-sm italic font-display">
+                {{ d.note }}
+              </p>
             </div>
+            <div class="col-start-2 lg:col-start-3 lg:text-right lg:pt-2">
+              <p class="eyebrow mb-1">GPA</p>
+              <p class="font-mono text-xl text-brand-accent tabular-nums">{{ d.gpa }}<span class="text-brand-dim/60 text-sm"> / 10.0</span></p>
+            </div>
+          </li>
+        </ol>
 
-            <!-- M.Sc. -->
-            <div class="relative pl-10">
-              <div class="absolute left-0 top-2 w-[15px] h-[15px] rounded-full border-2 border-brand-accent/60 bg-brand-bg ring-4 ring-brand-accent/8" aria-hidden="true" />
-              <p class="text-xs font-mono text-brand-dim uppercase tracking-widest mb-2">Master's Degree</p>
-              <h3 class="text-xl font-bold text-brand-text mb-1.5">Software and Information Engineering</h3>
-              <p class="text-brand-muted/70 text-sm mb-1.5">University Singidunum — Technical Faculty</p>
-              <p class="text-brand-dim text-sm mb-5">Thesis: Nexa — cloud-native video streaming platform on AWS</p>
-              <div class="inline-flex items-center gap-2.5 bg-brand-accent/8 border border-brand-accent/15 rounded-lg px-4 py-2">
-                <span class="text-xs font-mono text-brand-dim uppercase tracking-wider">GPA</span>
-                <span class="text-brand-accent font-mono font-bold">10.0 / 10.0</span>
-              </div>
+        <!-- Certification -->
+        <aside class="lg:col-span-4 lg:border-l lg:border-brand-border lg:pl-10">
+          <p class="eyebrow mb-5">Certification</p>
+          <div class="flex items-start gap-5 mb-6">
+            <img
+              src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/amazonwebservices/amazonwebservices-plain-wordmark.svg"
+              alt="Amazon Web Services"
+              class="w-12 h-12 shrink-0 opacity-90"
+            />
+            <div>
+              <h3 class="font-display text-2xl text-brand-text leading-tight">
+                Solutions Architect
+              </h3>
+              <p class="text-brand-muted text-sm mt-1">Associate · Amazon Web Services</p>
             </div>
           </div>
-        </div>
 
-        <!-- Certification featured card -->
-        <div class="lg:col-span-2">
-          <div class="relative rounded-xl overflow-hidden border border-brand-accent/20 bg-brand-surface/65 p-7">
-            <div class="absolute -top-10 -right-10 w-40 h-40 bg-brand-accent/8 rounded-full blur-2xl pointer-events-none" aria-hidden="true" />
-            <div class="absolute top-0 right-0 w-px h-full bg-gradient-to-b from-brand-accent/20 via-transparent to-transparent pointer-events-none" aria-hidden="true" />
-
-            <p class="text-xs font-mono text-brand-accent/80 uppercase tracking-widest mb-7">Certification</p>
-
-            <div class="flex items-start gap-4 mb-7">
-              <img
-                src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/amazonwebservices/amazonwebservices-plain-wordmark.svg"
-                alt="Amazon Web Services"
-                class="w-14 h-14 shrink-0"
-              />
-              <div>
-                <h3 class="text-xl font-bold text-brand-text leading-snug">AWS Solutions Architect</h3>
-                <p class="text-brand-muted/70 text-sm mt-1.5">Associate · Amazon Web Services</p>
-              </div>
+          <dl class="font-mono text-xs text-brand-dim border-t border-brand-border pt-4 space-y-2">
+            <div class="flex items-baseline justify-between">
+              <dt class="uppercase tracking-[0.18em]">Status</dt>
+              <dd class="text-brand-accent">Certified</dd>
             </div>
-
-            <div class="flex items-center gap-2.5 pt-5 border-t border-brand-border/60">
-              <div class="w-2 h-2 rounded-full bg-brand-accent shrink-0" aria-hidden="true" />
-              <span class="text-sm font-mono text-brand-accent font-semibold">Certified</span>
+            <div class="flex items-baseline justify-between">
+              <dt class="uppercase tracking-[0.18em]">Issuer</dt>
+              <dd class="text-brand-muted">AWS</dd>
             </div>
-          </div>
-        </div>
+            <div class="flex items-baseline justify-between">
+              <dt class="uppercase tracking-[0.18em]">Code</dt>
+              <dd class="text-brand-muted">SAA-C03</dd>
+            </div>
+          </dl>
+        </aside>
 
       </div>
-
     </div>
   </section>
 </template>

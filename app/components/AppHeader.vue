@@ -4,9 +4,10 @@ import { Menu, X, Github, Linkedin } from 'lucide-vue-next'
 const isMenuOpen = ref(false)
 
 const navLinks = [
-  { label: 'Services', href: '#services' },
+  { label: 'Work', href: '#work' },
   { label: 'Skills', href: '#skills' },
-  { label: 'Projects', href: '#projects' },
+  { label: 'Education', href: '#education' },
+  { label: 'Services', href: '#services' },
   { label: 'Contact', href: '#contact' },
 ]
 
@@ -16,49 +17,55 @@ function closeMenu() {
 </script>
 
 <template>
-  <header class="fixed top-0 left-0 right-0 z-50 border-b border-brand-border/75 bg-brand-bg/90 backdrop-blur-sm">
-    <nav class="mx-auto max-w-6xl px-6 lg:px-8" aria-label="Primary navigation">
-      <div class="flex h-16 items-center justify-between">
+  <header class="fixed top-0 left-0 right-0 z-50 border-b border-brand-border/80 bg-brand-bg/90 backdrop-blur-md">
+    <nav class="mx-auto max-w-6xl px-6 lg:px-10" aria-label="Primary navigation">
+      <div class="flex h-14 items-center justify-between">
         <a
           href="#hero"
-          class="text-brand-text font-semibold text-base tracking-tight hover:text-brand-accent transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-accent rounded"
+          class="group flex items-baseline gap-3 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-accent"
           @click="closeMenu"
         >
-          <span class="text-brand-accent font-mono font-bold">BZ</span>
-          <span class="ml-2 text-brand-muted text-sm hidden sm:inline">Bojan Zdelar</span>
+          <span class="font-mono text-sm text-brand-accent">bz</span>
+          <span class="hidden sm:inline text-xs font-mono text-brand-dim group-hover:text-brand-muted transition-colors uppercase tracking-[0.18em]">
+            Bojan Zdelar / Index
+          </span>
         </a>
 
-        <div class="hidden md:flex items-center gap-8">
+        <div class="hidden md:flex items-center gap-7">
           <a
-            v-for="link in navLinks"
+            v-for="(link, i) in navLinks"
             :key="link.href"
             :href="link.href"
-            class="text-brand-muted hover:text-brand-text text-sm transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-accent rounded px-1"
+            class="group inline-flex items-baseline gap-1.5 text-xs font-mono text-brand-muted hover:text-brand-text uppercase tracking-[0.18em] transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-accent rounded-sm px-0.5"
           >
-            {{ link.label }}
+            <span class="text-brand-dim/60 tabular-nums text-[10px] group-hover:text-brand-accent transition-colors">0{{ i + 1 }}</span>
+            <span>{{ link.label }}</span>
           </a>
+        </div>
+
+        <div class="hidden md:flex items-center gap-4 pl-6 border-l border-brand-border">
           <a
             href="https://github.com/bojanzdelar"
             target="_blank"
             rel="noopener noreferrer"
-            class="text-brand-muted hover:text-brand-text transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-accent rounded p-1"
+            class="text-brand-muted hover:text-brand-accent transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-accent rounded-sm"
             aria-label="GitHub profile"
           >
-            <Github :size="18" />
+            <Github :size="16" />
           </a>
           <a
             href="https://www.linkedin.com/in/bojan-zdelar-b9b617153/"
             target="_blank"
             rel="noopener noreferrer"
-            class="text-brand-muted hover:text-brand-text transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-accent rounded p-1"
+            class="text-brand-muted hover:text-brand-accent transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-accent rounded-sm"
             aria-label="LinkedIn profile"
           >
-            <Linkedin :size="18" />
+            <Linkedin :size="16" />
           </a>
         </div>
 
         <button
-          class="md:hidden text-brand-muted hover:text-brand-text transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-accent rounded p-1"
+          class="md:hidden text-brand-muted hover:text-brand-text transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-accent rounded-sm p-1"
           :aria-label="isMenuOpen ? 'Close navigation menu' : 'Open navigation menu'"
           :aria-expanded="isMenuOpen"
           @click="isMenuOpen = !isMenuOpen"
@@ -70,38 +77,41 @@ function closeMenu() {
 
       <div
         v-show="isMenuOpen"
-        class="md:hidden pb-4 border-t border-brand-border/75 pt-4"
+        class="md:hidden pb-5 border-t border-brand-border/75 pt-4"
       >
-        <div class="flex flex-col gap-4">
+        <div class="flex flex-col divide-y divide-brand-border/60">
           <a
-            v-for="link in navLinks"
+            v-for="(link, i) in navLinks"
             :key="link.href"
             :href="link.href"
-            class="text-brand-muted hover:text-brand-text text-sm transition-colors"
+            class="flex items-center justify-between py-3 text-sm text-brand-muted hover:text-brand-text transition-colors"
             @click="closeMenu"
           >
-            {{ link.label }}
+            <span class="font-mono uppercase tracking-[0.18em] text-xs">{{ link.label }}</span>
+            <span class="text-[10px] font-mono text-brand-dim tabular-nums">0{{ i + 1 }}</span>
           </a>
-          <a
-            href="https://github.com/bojanzdelar"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="flex items-center gap-2 text-brand-muted hover:text-brand-text text-sm transition-colors"
-            @click="closeMenu"
-          >
-            <Github :size="16" />
-            GitHub
-          </a>
-          <a
-            href="https://www.linkedin.com/in/bojan-zdelar-b9b617153/"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="flex items-center gap-2 text-brand-muted hover:text-brand-text text-sm transition-colors"
-            @click="closeMenu"
-          >
-            <Linkedin :size="16" />
-            LinkedIn
-          </a>
+          <div class="flex items-center gap-5 pt-4">
+            <a
+              href="https://github.com/bojanzdelar"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="flex items-center gap-2 text-brand-muted hover:text-brand-text text-xs font-mono uppercase tracking-[0.18em]"
+              @click="closeMenu"
+            >
+              <Github :size="14" />
+              GitHub
+            </a>
+            <a
+              href="https://www.linkedin.com/in/bojan-zdelar-b9b617153/"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="flex items-center gap-2 text-brand-muted hover:text-brand-text text-xs font-mono uppercase tracking-[0.18em]"
+              @click="closeMenu"
+            >
+              <Linkedin :size="14" />
+              LinkedIn
+            </a>
+          </div>
         </div>
       </div>
     </nav>

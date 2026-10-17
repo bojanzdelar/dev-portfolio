@@ -1,8 +1,9 @@
 <script setup lang="ts">
-import { Github } from 'lucide-vue-next'
+import { Github, ArrowUpRight } from 'lucide-vue-next'
 
 defineProps<{
   title: string
+  kicker: string
   subtitle: string
   overview: string
   techStack: string[]
@@ -13,61 +14,82 @@ defineProps<{
 
 <template>
   <article
-    class="rounded-xl border border-brand-border bg-brand-surface/40 overflow-hidden"
+    class="relative"
     :aria-labelledby="`project-${title.replace(/\s+/g, '-').toLowerCase()}`"
   >
-    <div class="border-b border-brand-border px-7 py-5 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
-      <div>
-        <p class="text-xs text-brand-dim font-mono uppercase tracking-widest mb-1.5">{{ subtitle }}</p>
+    <!-- Project masthead -->
+    <header class="grid lg:grid-cols-12 gap-6 lg:gap-10 pb-8 mb-10 border-b border-brand-border">
+      <div class="lg:col-span-9">
+        <p class="eyebrow text-brand-accent mb-4">{{ kicker }}</p>
         <h3
           :id="`project-${title.replace(/\s+/g, '-').toLowerCase()}`"
-          class="text-xl font-bold text-brand-text"
+          class="font-display text-3xl sm:text-4xl lg:text-5xl text-brand-text leading-[1.02] tracking-display mb-3"
         >
           {{ title }}
         </h3>
+        <p class="font-display italic text-xl lg:text-2xl text-brand-muted leading-snug max-w-2xl">
+          {{ subtitle }}
+        </p>
       </div>
-      <a
-        :href="githubUrl"
-        target="_blank"
-        rel="noopener noreferrer"
-        class="inline-flex items-center gap-2 px-4 py-2 border border-brand-hi hover:border-brand-muted/55 text-brand-muted hover:text-brand-text text-sm font-mono rounded-lg transition-colors shrink-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-accent"
-        :aria-label="`View ${title} on GitHub`"
-      >
-        <Github :size="14" />
-        GitHub
-      </a>
+      <div class="lg:col-span-3 lg:pt-3 flex lg:justify-end">
+        <a
+          :href="githubUrl"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="group inline-flex items-center gap-2 text-sm font-mono text-brand-muted hover:text-brand-accent border border-brand-border hover:border-brand-accent px-4 py-2 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-accent self-start"
+          :aria-label="`View ${title} on GitHub`"
+        >
+          <Github :size="14" />
+          <span>Source</span>
+          <ArrowUpRight :size="12" class="transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+        </a>
+      </div>
+    </header>
+
+    <!-- Overview -->
+    <div class="grid lg:grid-cols-12 gap-6 lg:gap-10 mb-14">
+      <div class="lg:col-span-3">
+        <p class="eyebrow">Overview</p>
+      </div>
+      <div class="lg:col-span-9">
+        <p class="text-brand-text/90 text-lg leading-relaxed">{{ overview }}</p>
+      </div>
     </div>
 
-    <div class="px-7 py-7 grid lg:grid-cols-2 gap-8">
-      <div>
-        <h4 class="text-xs font-mono text-brand-dim uppercase tracking-widest mb-3">Overview</h4>
-        <p class="text-brand-muted text-base leading-relaxed">{{ overview }}</p>
+    <!-- Features -->
+    <div class="grid lg:grid-cols-12 gap-6 lg:gap-10 mb-14">
+      <div class="lg:col-span-3">
+        <p class="eyebrow">Features</p>
       </div>
+      <ul class="lg:col-span-9 divide-y divide-brand-border/60">
+        <li
+          v-for="(feature, i) in features"
+          :key="feature"
+          class="grid grid-cols-[auto,1fr] gap-6 py-3 first:pt-0"
+        >
+          <span class="font-mono text-xs text-brand-dim tabular-nums pt-1">
+            {{ String(i + 1).padStart(2, '0') }}
+          </span>
+          <span class="text-brand-text/85 leading-relaxed">{{ feature }}</span>
+        </li>
+      </ul>
+    </div>
 
-      <div class="space-y-6">
-        <div>
-          <h4 class="text-xs font-mono text-brand-dim uppercase tracking-widest mb-3">Features</h4>
-          <ul class="space-y-2.5">
-            <li v-for="feature in features" :key="feature" class="flex gap-3">
-              <span class="text-brand-dim/65 shrink-0 mt-1 text-xs">—</span>
-              <span class="text-brand-muted text-sm leading-relaxed">{{ feature }}</span>
-            </li>
-          </ul>
-        </div>
-
-        <div>
-          <h4 class="text-xs font-mono text-brand-dim uppercase tracking-widest mb-3">Stack</h4>
-          <div class="flex flex-wrap gap-2">
-            <span
-              v-for="tech in techStack"
-              :key="tech"
-              class="text-sm font-mono text-brand-muted bg-brand-border border border-brand-hi/75 rounded px-2.5 py-0.5"
-            >
-              {{ tech }}
-            </span>
-          </div>
-        </div>
+    <!-- Stack -->
+    <div class="grid lg:grid-cols-12 gap-6 lg:gap-10">
+      <div class="lg:col-span-3">
+        <p class="eyebrow">Stack</p>
       </div>
+      <ul class="lg:col-span-9 flex flex-wrap gap-x-5 gap-y-2.5 font-mono text-sm text-brand-muted">
+        <li
+          v-for="(tech, i) in techStack"
+          :key="tech"
+          class="flex items-baseline gap-5"
+        >
+          <span>{{ tech }}</span>
+          <span v-if="i < techStack.length - 1" class="text-brand-border select-none" aria-hidden="true">/</span>
+        </li>
+      </ul>
     </div>
   </article>
 </template>
