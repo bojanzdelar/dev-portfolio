@@ -6,12 +6,12 @@ const currentIndex = ref(0);
 const direction = ref<"forward" | "backward">("forward");
 
 const projects = [
-  { id: "nexa", title: "Nexa", label: "Master's Thesis", year: "2024-25" },
+  { id: "nexa", title: "Nexa", label: "Master's Thesis", year: "2025-2026" },
   {
     id: "software-designer",
     title: "Software Designer",
     label: "Bachelor's Thesis",
-    year: "2021",
+    year: "2023",
   },
   {
     id: "lms",

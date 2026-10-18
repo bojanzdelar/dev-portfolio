@@ -33,7 +33,7 @@
 
           <div class="mt-10 flex flex-wrap items-center gap-x-6 gap-y-3">
             <a
-              href="#projects"
+              href="#work"
               class="group inline-flex items-center gap-2 text-sm font-medium text-brand-bg bg-brand-accent hover:bg-brand-accent/90 px-5 py-2.5 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-accent focus-visible:ring-offset-2 focus-visible:ring-offset-brand-bg"
             >
               Read the Nexa case study

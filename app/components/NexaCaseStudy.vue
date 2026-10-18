@@ -75,7 +75,7 @@ const decisions = [
         <div class="flex items-center gap-3 mb-5">
           <span class="eyebrow text-brand-accent">Case Study</span>
           <span class="w-6 h-px bg-brand-border" aria-hidden="true"></span>
-          <span class="eyebrow">Master's Thesis, 2024/25</span>
+          <span class="eyebrow">Master's Thesis, 2025-2026</span>
         </div>
         <h3 id="nexa-title" class="font-display text-3xl sm:text-4xl lg:text-5xl text-brand-text leading-[1.02] tracking-display mb-4">
           Nexa<span class="text-brand-muted/60">: </span><span class="italic font-light text-brand-muted">a cloud-native video streaming platform on AWS.</span>
@@ -96,41 +96,44 @@ const decisions = [
       </div>
     </header>
 
-    <!-- Objective / Approach -->
-    <div class="grid lg:grid-cols-12 gap-6 lg:gap-10 mb-14 lg:mb-20">
-      <div class="lg:col-span-3">
-        <p class="eyebrow">The brief</p>
-      </div>
-      <div class="lg:col-span-9 space-y-5 text-brand-text/90 text-lg leading-relaxed">
-        <p>
-          Design and build an on-demand video platform end-to-end (upload path,
-          encoding pipeline, catalog, search, playback) using AWS primitives and
-          a modern Spring Boot backend. Treat the infrastructure and the
-          application as one deliverable, both version-controlled.
-        </p>
-        <p class="text-brand-muted">
-          The scope wasn't "deploy a Spring Boot app to EC2 and call it cloud-native." The scope was
-          to decide, defend, and implement every service choice in the chain: why S3 and
-          MediaConvert instead of ffmpeg on a worker, why DynamoDB <em class="font-display italic text-brand-text/80">and</em> OpenSearch
-          instead of one of them, why Fargate instead of Lambda for the long-running services.
-          Then write it all down in Terraform so the next engineer can rebuild it from
-          <code class="font-mono text-brand-text/80 text-base">main</code>.
-        </p>
-      </div>
-    </div>
+    <!-- Brief + Architecture -->
+    <div class="grid md:grid-cols-12 gap-6 lg:gap-10 mb-14 lg:mb-20 items-start">
 
-    <!-- Architecture diagram -->
-    <figure class="mb-14 lg:mb-20 max-w-4xl mx-auto">
-      <div class="flex items-center justify-between pb-3 mb-3 border-b border-brand-border">
-        <p class="eyebrow">Fig. 1: System architecture</p>
-        <p class="eyebrow">AWS composition</p>
+      <!-- Objective / Approach -->
+      <div class="md:col-span-5 space-y-5">
+        <p class="eyebrow">The brief</p>
+        <div class="space-y-5 text-brand-text/90 text-lg leading-relaxed">
+          <p>
+            Design and build an on-demand video platform end-to-end (upload path,
+            encoding pipeline, catalog, search, playback) using AWS primitives and
+            a modern Spring Boot backend. Treat the infrastructure and the
+            application as one deliverable, both version-controlled.
+          </p>
+          <p class="text-brand-muted">
+            The scope wasn't "deploy a Spring Boot app to EC2 and call it cloud-native." The scope was
+            to decide, defend, and implement every service choice in the chain: why S3 and
+            MediaConvert instead of ffmpeg on a worker, why DynamoDB <em class="font-display italic text-brand-text/80">and</em> OpenSearch
+            instead of one of them, why Fargate instead of Lambda for the long-running services.
+            Then write it all down in Terraform so the next engineer can rebuild it from
+            <code class="font-mono text-brand-text/80 text-base">main</code>.
+          </p>
+        </div>
       </div>
-      <img
-        src="/nexa-architecture.jpg"
-        alt="Nexa platform architecture: Nuxt 3 SSR on Lambda, two CloudFront distributions, ALB, API Gateway, Cognito, three ECS/Fargate microservices (catalog, search, user), S3 buckets, MediaConvert transcoding pipeline, DynamoDB, and OpenSearch."
-        class="w-full border border-brand-border"
-      />
-    </figure>
+
+      <!-- Architecture diagram -->
+      <figure class="md:col-span-7">
+        <div class="flex items-center justify-between pb-3 mb-3 border-b border-brand-border">
+          <p class="eyebrow">Fig. 1: System architecture</p>
+          <p class="eyebrow">AWS composition</p>
+        </div>
+        <img
+          src="/nexa-architecture.jpg"
+          alt="Nexa platform architecture: Nuxt 3 SSR on Lambda, two CloudFront distributions, ALB, API Gateway, Cognito, three ECS/Fargate microservices (catalog, search, user), S3 buckets, MediaConvert transcoding pipeline, DynamoDB, and OpenSearch."
+          class="w-full border border-brand-border"
+        />
+      </figure>
+
+    </div>
 
     <!-- Decisions -->
     <section class="grid lg:grid-cols-12 gap-6 lg:gap-10 mb-14 lg:mb-20">
