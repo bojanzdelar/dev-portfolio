@@ -2,15 +2,15 @@
 import { Github, ArrowUpRight } from 'lucide-vue-next'
 
 const implemented = [
-  'Spring Boot microservices on ECS/Fargate (video, catalog, user)',
-  'Upload path: pre-signed S3 PUT → S3 event → Lambda → MediaConvert',
-  'HLS output written back to S3, served through CloudFront',
-  'Adaptive bitrate playback in the browser (hls.js on Nuxt front end)',
-  'DynamoDB for catalog lookups by id',
-  'OpenSearch for full-text search and faceted filtering',
-  'API Gateway in front of Lambda + ECS services',
-  'Amazon Cognito for auth (user pools, hosted UI)',
-  'Terraform for VPC, IAM, ECS, and data stores',
+  'Spring Boot microservices on ECS/Fargate: catalog (DynamoDB), search (OpenSearch), user (DynamoDB)',
+  'Event-driven video pipeline: S3 upload triggers Lambda, which submits a MediaConvert job',
+  'MediaConvert encodes HLS at three renditions (1080p, 720p, 480p) with AES-128 encryption',
+  'Playback protected with CloudFront signed cookies, short-lived playlist JWTs, and AES-128 key delivery',
+  'Adaptive bitrate streaming in the browser via hls.js',
+  'Two CloudFront distributions: application delivery (nexa.zdelar.com) and media CDN (cdn.nexa.zdelar.com)',
+  'Nuxt 3 SSR running on Lambda with S3 static asset serving and pre-rendered snapshot fallback',
+  'Amazon Cognito for authentication, integrated via AWS Amplify on the frontend',
+  'Terraform manages all AWS resources: ECS, ALB, CloudFront, S3, Lambda, API Gateway, DynamoDB, OpenSearch, Cognito, Route 53, and SSM',
 ]
 
 const planned = [
@@ -20,37 +20,38 @@ const planned = [
 ]
 
 const techStack = [
-  'Java', 'Spring Boot', 'Nuxt.js', 'Vue.js', 'TypeScript',
-  'AWS ECS/Fargate', 'Amazon S3', 'CloudFront', 'API Gateway',
+  'Java', 'Spring Boot', 'Maven', 'Lombok', 'MapStruct', 'AWS SDK v2',
+  'Nuxt 3', 'Vue 3', 'TypeScript', 'Pinia', 'Tailwind CSS', 'AWS Amplify', 'hls.js',
+  'AWS ECS/Fargate', 'Amazon S3', 'CloudFront', 'ALB', 'API Gateway',
   'AWS Lambda', 'MediaConvert', 'DynamoDB', 'OpenSearch',
-  'Amazon Cognito', 'Terraform', 'Docker', 'HLS',
+  'Amazon Cognito', 'Route 53', 'Terraform', 'Docker',
 ]
 
 const decisions = [
   {
     n: '01',
     title: 'Microservice boundaries drawn around data ownership, not endpoints',
-    body: 'Ingestion, catalog, and user management are separate services, each with its own data store. The ingestion service never queries the catalog table directly; it emits events and lets the catalog service react. The upside is that any one of them can be rewritten in a different language or torn out entirely without rewriting the API gateway in front of it.',
+    body: 'Catalog, search, and user are three independent services. Catalog serves title metadata and category lists from DynamoDB. Search runs full-text queries against an OpenSearch index and handles reindexing by reading from the same DynamoDB catalog table, keeping the two stores consistent without service-to-service calls. User manages watchlists and viewing progress in a separate DynamoDB table. Each service can be redeployed or rewritten without touching the others.',
   },
   {
     n: '02',
     title: 'Transcoding is strictly asynchronous',
-    body: 'A client gets a pre-signed URL, PUTs the raw file directly to S3, and gets 202 back. S3 fires an event, Lambda submits a MediaConvert job, and the service writes the new HLS asset back to S3 when the job completes. The HTTP path never waits on encoding; the slowest step is decoupled from the user-visible one.',
+    body: 'An .mp4 upload to the S3 ingest bucket fires an ObjectCreated event. A Lambda function picks it up and submits a MediaConvert job that encodes three HLS renditions at 1080p, 720p, and 480p with AES-128 encryption. The output lands in S3 and is served through the media CDN. No HTTP request waits on encoding; the slowest step is fully decoupled from the user-facing path.',
   },
   {
     n: '03',
-    title: 'One CloudFront distribution, two origins',
-    body: 'The Nuxt static front end and the HLS segments share a distribution with different origin behaviors and cache policies. Signed URLs for premium content, long-TTL for segments, short-TTL for manifests. All configured in one place instead of two parallel CDN setups.',
+    title: 'Application delivery and media CDN run as separate distributions',
+    body: 'The application distribution at nexa.zdelar.com serves the Nuxt SSR frontend from a Lambda function, routes static assets from S3, forwards API calls to backend services through the ALB, and handles playback requests through API Gateway. A separate CDN distribution at cdn.nexa.zdelar.com delivers HLS segments and protected content from dedicated S3 origins. Keeping them separate gives each its own origin policies, signing configuration, and cache behavior.',
   },
   {
     n: '04',
     title: 'DynamoDB for the catalog, OpenSearch for the search box',
-    body: 'DynamoDB handles the "give me video 42" path in single-digit milliseconds. OpenSearch handles "action films under 90 minutes released after 2020." The split was intentional: the two access patterns have nothing in common and should not live in the same store pretending otherwise.',
+    body: 'DynamoDB handles the "give me title 42" path in single-digit milliseconds. OpenSearch handles fuzzy full-text queries across title names and descriptions, with the index rebuilt on demand from the DynamoDB catalog. The split was intentional: the two access patterns have nothing in common and should not live in the same store pretending otherwise.',
   },
   {
     n: '05',
     title: 'The whole environment is reproducible from source',
-    body: 'Terraform owns everything: VPCs, subnets, IAM roles, ECS clusters, data stores, app configuration. A fresh account can be stood up with a single command; a torn-down one leaves no console artifacts behind. No "someone clicked something in the console that one time."',
+    body: 'Terraform manages every AWS resource: ECS clusters and task definitions, ECR repositories, ALB, both CloudFront distributions, S3 buckets, Lambda functions, API Gateway, DynamoDB tables, OpenSearch, Cognito, Route 53 records, ACM certificates, and SSM secrets. The infrastructure attaches to the AWS default VPC rather than provisioning a custom one, which avoids quota overhead for a project that does not need network-level isolation between services. A fresh account can be stood up with a single apply.',
   },
 ]
 </script>
@@ -115,7 +116,7 @@ const decisions = [
       </div>
       <img
         src="/nexa-architecture.jpg"
-        alt="Nexa platform architecture: Nuxt client, CloudFront, API Gateway, Cognito, ECS/Fargate services, S3 upload bucket, Lambda, MediaConvert, DynamoDB, and OpenSearch."
+        alt="Nexa platform architecture: Nuxt 3 SSR on Lambda, two CloudFront distributions, ALB, API Gateway, Cognito, three ECS/Fargate microservices (catalog, search, user), S3 buckets, MediaConvert transcoding pipeline, DynamoDB, and OpenSearch."
         class="w-full border border-brand-border"
       />
     </figure>
