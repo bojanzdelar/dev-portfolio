@@ -1,6 +1,17 @@
 <script setup lang="ts">
 import { Github, ArrowUpRight } from 'lucide-vue-next'
 
+const openDecisions = ref<string[]>([])
+
+function toggleDecision(n: string) {
+  const idx = openDecisions.value.indexOf(n)
+  if (idx === -1) {
+    openDecisions.value.push(n)
+  } else {
+    openDecisions.value.splice(idx, 1)
+  }
+}
+
 const implemented = [
   'Spring Boot microservices on ECS/Fargate: catalog (DynamoDB), search (OpenSearch), user (DynamoDB)',
   'Event-driven video pipeline: S3 upload triggers Lambda, which submits a MediaConvert job',
@@ -109,7 +120,7 @@ const decisions = [
     </div>
 
     <!-- Architecture diagram -->
-    <figure class="mb-14 lg:mb-20">
+    <figure class="mb-14 lg:mb-20 max-w-4xl mx-auto">
       <div class="flex items-center justify-between pb-3 mb-3 border-b border-brand-border">
         <p class="eyebrow">Fig. 1: System architecture</p>
         <p class="eyebrow">AWS composition</p>
@@ -134,11 +145,20 @@ const decisions = [
         <li
           v-for="d in decisions"
           :key="d.n"
-          class="grid grid-cols-[auto,1fr] gap-x-6 gap-y-2 py-6 first:pt-0 last:pb-0"
+          class="py-6 first:pt-0 last:pb-0"
         >
-          <span class="font-mono text-xs text-brand-dim tabular-nums pt-1.5">{{ d.n }}</span>
-          <div>
-            <h4 class="font-display text-xl text-brand-text leading-snug mb-2">{{ d.title }}</h4>
+          <div class="grid grid-cols-[auto,1fr,auto] gap-x-6 items-start">
+            <span class="font-mono text-xs text-brand-dim tabular-nums pt-2">{{ d.n }}</span>
+            <h4 class="font-display text-xl text-brand-text leading-snug">{{ d.title }}</h4>
+            <button
+              class="font-mono text-sm text-brand-dim hover:text-brand-text transition-colors pt-0.5 focus-visible:outline-none focus-visible:text-brand-accent select-none"
+              :aria-expanded="openDecisions.includes(d.n)"
+              :aria-label="`${openDecisions.includes(d.n) ? 'Collapse' : 'Expand'} decision ${d.n}`"
+              @click="toggleDecision(d.n)"
+            >{{ openDecisions.includes(d.n) ? '−' : '+' }}</button>
+          </div>
+          <div v-if="openDecisions.includes(d.n)" class="grid grid-cols-[auto,1fr] gap-x-6 mt-4">
+            <span aria-hidden="true"></span>
             <p class="text-brand-muted leading-relaxed">{{ d.body }}</p>
           </div>
         </li>
