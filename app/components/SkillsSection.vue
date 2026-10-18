@@ -16,7 +16,7 @@ const categories: Category[] = [
   {
     name: 'Cloud & Infrastructure',
     no: '02',
-    primary: ['AWS', 'Terraform', 'AWS CDK'],
+    primary: ['AWS', 'Terraform'],
     secondary: ['Docker', 'ECS/Fargate', 'Lambda', 'S3', 'CloudFront', 'API Gateway', 'EC2'],
   },
   {
@@ -47,10 +47,10 @@ const categories: Category[] = [
       <!-- Section header -->
       <header class="grid lg:grid-cols-12 gap-6 lg:gap-10 mb-14 lg:mb-20 pb-5 border-b border-brand-border">
         <div class="lg:col-span-9">
-          <p class="eyebrow mb-4">§ 02 — Stack</p>
+          <p class="eyebrow mb-4">§ 02 / Stack</p>
           <h2 id="skills-heading" class="font-display text-4xl sm:text-5xl text-brand-text tracking-display leading-[1.02]">
             Tools I actually reach for
-            <span class="italic font-light text-brand-muted"> — not tools I've installed once.</span>
+            <span class="italic font-light text-brand-muted">, not tools I've installed once.</span>
           </h2>
         </div>
         <p class="lg:col-span-3 lg:text-right text-brand-muted text-sm leading-relaxed lg:pt-3">

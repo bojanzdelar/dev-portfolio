@@ -1,20 +1,20 @@
 <script setup lang="ts">
 const degrees = [
   {
-    year: '2019 — 2022',
+    year: '2019-2022',
     kind: "Bachelor's",
     title: 'Software and Information Engineering',
-    school: 'University Singidunum — Technical Faculty',
+    school: 'University Singidunum, Technical Faculty',
     gpa: '10.0',
     note: null as string | null,
   },
   {
-    year: '2022 — 2024',
+    year: '2022-2024',
     kind: "Master's",
     title: 'Software and Information Engineering',
-    school: 'University Singidunum — Technical Faculty',
+    school: 'University Singidunum, Technical Faculty',
     gpa: '10.0',
-    note: 'Thesis: Nexa — cloud-native video streaming platform on AWS.',
+    note: 'Thesis: Nexa. Cloud-native video streaming platform on AWS.',
   },
 ]
 </script>
@@ -26,7 +26,7 @@ const degrees = [
       <!-- Section header -->
       <header class="grid lg:grid-cols-12 gap-6 lg:gap-10 mb-14 lg:mb-20 pb-5 border-b border-brand-border">
         <div class="lg:col-span-9">
-          <p class="eyebrow mb-4">§ 03 — Credentials</p>
+          <p class="eyebrow mb-4">§ 03 / Credentials</p>
           <h2 id="education-heading" class="font-display text-4xl sm:text-5xl text-brand-text tracking-display leading-[1.02]">
             Education
             <span class="italic font-light text-brand-muted"> &amp; one AWS cert.</span>

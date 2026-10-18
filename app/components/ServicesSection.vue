@@ -18,13 +18,13 @@ const groups: Group[] = [
     items: [
       {
         title: 'REST APIs in Java / Spring Boot',
-        body: 'Service design with explicit contracts, error semantics, versioning strategy, and tests that run in CI — not just happy-path integration tests.',
+        body: 'Service design with explicit contracts, error semantics, versioning strategy, and tests that run in CI. Not just happy-path integration tests.',
         tags: ['Java', 'Spring Boot', 'OpenAPI'],
       },
       {
         title: 'Microservice refactors',
         body: 'Splitting a monolith by data ownership rather than by endpoint. Deciding what moves, what stays, and what happens to shared state.',
-        tags: ['Spring Cloud', 'Service boundaries'],
+        tags: ['Spring Cloud', 'Microservices'],
       },
     ],
   },
@@ -34,13 +34,13 @@ const groups: Group[] = [
     items: [
       {
         title: 'Cloud architecture on AWS',
-        body: 'Picking the right primitives — ECS vs Lambda, SQS vs Kinesis, DynamoDB vs Postgres — based on actual access patterns, cost, and operational blast radius.',
-        tags: ['ECS/Fargate', 'Lambda', 'S3', 'CloudFront'],
+        body: 'Picking the right primitives: ECS vs Lambda, SQS vs Kinesis, RDS vs DynamoDB, based on actual access patterns, cost, and operational blast radius.',
+        tags: ['ECS/Fargate', 'Lambda', 'S3', 'CloudFront', 'API Gateway'],
       },
       {
         title: 'Infrastructure as code',
-        body: 'Terraform for the primitives, CDK for higher-level app constructs. Reviewable PRs instead of console drift.',
-        tags: ['Terraform', 'AWS CDK', 'GitHub Actions'],
+        body: 'Terraform for everything: networking, IAM, compute, data stores. Reviewable PRs instead of console drift.',
+        tags: ['Terraform', 'AWS', 'GitHub Actions'],
       },
     ],
   },
@@ -56,7 +56,7 @@ const groups: Group[] = [
       {
         title: 'Third-party integrations & automation',
         body: 'Auth providers, payment flows, data pipelines. Python or shell when it is faster to script than to configure.',
-        tags: ['Cognito', 'REST clients', 'Python'],
+        tags: ['Amazon Cognito', 'REST APIs', 'Python', 'AWS Lambda'],
       },
     ],
   },
@@ -70,7 +70,7 @@ const groups: Group[] = [
       <!-- Section header -->
       <header class="grid lg:grid-cols-12 gap-6 lg:gap-10 mb-14 lg:mb-20 pb-5 border-b border-brand-border">
         <div class="lg:col-span-9">
-          <p class="eyebrow mb-4">§ 04 — Working together</p>
+          <p class="eyebrow mb-4">§ 04 / Working together</p>
           <h2 id="services-heading" class="font-display text-4xl sm:text-5xl text-brand-text tracking-display leading-[1.02]">
             Short-list of
             <span class="italic font-light text-brand-muted"> things worth hiring me for.</span>

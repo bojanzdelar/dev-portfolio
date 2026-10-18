@@ -6,7 +6,7 @@ const currentIndex = ref(0)
 const direction = ref<'forward' | 'backward'>('forward')
 
 const projects = [
-  { id: 'nexa', title: 'Nexa', label: "Master's Thesis", year: '2024—25' },
+  { id: 'nexa', title: 'Nexa', label: "Master's Thesis", year: '2024-25' },
   { id: 'software-designer', title: 'Software Designer', label: "Bachelor's Thesis", year: '2021' },
   { id: 'lms', title: 'Learning Management System', label: 'University Platform', year: '2022' },
   { id: 'supplement-shop', title: 'Supplement Shop', label: 'E-Commerce', year: '2020' },
@@ -18,7 +18,7 @@ const projectCards = [
     kicker: "Bachelor's thesis / 2021",
     subtitle: 'Requirements & UML modeling tool with code generation',
     overview:
-      "A desktop-grade web tool for authoring software requirements and UML class diagrams inside shared projects, with per-user privilege levels and Java source generation from class models. Built on a Spring Cloud microservice backend, a Python Flask code-generation service, and a Vue.js front end — authentication delegated to Amazon Cognito.",
+      "A desktop-grade web tool for authoring software requirements and UML class diagrams inside shared projects, with per-user privilege levels and Java source generation from class models. Built on a Spring Cloud microservice backend, a Python Flask code-generation service, and a Vue.js front end, with authentication delegated to Amazon Cognito.",
     techStack: ['Java', 'Spring Boot', 'Spring Cloud', 'Vue.js', 'Vuetify', 'Python Flask', 'MySQL', 'Amazon Cognito', 'Docker'],
     githubUrl: 'https://github.com/bojanzdelar/Software-designer',
     features: [
@@ -34,7 +34,7 @@ const projectCards = [
     kicker: 'University platform / 2022',
     subtitle: 'Four-role LMS on microservice architecture',
     overview:
-      "A university LMS with four distinct user roles — guest, student, teacher, administrator — each with its own view and permission set. Microservice backend using a database-per-service pattern; students track enrolled subjects and prior study history, teachers run exam realizations, administrators manage the catalog.",
+      "A university LMS with four distinct user roles (guest, student, teacher, administrator), each with its own view and permission set. Microservice backend using a database-per-service pattern; students track enrolled subjects and prior study history, teachers run exam realizations, administrators manage the catalog.",
     techStack: ['Java', 'Spring Boot', 'Spring Cloud', 'Spring Security', 'Angular', 'Angular Material', 'TypeScript', 'MySQL', 'Docker'],
     githubUrl: 'https://github.com/bojanzdelar/Learning-management-system',
     features: [
@@ -50,7 +50,7 @@ const projectCards = [
     kicker: 'E-commerce / 2020',
     subtitle: 'Three-tier Flask + Vue storefront',
     overview:
-      "A full e-commerce flow built as a textbook three-tier split: a Vue.js front end, a Python Flask REST API, and a MySQL store accessed through SQLAlchemy. The front end talks to the API only — no shortcuts — with JWT for session handling and an admin area for inventory and orders.",
+      "A full e-commerce flow built as a textbook three-tier split: a Vue.js front end, a Python Flask REST API, and a MySQL store accessed through SQLAlchemy. The front end talks to the API only (no shortcuts), with JWT for session handling and an admin area for inventory and orders.",
     techStack: ['Vue.js', 'Python Flask', 'MySQL', 'SQLAlchemy', 'JWT', 'REST API'],
     githubUrl: 'https://github.com/bojanzdelar/Supplement-shop',
     features: [
@@ -85,7 +85,7 @@ function goTo(index: number) {
       <header class="mb-14 lg:mb-20">
         <div class="flex items-end justify-between gap-6 pb-5 border-b border-brand-border">
           <div>
-            <p class="eyebrow mb-4">§ 01 — Selected Work</p>
+            <p class="eyebrow mb-4">§ 01 / Selected Work</p>
             <h2 id="work-heading" class="font-display text-4xl sm:text-5xl lg:text-6xl text-brand-text tracking-display leading-[0.98]">
               Four projects.<br class="sm:hidden" />
               <span class="italic font-light text-brand-muted">One obsession: making the moving parts visible.</span>

@@ -36,7 +36,7 @@ const today = new Date().toISOString().slice(0, 10)
           <div class="mt-10 lg:mt-14 grid sm:grid-cols-[auto,1fr] gap-x-10 gap-y-4 max-w-2xl">
             <p class="eyebrow pt-1">The pitch</p>
             <p class="text-brand-muted text-base lg:text-lg leading-relaxed">
-              I build Java/Spring Boot services, deploy them on AWS with Terraform and CDK,
+              I build Java/Spring Boot services, deploy them on AWS with Terraform,
               and keep the pipeline from upload to CloudFront boring enough to sleep on.
               Lately: an HLS video platform on ECS/Fargate with S3 + MediaConvert + DynamoDB + OpenSearch.
             </p>
@@ -65,7 +65,7 @@ const today = new Date().toISOString().slice(0, 10)
             <img
               src="/profile.jpg"
               alt="Portrait of Bojan Zdelar"
-              class="w-full max-w-xs lg:max-w-none aspect-[4/5] object-cover object-top grayscale contrast-[1.05]"
+              class="w-full max-w-xs lg:max-w-none aspect-[4/5] object-cover object-top"
             />
             <figcaption class="mt-3 eyebrow flex items-center justify-between">
               <span>Bojan Zdelar</span>
@@ -88,7 +88,7 @@ const today = new Date().toISOString().slice(0, 10)
             </div>
             <div class="flex items-baseline justify-between py-2 border-b border-brand-border/60">
               <dt class="eyebrow">IaC</dt>
-              <dd class="text-brand-text/85 font-mono text-xs">Terraform · CDK</dd>
+              <dd class="text-brand-text/85 font-mono text-xs">Terraform</dd>
             </div>
             <div class="flex items-baseline justify-between py-2">
               <dt class="eyebrow">Working from</dt>

@@ -44,7 +44,7 @@ const year = new Date().getFullYear()
       </div>
 
       <div class="flex items-center justify-between pt-6 text-xs font-mono text-brand-dim">
-        <p>© {{ year }} Bojan Zdelar — Novi Sad, RS</p>
+        <p>© {{ year }} Bojan Zdelar, Novi Sad, RS</p>
         <a
           href="#hero"
           class="group inline-flex items-center gap-2 text-brand-dim hover:text-brand-accent transition-colors uppercase tracking-[0.18em]"

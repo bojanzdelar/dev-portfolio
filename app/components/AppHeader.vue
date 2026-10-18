@@ -4,10 +4,9 @@ import { Menu, X, Github, Linkedin } from 'lucide-vue-next'
 const isMenuOpen = ref(false)
 
 const navLinks = [
-  { label: 'Work', href: '#work' },
-  { label: 'Skills', href: '#skills' },
-  { label: 'Education', href: '#education' },
   { label: 'Services', href: '#services' },
+  { label: 'Education', href: '#education' },
+  { label: 'Work', href: '#work' },
   { label: 'Contact', href: '#contact' },
 ]
 
