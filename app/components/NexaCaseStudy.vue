@@ -18,7 +18,7 @@ const implemented = [
   'MediaConvert encodes HLS at three renditions (1080p, 720p, 480p) with AES-128 encryption',
   'Playback protected with CloudFront signed cookies, short-lived playlist JWTs, and AES-128 key delivery',
   'Adaptive bitrate streaming in the browser via hls.js',
-  'Two CloudFront distributions: application delivery (nexa.zdelar.com) and media CDN (cdn.nexa.zdelar.com)',
+  'Two CloudFront distributions: application delivery and media CDN',
   'Nuxt 3 SSR running on Lambda with S3 static asset serving and pre-rendered snapshot fallback',
   'Amazon Cognito for authentication, integrated via AWS Amplify on the frontend',
   'Terraform manages all AWS resources: ECS, ALB, CloudFront, S3, Lambda, API Gateway, DynamoDB, OpenSearch, Cognito, Route 53, and SSM',
@@ -72,10 +72,10 @@ const decisions = [
     <!-- Case study masthead -->
     <header class="grid lg:grid-cols-12 gap-6 lg:gap-10 pb-8 mb-10 border-b border-brand-border">
       <div class="lg:col-span-9">
-        <div class="flex items-center gap-3 mb-5">
-          <span class="eyebrow text-brand-accent">Case Study</span>
-          <span class="w-6 h-px bg-brand-border" aria-hidden="true"></span>
-          <span class="eyebrow">Master's Thesis, 2025-2026</span>
+        <div class="flex flex-wrap items-center gap-x-3 gap-y-1 mb-5">
+          <span class="eyebrow text-brand-accent whitespace-nowrap">Case Study</span>
+          <span class="hidden sm:block w-6 h-px bg-brand-border" aria-hidden="true"></span>
+          <span class="eyebrow whitespace-nowrap">Master's Thesis, 2025-2026</span>
         </div>
         <h3 id="nexa-title" class="font-display text-3xl sm:text-4xl lg:text-5xl text-brand-text leading-[1.02] tracking-display mb-4">
           Nexa<span class="text-brand-muted/60">: </span><span class="italic font-light text-brand-muted">a cloud-native video streaming platform on AWS.</span>
@@ -90,7 +90,7 @@ const decisions = [
           aria-label="View Nexa on GitHub"
         >
           <Github :size="14" />
-          <span>github.com/bojanzdelar/nexa</span>
+          <span>Source</span>
           <ArrowUpRight :size="12" class="transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
         </a>
       </div>

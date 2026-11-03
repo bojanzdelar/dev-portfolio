@@ -2,61 +2,50 @@
 interface Offering {
   title: string;
   body: string;
-  tags: string[];
 }
 
 interface Group {
   heading: string;
-  no: string;
   items: Offering[];
 }
 
 const groups: Group[] = [
   {
-    no: "01",
-    heading: "Backend engineering",
+    heading: "Backend & modernization",
     items: [
       {
-        title: "REST APIs in Java / Spring Boot",
-        body: "Service design with explicit contracts, error semantics, versioning strategy, and tests that run in CI. Not just happy-path integration tests.",
-        tags: ["Java", "Spring Boot", "OpenAPI"],
+        title: "APIs and services in Java / Spring Boot",
+        body: "Service design with explicit contracts, clear error semantics, and a versioning strategy. Clean domain boundaries, so the code stays easy to change as the product grows.",
       },
       {
-        title: "Microservice refactors",
-        body: "Splitting a monolith by data ownership rather than by endpoint. Deciding what moves, what stays, and what happens to shared state.",
-        tags: ["Spring Cloud", "Microservices"],
+        title: "Java & Spring modernization",
+        body: "Upgrading Spring Boot 2 and 3 apps to Spring Boot 4 and older Java versions to Java 25 LTS, untangling legacy code, and moving services into containers. Done incrementally, so production keeps running throughout.",
       },
     ],
   },
   {
-    no: "02",
-    heading: "AWS architecture & IaC",
+    heading: "AWS & infrastructure",
     items: [
       {
-        title: "Cloud architecture on AWS",
-        body: "Picking the right primitives: ECS vs Lambda, SQS vs Kinesis, RDS vs DynamoDB, based on actual access patterns, cost, and operational blast radius.",
-        tags: ["ECS/Fargate", "Lambda", "S3", "CloudFront", "API Gateway"],
+        title: "AWS architecture & cost optimization",
+        body: "Picking the right primitives (EC2, ECS, Lambda, RDS, DynamoDB) based on actual access patterns, then right-sizing what is already running so the bill matches the traffic.",
       },
       {
-        title: "Infrastructure as code",
-        body: "Terraform for everything: networking, IAM, compute, data stores. Reviewable PRs instead of console drift.",
-        tags: ["Terraform", "AWS", "GitHub Actions"],
+        title: "Infrastructure as code & CI/CD",
+        body: "Terraform and GitHub Actions for reproducible environments and safe, reviewable deploys. No more console drift or hand-built servers.",
       },
     ],
   },
   {
-    no: "03",
-    heading: "Full-stack & integrations",
+    heading: "Product & AI",
     items: [
       {
-        title: "Full-stack features end-to-end",
-        body: "Vue/Nuxt front end wired cleanly to a Spring Boot or Flask backend. One person owning the whole feature from API design to UI state.",
-        tags: ["Vue.js", "Nuxt.js", "TypeScript"],
+        title: "MVPs, end to end",
+        body: "From API design to UI to AWS deploy: a Vue/Nuxt or Angular front end on a Spring Boot or Flask backend. One person owning the whole product, shipped fast and built to keep growing.",
       },
       {
-        title: "Third-party integrations & automation",
-        body: "Auth providers, payment flows, data pipelines. Python or shell when it is faster to script than to configure.",
-        tags: ["Amazon Cognito", "REST APIs", "Python", "AWS Lambda"],
+        title: "AI features in existing products",
+        body: "LLM-powered search, chat, and summarization added to the backend you already have, using AWS Bedrock and retrieval over your own data. Practical features, not demos.",
       },
     ],
   },
@@ -66,7 +55,7 @@ const groups: Group[] = [
 <template>
   <section
     id="services"
-    class="pt-20 lg:pt-28 pb-20 lg:pb-28 border-t border-brand-border"
+    class="section-band pt-20 lg:pt-28 pb-20 lg:pb-28 border-t border-brand-border"
     aria-labelledby="services-heading"
   >
     <div class="mx-auto max-w-6xl px-6 lg:px-10">
@@ -75,7 +64,7 @@ const groups: Group[] = [
         class="grid lg:grid-cols-12 gap-6 lg:gap-10 mb-14 lg:mb-20 pb-5 border-b border-brand-border"
       >
         <div class="lg:col-span-9">
-          <p class="eyebrow mb-4">§ 01 / Working together</p>
+          <p class="eyebrow mb-4">Working together</p>
           <h2
             id="services-heading"
             class="font-display text-4xl sm:text-5xl text-brand-text tracking-display leading-[1.02]"
@@ -102,10 +91,6 @@ const groups: Group[] = [
         >
           <header class="lg:col-span-3">
             <div class="flex items-baseline gap-3 lg:sticky lg:top-20">
-              <span
-                class="font-mono text-xs text-brand-dim/80 tabular-nums pt-1"
-                >{{ group.no }}</span
-              >
               <h3
                 class="font-display text-2xl lg:text-3xl text-brand-text leading-tight"
               >
@@ -125,26 +110,9 @@ const groups: Group[] = [
               >
                 {{ item.title }}
               </h4>
-              <p class="text-brand-muted leading-relaxed mb-3">
+              <p class="text-brand-muted leading-relaxed">
                 {{ item.body }}
               </p>
-              <ul
-                class="flex flex-wrap gap-x-4 gap-y-1 font-mono text-xs text-brand-dim"
-              >
-                <li
-                  v-for="(tag, i) in item.tags"
-                  :key="tag"
-                  class="flex items-baseline gap-4"
-                >
-                  <span>{{ tag }}</span>
-                  <span
-                    v-if="i < item.tags.length - 1"
-                    class="text-brand-border select-none"
-                    aria-hidden="true"
-                    >/</span
-                  >
-                </li>
-              </ul>
             </li>
           </ol>
         </section>

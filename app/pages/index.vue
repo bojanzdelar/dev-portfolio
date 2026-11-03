@@ -19,7 +19,7 @@ useHead({
 </script>
 
 <template>
-  <div class="min-h-screen bg-brand-bg text-brand-text font-sans antialiased">
+  <div class="page-bg min-h-screen text-brand-text font-sans antialiased">
     <AppHeader />
     <main id="main-content">
       <HeroSection />

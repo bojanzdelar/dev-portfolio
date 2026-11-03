@@ -5,14 +5,14 @@
     aria-label="Introduction"
   >
     <div class="mx-auto max-w-6xl px-6 lg:px-10">
-      <div class="grid lg:grid-cols-12 gap-10 lg:gap-14 items-start">
+      <div class="grid md:grid-cols-12 lg:grid-rows-[auto,1fr] gap-x-10 gap-y-10 lg:gap-x-14 lg:gap-y-8 items-start">
         <!-- Headline column -->
-        <div class="lg:col-span-8">
+        <div class="md:col-span-12 lg:col-span-8 lg:row-span-2">
           <h1
             class="font-display font-normal text-brand-text leading-[0.98] tracking-display text-[2.75rem] sm:text-6xl lg:text-[5.25rem] xl:text-[6rem]"
           >
             Backend &amp; cloud<br class="hidden sm:block" />
-            engineer who likes<br class="hidden sm:block" />
+            engineer who likes <br class="hidden sm:block" />
             <span class="italic font-light text-brand-accent"
               >systems that don&rsquo;t surprise anyone at 3&nbsp;a.m.</span
             >
@@ -52,17 +52,17 @@
           </div>
         </div>
 
-        <!-- Side column: photo + metadata -->
-        <aside class="lg:col-span-4 lg:pt-2">
-          <figure class="relative">
+        <!-- Photo: right of the tech list on tablet, right column on desktop -->
+        <figure class="relative md:order-2 lg:order-none md:col-span-4 lg:col-span-4 lg:col-start-9 lg:row-start-1 lg:pt-2">
             <img
               src="/profile.jpg"
               alt="Portrait of Bojan Zdelar"
-              class="w-full max-w-xs lg:max-w-none aspect-[4/5] object-cover object-top"
+              class="w-full max-w-xs md:max-w-none aspect-[4/5] object-cover object-top"
             />
-          </figure>
+        </figure>
 
-          <dl class="mt-8 pt-6 border-t border-brand-border space-y-3">
+        <!-- Tech list: left of the photo on tablet, under the photo on desktop -->
+        <dl class="md:order-1 lg:order-none md:col-span-8 lg:col-span-4 lg:col-start-9 lg:row-start-2 pt-6 border-t border-brand-border space-y-3">
             <div class="pb-3 border-b border-brand-border/60">
               <dt class="eyebrow mb-1">Specialty</dt>
               <dd class="text-brand-text/85 font-mono text-xs leading-snug">
@@ -72,7 +72,7 @@
             <div class="pb-3 border-b border-brand-border/60">
               <dt class="eyebrow mb-1">Backend</dt>
               <dd class="text-brand-text/85 font-mono text-xs leading-snug">
-                Java · Spring Boot · Hibernate · REST APIs
+                Java · Spring Boot · Python · Flask
               </dd>
             </div>
             <div class="pb-3 border-b border-brand-border/60">
@@ -84,17 +84,16 @@
             <div class="pb-3 border-b border-brand-border/60">
               <dt class="eyebrow mb-1">AWS</dt>
               <dd class="text-brand-text/85 font-mono text-xs leading-snug">
-                ECS / Fargate · Lambda · S3 · DynamoDB · RDS · OpenSearch
+                EC2 · ECS · Lambda · API Gateway · CloudFront · S3 · RDS · DynamoDB
               </dd>
             </div>
             <div>
               <dt class="eyebrow mb-1">Infrastructure</dt>
               <dd class="text-brand-text/85 font-mono text-xs leading-snug">
-                Terraform · Docker · CI/CD
+                Terraform · Docker · GitHub Actions
               </dd>
             </div>
-          </dl>
-        </aside>
+        </dl>
       </div>
     </div>
   </section>

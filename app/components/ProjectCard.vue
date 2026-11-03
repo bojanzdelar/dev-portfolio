@@ -63,13 +63,10 @@ defineProps<{
       </div>
       <ul class="lg:col-span-9 divide-y divide-brand-border/60">
         <li
-          v-for="(feature, i) in features"
+          v-for="feature in features"
           :key="feature"
-          class="grid grid-cols-[auto,1fr] gap-6 py-3 first:pt-0"
+          class="py-3 first:pt-0"
         >
-          <span class="font-mono text-xs text-brand-dim tabular-nums pt-1">
-            {{ String(i + 1).padStart(2, '0') }}
-          </span>
           <span class="text-brand-text/85 leading-relaxed">{{ feature }}</span>
         </li>
       </ul>

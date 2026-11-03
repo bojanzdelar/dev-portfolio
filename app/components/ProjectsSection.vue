@@ -122,7 +122,7 @@ function goTo(index: number) {
 <template>
   <section
     id="work"
-    class="pt-20 lg:pt-28 pb-20 lg:pb-28 border-t border-brand-border"
+    class="section-band pt-20 lg:pt-28 pb-20 lg:pb-28 border-t border-brand-border"
     aria-labelledby="work-heading"
   >
     <div class="mx-auto max-w-6xl px-6 lg:px-10">
@@ -132,12 +132,12 @@ function goTo(index: number) {
           class="flex items-end justify-between gap-6 pb-5 border-b border-brand-border"
         >
           <div>
-            <p class="eyebrow mb-4">§ 03 / Selected Work</p>
+            <p class="eyebrow mb-4">Selected Work</p>
             <h2
               id="work-heading"
               class="font-display text-4xl sm:text-5xl lg:text-6xl text-brand-text tracking-display leading-[0.98]"
             >
-              Four projects.<br class="sm:hidden" />
+              Four projects. <br class="sm:hidden" />
               <span class="italic font-light text-brand-muted"
                 >One obsession: making the moving parts visible.</span
               >
@@ -158,16 +158,6 @@ function goTo(index: number) {
                 class="group inline-flex items-baseline gap-1.5 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-accent rounded-sm"
                 :aria-current="i === currentIndex ? 'true' : undefined"
               >
-                <span
-                  class="tabular-nums"
-                  :class="
-                    i === currentIndex
-                      ? 'text-brand-accent'
-                      : 'text-brand-dim/70 group-hover:text-brand-muted'
-                  "
-                >
-                  0{{ i + 1 }}
-                </span>
                 <span
                   class="uppercase tracking-[0.14em]"
                   :class="
@@ -194,7 +184,7 @@ function goTo(index: number) {
               <ChevronLeft :size="16" />
             </button>
             <span
-              class="text-xs font-mono text-brand-dim tabular-nums select-none px-1"
+              class="text-xs font-mono text-brand-dim tabular-nums select-none px-1 whitespace-nowrap"
               aria-live="polite"
             >
               {{ String(currentIndex + 1).padStart(2, "0") }} /

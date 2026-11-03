@@ -10,7 +10,7 @@ import { CONTACT_EMAIL } from '~/utils/config'
       <!-- Section header -->
       <header class="grid lg:grid-cols-12 gap-6 lg:gap-10 mb-14 lg:mb-20 pb-5 border-b border-brand-border">
         <div class="lg:col-span-9">
-          <p class="eyebrow mb-4">§ 05 / Get in touch</p>
+          <p class="eyebrow mb-4">Get in touch</p>
           <h2 id="contact-heading" class="font-display text-4xl sm:text-5xl text-brand-text tracking-display leading-[1.02]">
             Have a project
             <span class="italic font-light text-brand-muted"> or just curious?</span>
@@ -60,8 +60,8 @@ import { CONTACT_EMAIL } from '~/utils/config'
 
           <!-- Secondary links -->
           <dl class="divide-y divide-brand-border/60">
-            <div class="flex items-center justify-between py-4">
-              <dt class="eyebrow flex items-center gap-2">
+            <div class="flex items-center justify-between gap-4 py-4">
+              <dt class="eyebrow flex items-center gap-2 shrink-0">
                 <Github :size="12" aria-hidden="true" />
                 GitHub
               </dt>
@@ -77,8 +77,8 @@ import { CONTACT_EMAIL } from '~/utils/config'
                 </a>
               </dd>
             </div>
-            <div class="flex items-center justify-between py-4">
-              <dt class="eyebrow flex items-center gap-2">
+            <div class="flex items-center justify-between gap-4 py-4">
+              <dt class="eyebrow flex items-center gap-2 shrink-0">
                 <Linkedin :size="12" aria-hidden="true" />
                 LinkedIn
               </dt>
@@ -94,9 +94,9 @@ import { CONTACT_EMAIL } from '~/utils/config'
                 </a>
               </dd>
             </div>
-            <div class="flex items-center justify-between py-4">
-              <dt class="eyebrow">Location</dt>
-              <dd class="font-mono text-sm text-brand-muted">Novi Sad, Serbia · UTC+1</dd>
+            <div class="flex items-center justify-between gap-4 py-4">
+              <dt class="eyebrow shrink-0">Location</dt>
+              <dd class="font-mono text-sm text-brand-muted text-right">Novi Sad, Serbia · UTC+1</dd>
             </div>
           </dl>
         </div>

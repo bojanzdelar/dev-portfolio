@@ -18,31 +18,33 @@ function closeMenu() {
 <template>
   <header class="fixed top-0 left-0 right-0 z-50 border-b border-brand-border/80 bg-brand-bg/90 backdrop-blur-md">
     <nav class="mx-auto max-w-6xl px-6 lg:px-10" aria-label="Primary navigation">
-      <div class="flex h-14 items-center justify-between">
+      <div class="flex h-16 items-center justify-between">
         <a
           href="#hero"
-          class="group flex items-baseline gap-3 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-accent"
+          class="group flex items-center focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-accent rounded-sm"
+          aria-label="Bojan Zdelar, back to top"
           @click="closeMenu"
         >
-          <span class="font-mono text-sm text-brand-accent">bz</span>
-          <span class="hidden sm:inline text-xs font-mono text-brand-dim group-hover:text-brand-muted transition-colors uppercase tracking-[0.18em]">
-            Bojan Zdelar / Index
+          <span class="flex items-baseline leading-none select-none" aria-hidden="true">
+            <span class="font-mono text-base text-brand-dim group-hover:text-brand-accent transition-colors">&lt;</span>
+            <span class="font-display italic text-3xl text-brand-text mx-[1px] transition-transform duration-300 group-hover:-translate-y-0.5">Z</span>
+            <span class="font-mono text-base text-brand-accent">/</span>
+            <span class="font-mono text-base text-brand-dim group-hover:text-brand-accent transition-colors">&gt;</span>
           </span>
         </a>
 
-        <div class="hidden md:flex items-center gap-7">
+        <div class="hidden md:flex items-center gap-8">
           <a
-            v-for="(link, i) in navLinks"
+            v-for="link in navLinks"
             :key="link.href"
             :href="link.href"
-            class="group inline-flex items-baseline gap-1.5 text-xs font-mono text-brand-muted hover:text-brand-text uppercase tracking-[0.18em] transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-accent rounded-sm px-0.5"
+            class="group inline-flex items-baseline gap-1.5 text-[13px] font-mono text-brand-muted hover:text-brand-text uppercase tracking-[0.18em] transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-accent rounded-sm px-0.5"
           >
-            <span class="text-brand-dim/60 tabular-nums text-[10px] group-hover:text-brand-accent transition-colors">0{{ i + 1 }}</span>
             <span>{{ link.label }}</span>
           </a>
         </div>
 
-        <div class="hidden md:flex items-center gap-4 pl-6 border-l border-brand-border">
+        <div class="hidden md:flex items-center gap-5 pl-6 border-l border-brand-border">
           <a
             href="https://github.com/bojanzdelar"
             target="_blank"
@@ -50,7 +52,7 @@ function closeMenu() {
             class="text-brand-muted hover:text-brand-accent transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-accent rounded-sm"
             aria-label="GitHub profile"
           >
-            <Github :size="16" />
+            <Github :size="20" />
           </a>
           <a
             href="https://www.linkedin.com/in/bojan-zdelar-b9b617153/"
@@ -59,7 +61,7 @@ function closeMenu() {
             class="text-brand-muted hover:text-brand-accent transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-accent rounded-sm"
             aria-label="LinkedIn profile"
           >
-            <Linkedin :size="16" />
+            <Linkedin :size="20" />
           </a>
         </div>
 
@@ -69,8 +71,8 @@ function closeMenu() {
           :aria-expanded="isMenuOpen"
           @click="isMenuOpen = !isMenuOpen"
         >
-          <X v-if="isMenuOpen" :size="20" />
-          <Menu v-else :size="20" />
+          <X v-if="isMenuOpen" :size="24" />
+          <Menu v-else :size="24" />
         </button>
       </div>
 
@@ -80,34 +82,33 @@ function closeMenu() {
       >
         <div class="flex flex-col divide-y divide-brand-border/60">
           <a
-            v-for="(link, i) in navLinks"
+            v-for="link in navLinks"
             :key="link.href"
             :href="link.href"
             class="flex items-center justify-between py-3 text-sm text-brand-muted hover:text-brand-text transition-colors"
             @click="closeMenu"
           >
-            <span class="font-mono uppercase tracking-[0.18em] text-xs">{{ link.label }}</span>
-            <span class="text-[10px] font-mono text-brand-dim tabular-nums">0{{ i + 1 }}</span>
+            <span class="font-mono uppercase tracking-[0.18em] text-[13px]">{{ link.label }}</span>
           </a>
           <div class="flex items-center gap-5 pt-4">
             <a
               href="https://github.com/bojanzdelar"
               target="_blank"
               rel="noopener noreferrer"
-              class="flex items-center gap-2 text-brand-muted hover:text-brand-text text-xs font-mono uppercase tracking-[0.18em]"
+              class="flex items-center gap-2 text-brand-muted hover:text-brand-text text-sm font-mono uppercase tracking-[0.18em]"
               @click="closeMenu"
             >
-              <Github :size="14" />
+              <Github :size="16" />
               GitHub
             </a>
             <a
               href="https://www.linkedin.com/in/bojan-zdelar-b9b617153/"
               target="_blank"
               rel="noopener noreferrer"
-              class="flex items-center gap-2 text-brand-muted hover:text-brand-text text-xs font-mono uppercase tracking-[0.18em]"
+              class="flex items-center gap-2 text-brand-muted hover:text-brand-text text-sm font-mono uppercase tracking-[0.18em]"
               @click="closeMenu"
             >
-              <Linkedin :size="14" />
+              <Linkedin :size="16" />
               LinkedIn
             </a>
           </div>

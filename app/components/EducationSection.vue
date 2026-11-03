@@ -33,7 +33,7 @@ const degrees = [
         class="grid lg:grid-cols-12 gap-6 lg:gap-10 mb-14 lg:mb-20 pb-5 border-b border-brand-border"
       >
         <div class="lg:col-span-9">
-          <p class="eyebrow mb-4">§ 02 / Credentials</p>
+          <p class="eyebrow mb-4">Credentials</p>
           <h2
             id="education-heading"
             class="font-display text-4xl sm:text-5xl text-brand-text tracking-display leading-[1.02]"
@@ -52,15 +52,15 @@ const degrees = [
           <li
             v-for="d in degrees"
             :key="d.kind"
-            class="grid grid-cols-[auto,1fr] lg:grid-cols-[auto,1fr,auto] gap-x-6 lg:gap-x-10 gap-y-2 py-8 first:pt-0"
+            class="grid sm:grid-cols-[auto,1fr] lg:grid-cols-[auto,1fr,auto] gap-x-6 lg:gap-x-10 gap-y-2 py-8 first:pt-0"
           >
             <span
-              class="font-mono text-xs text-brand-dim/80 tabular-nums pt-2 uppercase tracking-[0.14em]"
+              class="font-mono text-sm text-brand-dim/80 tabular-nums sm:pt-2 uppercase tracking-[0.14em]"
             >
               {{ d.year }}
             </span>
             <div>
-              <p class="eyebrow text-brand-accent/90 mb-2">
+              <p class="eyebrow text-xs text-brand-accent/90 mb-2">
                 {{ d.kind }} degree
               </p>
               <h3
@@ -68,18 +68,18 @@ const degrees = [
               >
                 {{ d.title }}
               </h3>
-              <p class="text-brand-muted text-sm">{{ d.school }}</p>
+              <p class="text-brand-muted text-base">{{ d.school }}</p>
               <p
                 v-if="d.note"
-                class="mt-3 text-brand-muted/80 text-sm italic font-display"
+                class="mt-3 text-brand-muted/80 text-base italic font-display"
               >
                 {{ d.note }}
               </p>
             </div>
-            <div class="col-start-2 lg:col-start-3 lg:text-right lg:pt-2">
-              <p class="eyebrow mb-1">Average grade</p>
-              <p class="font-mono text-xl text-brand-accent tabular-nums">
-                {{ d.gpa }}<span class="text-brand-dim/60 text-sm"> / 10</span>
+            <div class="mt-2 sm:mt-0 sm:col-start-2 lg:col-start-3 lg:text-right lg:pt-2">
+              <p class="eyebrow text-xs mb-1">Average grade</p>
+              <p class="font-mono text-2xl text-brand-accent tabular-nums">
+                {{ d.gpa }}<span class="text-brand-dim/60 text-base"> / 10</span>
               </p>
             </div>
           </li>
@@ -89,25 +89,25 @@ const degrees = [
         <aside
           class="lg:col-span-4 lg:border-l lg:border-brand-border lg:pl-10"
         >
-          <p class="eyebrow mb-5">Certifications</p>
+          <p class="eyebrow text-xs mb-5">Certifications</p>
           <div class="flex items-start gap-5 mb-6">
             <img
-              src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/amazonwebservices/amazonwebservices-plain-wordmark.svg"
+              src="/images/aws.svg"
               alt="Amazon Web Services"
-              class="w-12 h-12 shrink-0 opacity-90"
+              class="w-14 h-14 shrink-0 opacity-90"
             />
             <div>
-              <h3 class="font-display text-2xl text-brand-text leading-tight">
+              <h3 class="font-display text-2xl lg:text-3xl text-brand-text leading-tight">
                 Solutions Architect
               </h3>
-              <p class="text-brand-muted text-sm mt-1">
+              <p class="text-brand-muted text-base mt-1">
                 Associate · Amazon Web Services
               </p>
             </div>
           </div>
 
           <dl
-            class="font-mono text-xs text-brand-dim border-t border-brand-border pt-4 space-y-2"
+            class="font-mono text-sm text-brand-dim border-t border-brand-border pt-4 space-y-2.5"
           >
             <div class="flex items-baseline justify-between">
               <dt class="uppercase tracking-[0.18em]">Status</dt>
