@@ -65,8 +65,9 @@ defineProps<{
         <li
           v-for="feature in features"
           :key="feature"
-          class="py-3 first:pt-0"
+          class="grid grid-cols-[auto,1fr] gap-3 items-baseline py-3 first:pt-0"
         >
+          <span class="font-mono text-brand-accent text-xs" aria-hidden="true">+</span>
           <span class="text-brand-text/85 leading-relaxed">{{ feature }}</span>
         </li>
       </ul>

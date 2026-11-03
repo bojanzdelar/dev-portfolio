@@ -132,15 +132,13 @@ function goTo(index: number) {
           class="flex items-end justify-between gap-6 pb-5 border-b border-brand-border"
         >
           <div>
-            <p class="eyebrow mb-4">Selected Work</p>
+            <p class="eyebrow text-brand-accent mb-4">Projects</p>
             <h2
               id="work-heading"
               class="font-display text-4xl sm:text-5xl lg:text-6xl text-brand-text tracking-display leading-[0.98]"
             >
-              Four projects. <br class="sm:hidden" />
-              <span class="italic font-light text-brand-muted"
-                >One obsession: making the moving parts visible.</span
-              >
+              What I&rsquo;ve been
+              <span class="italic font-light text-brand-muted">building, and how it all fits together.</span>
             </h2>
           </div>
         </div>

@@ -38,7 +38,7 @@ function closeMenu() {
             v-for="link in navLinks"
             :key="link.href"
             :href="link.href"
-            class="group inline-flex items-baseline gap-1.5 text-[13px] font-mono text-brand-muted hover:text-brand-text uppercase tracking-[0.18em] transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-accent rounded-sm px-0.5"
+            class="group inline-flex items-baseline gap-1.5 text-[13px] font-mono text-brand-muted hover:text-brand-accent uppercase tracking-[0.18em] transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-accent rounded-sm px-0.5"
           >
             <span>{{ link.label }}</span>
           </a>

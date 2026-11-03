@@ -64,7 +64,7 @@ const groups: Group[] = [
         class="grid lg:grid-cols-12 gap-6 lg:gap-10 mb-14 lg:mb-20 pb-5 border-b border-brand-border"
       >
         <div class="lg:col-span-9">
-          <p class="eyebrow mb-4">Working together</p>
+          <p class="eyebrow text-brand-accent mb-4">Working together</p>
           <h2
             id="services-heading"
             class="font-display text-4xl sm:text-5xl text-brand-text tracking-display leading-[1.02]"
@@ -90,7 +90,8 @@ const groups: Group[] = [
           class="grid lg:grid-cols-12 gap-6 lg:gap-10"
         >
           <header class="lg:col-span-3">
-            <div class="flex items-baseline gap-3 lg:sticky lg:top-20">
+            <div class="lg:sticky lg:top-20">
+              <span class="block w-8 h-0.5 bg-brand-accent mb-4" aria-hidden="true"></span>
               <h3
                 class="font-display text-2xl lg:text-3xl text-brand-text leading-tight"
               >

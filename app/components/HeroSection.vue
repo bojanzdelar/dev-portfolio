@@ -21,7 +21,7 @@
           <div
             class="mt-10 lg:mt-14 grid sm:grid-cols-[auto,1fr] gap-x-10 gap-y-4 max-w-2xl"
           >
-            <p class="eyebrow pt-1">The pitch</p>
+            <p class="eyebrow text-brand-accent/70 pt-1">The pitch</p>
             <p class="text-brand-muted text-base lg:text-lg leading-relaxed">
               I build backend services with Java and Spring Boot, design cloud
               infrastructure on AWS, and automate deployments with Terraform. I
@@ -64,32 +64,32 @@
         <!-- Tech list: left of the photo on tablet, under the photo on desktop -->
         <dl class="md:order-1 lg:order-none md:col-span-8 lg:col-span-4 lg:col-start-9 lg:row-start-2 pt-6 border-t border-brand-border space-y-3">
             <div class="pb-3 border-b border-brand-border/60">
-              <dt class="eyebrow mb-1">Specialty</dt>
-              <dd class="text-brand-text/85 font-mono text-xs leading-snug">
+              <dt class="eyebrow text-brand-accent/70 mb-1">Specialty</dt>
+              <dd class="text-brand-text/85 font-mono text-[13px] leading-snug">
                 Backend engineering · Cloud architecture
               </dd>
             </div>
             <div class="pb-3 border-b border-brand-border/60">
-              <dt class="eyebrow mb-1">Backend</dt>
-              <dd class="text-brand-text/85 font-mono text-xs leading-snug">
+              <dt class="eyebrow text-brand-accent/70 mb-1">Backend</dt>
+              <dd class="text-brand-text/85 font-mono text-[13px] leading-snug">
                 Java · Spring Boot · Python · Flask
               </dd>
             </div>
             <div class="pb-3 border-b border-brand-border/60">
-              <dt class="eyebrow mb-1">Frontend</dt>
-              <dd class="text-brand-text/85 font-mono text-xs leading-snug">
+              <dt class="eyebrow text-brand-accent/70 mb-1">Frontend</dt>
+              <dd class="text-brand-text/85 font-mono text-[13px] leading-snug">
                 TypeScript · Vue.js · Nuxt.js · Angular
               </dd>
             </div>
             <div class="pb-3 border-b border-brand-border/60">
-              <dt class="eyebrow mb-1">AWS</dt>
-              <dd class="text-brand-text/85 font-mono text-xs leading-snug">
+              <dt class="eyebrow text-brand-accent/70 mb-1">AWS</dt>
+              <dd class="text-brand-text/85 font-mono text-[13px] leading-snug">
                 EC2 · ECS · Lambda · API Gateway · CloudFront · S3 · RDS · DynamoDB
               </dd>
             </div>
             <div>
-              <dt class="eyebrow mb-1">Infrastructure</dt>
-              <dd class="text-brand-text/85 font-mono text-xs leading-snug">
+              <dt class="eyebrow text-brand-accent/70 mb-1">Infrastructure</dt>
+              <dd class="text-brand-text/85 font-mono text-[13px] leading-snug">
                 Terraform · Docker · GitHub Actions
               </dd>
             </div>

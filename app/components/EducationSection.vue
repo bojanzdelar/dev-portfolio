@@ -33,7 +33,7 @@ const degrees = [
         class="grid lg:grid-cols-12 gap-6 lg:gap-10 mb-14 lg:mb-20 pb-5 border-b border-brand-border"
       >
         <div class="lg:col-span-9">
-          <p class="eyebrow mb-4">Credentials</p>
+          <p class="eyebrow text-brand-accent mb-4">Credentials</p>
           <h2
             id="education-heading"
             class="font-display text-4xl sm:text-5xl text-brand-text tracking-display leading-[1.02]"
@@ -60,7 +60,7 @@ const degrees = [
               {{ d.year }}
             </span>
             <div>
-              <p class="eyebrow text-xs text-brand-accent/90 mb-2">
+              <p class="eyebrow text-brand-accent/90 mb-2">
                 {{ d.kind }} degree
               </p>
               <h3
@@ -77,7 +77,7 @@ const degrees = [
               </p>
             </div>
             <div class="mt-2 sm:mt-0 sm:col-start-2 lg:col-start-3 lg:text-right lg:pt-2">
-              <p class="eyebrow text-xs mb-1">Average grade</p>
+              <p class="eyebrow mb-1">Average grade</p>
               <p class="font-mono text-2xl text-brand-accent tabular-nums">
                 {{ d.gpa }}<span class="text-brand-dim/60 text-base"> / 10</span>
               </p>
@@ -89,12 +89,12 @@ const degrees = [
         <aside
           class="lg:col-span-4 lg:border-l lg:border-brand-border lg:pl-10"
         >
-          <p class="eyebrow text-xs mb-5">Certifications</p>
+          <p class="eyebrow mb-5">Certifications</p>
           <div class="flex items-start gap-5 mb-6">
             <img
               src="/images/aws.svg"
               alt="Amazon Web Services"
-              class="w-14 h-14 shrink-0 opacity-90"
+              class="w-14 h-14 shrink-0 grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition"
             />
             <div>
               <h3 class="font-display text-2xl lg:text-3xl text-brand-text leading-tight">

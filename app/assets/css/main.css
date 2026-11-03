@@ -39,7 +39,7 @@
 
 @layer components {
   .eyebrow {
-    @apply text-[11px] font-mono text-brand-dim uppercase tracking-[0.18em];
+    @apply text-[13px] font-mono text-brand-dim uppercase tracking-[0.16em];
   }
 
   .rule {
