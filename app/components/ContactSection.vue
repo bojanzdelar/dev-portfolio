@@ -84,12 +84,12 @@ import { CONTACT_EMAIL } from '~/utils/config'
               </dt>
               <dd>
                 <a
-                  href="https://www.linkedin.com/in/bojan-zdelar-b9b617153/"
+                  href="https://www.linkedin.com/in/bojanzdelar/"
                   target="_blank"
                   rel="noopener noreferrer"
                   class="group inline-flex items-center gap-2 font-mono text-sm text-brand-muted hover:text-brand-accent transition-colors"
                 >
-                  <span>linkedin.com/in/bojan-zdelar</span>
+                  <span>linkedin.com/in/bojanzdelar</span>
                   <ArrowUpRight :size="12" class="transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
                 </a>
               </dd>

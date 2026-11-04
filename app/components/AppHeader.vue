@@ -55,7 +55,7 @@ function closeMenu() {
             <Github :size="20" />
           </a>
           <a
-            href="https://www.linkedin.com/in/bojan-zdelar-b9b617153/"
+            href="https://www.linkedin.com/in/bojanzdelar/"
             target="_blank"
             rel="noopener noreferrer"
             class="text-brand-muted hover:text-brand-accent transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-accent rounded-sm"
@@ -102,7 +102,7 @@ function closeMenu() {
               GitHub
             </a>
             <a
-              href="https://www.linkedin.com/in/bojan-zdelar-b9b617153/"
+              href="https://www.linkedin.com/in/bojanzdelar/"
               target="_blank"
               rel="noopener noreferrer"
               class="flex items-center gap-2 text-brand-muted hover:text-brand-text text-sm font-mono uppercase tracking-[0.18em]"
