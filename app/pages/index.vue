@@ -6,7 +6,13 @@ useSeoMeta({
   ogDescription: 'Software engineer specializing in Java, Spring Boot, AWS cloud architecture, and full-stack development. Based in Serbia.',
   ogUrl: 'https://dev.zdelar.com',
   ogType: 'website',
+  ogImage: 'https://dev.zdelar.com/og-image.png',
+  ogImageType: 'image/png',
+  ogImageWidth: 1200,
+  ogImageHeight: 630,
+  ogImageAlt: 'Bojan Zdelar logo',
   twitterCard: 'summary_large_image',
+  twitterImage: 'https://dev.zdelar.com/og-image.png',
   twitterTitle: 'Bojan Zdelar | Software Engineer',
   twitterDescription: 'Software engineer specializing in Java, Spring Boot, AWS cloud architecture, and full-stack development.',
 })
