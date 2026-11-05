@@ -18,7 +18,7 @@ import { CONTACT_EMAIL } from '~/utils/config'
         </div>
       </header>
 
-      <div class="grid lg:grid-cols-12 gap-10 lg:gap-16">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16">
 
         <!-- Left: the pitch -->
         <div class="lg:col-span-5">
@@ -41,7 +41,7 @@ import { CONTACT_EMAIL } from '~/utils/config'
             class="group block border-b border-brand-border pb-8 mb-8 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-accent"
           >
             <div class="flex items-baseline justify-between gap-6">
-              <div>
+              <div class="min-w-0">
                 <p class="eyebrow text-brand-accent/90 mb-3 flex items-center gap-2">
                   <Mail :size="12" aria-hidden="true" />
                   Primary
@@ -60,12 +60,12 @@ import { CONTACT_EMAIL } from '~/utils/config'
 
           <!-- Secondary links -->
           <dl class="divide-y divide-brand-border/60">
-            <div class="flex items-center justify-between gap-4 py-4">
+            <div class="flex flex-wrap items-center justify-between gap-x-4 gap-y-1 py-4">
               <dt class="eyebrow flex items-center gap-2 shrink-0">
                 <Github :size="12" aria-hidden="true" />
                 GitHub
               </dt>
-              <dd>
+              <dd class="min-w-0">
                 <a
                   href="https://github.com/bojanzdelar"
                   target="_blank"
@@ -77,12 +77,12 @@ import { CONTACT_EMAIL } from '~/utils/config'
                 </a>
               </dd>
             </div>
-            <div class="flex items-center justify-between gap-4 py-4">
+            <div class="flex flex-wrap items-center justify-between gap-x-4 gap-y-1 py-4">
               <dt class="eyebrow flex items-center gap-2 shrink-0">
                 <Linkedin :size="12" aria-hidden="true" />
                 LinkedIn
               </dt>
-              <dd>
+              <dd class="min-w-0">
                 <a
                   href="https://www.linkedin.com/in/bojanzdelar/"
                   target="_blank"
@@ -94,7 +94,7 @@ import { CONTACT_EMAIL } from '~/utils/config'
                 </a>
               </dd>
             </div>
-            <div class="flex items-center justify-between gap-4 py-4">
+            <div class="flex flex-wrap items-center justify-between gap-x-4 gap-y-1 py-4">
               <dt class="eyebrow shrink-0">Location</dt>
               <dd class="font-mono text-sm text-brand-muted text-right">Novi Sad, Serbia · UTC+1</dd>
             </div>
